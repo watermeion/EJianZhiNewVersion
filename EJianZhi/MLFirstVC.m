@@ -124,6 +124,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     JobDetailVC *detailVC=[[JobDetailVC alloc]init];
+    detailVC.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:detailVC animated:YES];
     [self performSelector:@selector(deselect) withObject:nil afterDelay:0.5f];
 }

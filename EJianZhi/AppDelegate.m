@@ -15,16 +15,33 @@
 //#import "LoginViewController.h"
 #import "ApplyViewController.h"
 #import "MobClick.h"
+#import "MLTabbarVC.h"
 
 @interface AppDelegate ()
 
+@property (strong,nonatomic)MLTabbarVC *mainTabViewController;
 @end
 
 @implementation AppDelegate
 
 
+-(MLTabbarVC*)mainTabViewController
+{
+   if(_mainTabViewController==nil)
+   {
+       _mainTabViewController=[[MLTabbarVC alloc]init];
+   }
+    return _mainTabViewController;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [NSThread sleepForTimeInterval:3];
     
+//    #################
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = self.mainTabViewController;
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     //############环信聊天初始化设置###################
     //1、注册登录变化通知
     [[NSNotificationCenter defaultCenter] addObserver:self

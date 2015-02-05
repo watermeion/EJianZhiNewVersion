@@ -59,6 +59,29 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A7n-3k-cLV">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="0Ki-6d-aOj"/>
+                    </constraints>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="0Ki-6d-aOj"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="0Ki-6d-aOj"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="findJobWithLocationAction:" destination="-1" eventType="touchUpInside" id="QLC-ld-ai9"/>
+                    </connections>
+                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YOl-In-FRw" userLabel="BannerView" customClass="SRAdvertisingView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <constraints>
@@ -75,7 +98,7 @@
                         </mask>
                     </variation>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="SS6-1L-uBF">
+                <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="SS6-1L-uBF">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <color key="tintColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -95,7 +118,7 @@
                         </mask>
                     </variation>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nearby.png" translatesAutoresizingMaskIntoConstraints="NO" id="YfZ-re-9Uv">
+                <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nearby.png" translatesAutoresizingMaskIntoConstraints="NO" id="YfZ-re-9Uv">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <color key="backgroundColor" red="0.12941176469999999" green="0.68235294120000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -115,7 +138,7 @@
                         </mask>
                     </variation>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="寻找你附近的兼职" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4M-bs-me1">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="寻找附近的兼职" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4M-bs-me1">
                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="VHC-fG-Mfn"/>
@@ -628,29 +651,6 @@ EOWutuaVmeS4k+Wcug
                         </mask>
                     </variation>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A7n-3k-cLV">
-                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="60" id="0Ki-6d-aOj"/>
-                    </constraints>
-                    <state key="normal">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="0Ki-6d-aOj"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="0Ki-6d-aOj"/>
-                        </mask>
-                    </variation>
-                    <connections>
-                        <action selector="findJobWithLocationAction:" destination="-1" eventType="touchUpInside" id="QLC-ld-ai9"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -743,6 +743,7 @@ EOWutuaVmeS4k+Wcug
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="subviews">
+                    <exclude reference="A7n-3k-cLV"/>
                     <exclude reference="YOl-In-FRw"/>
                     <exclude reference="SS6-1L-uBF"/>
                     <exclude reference="YfZ-re-9Uv"/>
@@ -769,7 +770,6 @@ EOWutuaVmeS4k+Wcug
                     <exclude reference="BwJ-px-o0N"/>
                     <exclude reference="ZoT-3x-0B8"/>
                     <exclude reference="AA7-nt-aSH"/>
-                    <exclude reference="A7n-3k-cLV"/>
                 </mask>
                 <mask key="constraints">
                     <exclude reference="QGy-1m-4mv"/>
@@ -837,6 +837,7 @@ EOWutuaVmeS4k+Wcug
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
                 <mask key="subviews">
+                    <include reference="A7n-3k-cLV"/>
                     <include reference="YOl-In-FRw"/>
                     <include reference="SS6-1L-uBF"/>
                     <include reference="YfZ-re-9Uv"/>
@@ -863,7 +864,6 @@ EOWutuaVmeS4k+Wcug
                     <include reference="BwJ-px-o0N"/>
                     <include reference="ZoT-3x-0B8"/>
                     <include reference="AA7-nt-aSH"/>
-                    <include reference="A7n-3k-cLV"/>
                 </mask>
                 <mask key="constraints">
                     <include reference="QGy-1m-4mv"/>
