@@ -156,6 +156,15 @@
 		040D28691A83A86E00160F71 /* launchImage1.png in Resources */ = {isa = PBXBuildFile; fileRef = 040D28661A83A86E00160F71 /* launchImage1.png */; };
 		040D286A1A83A86E00160F71 /* launchImage2.png in Resources */ = {isa = PBXBuildFile; fileRef = 040D28671A83A86E00160F71 /* launchImage2.png */; };
 		040D286B1A83A86E00160F71 /* launchImage3.png in Resources */ = {isa = PBXBuildFile; fileRef = 040D28681A83A86E00160F71 /* launchImage3.png */; };
+		040D286F1A83B36C00160F71 /* MLCustomjobListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040D286D1A83B36C00160F71 /* MLCustomjobListViewController.m */; };
+		040D28701A83B36C00160F71 /* MLCustomjobListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040D286E1A83B36C00160F71 /* MLCustomjobListViewController.xib */; };
+		040D28751A83B3F100160F71 /* AttachedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040D28741A83B3F100160F71 /* AttachedCell.m */; };
+		040D28781A83B40F00160F71 /* UIButton+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 040D28771A83B40F00160F71 /* UIButton+Create.m */; };
+		040D287C1A83B44200160F71 /* ButtonCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040D287A1A83B44200160F71 /* ButtonCellTableViewCell.m */; };
+		040D287D1A83B44200160F71 /* ButtonCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040D287B1A83B44200160F71 /* ButtonCellTableViewCell.xib */; };
+		040D28811A83B4E700160F71 /* btnColor1.png in Resources */ = {isa = PBXBuildFile; fileRef = 040D287E1A83B4E700160F71 /* btnColor1.png */; };
+		040D28821A83B4E700160F71 /* btnColor2.png in Resources */ = {isa = PBXBuildFile; fileRef = 040D287F1A83B4E700160F71 /* btnColor2.png */; };
+		040D28831A83B4E700160F71 /* btnColor3.png in Resources */ = {isa = PBXBuildFile; fileRef = 040D28801A83B4E700160F71 /* btnColor3.png */; };
 		04589ED71A8078F700B86C0A /* EJZMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04589ED51A8078F700B86C0A /* EJZMessageViewController.m */; };
 		04589ED81A8078F700B86C0A /* EJZMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04589ED61A8078F700B86C0A /* EJZMessageViewController.xib */; };
 		04589EDD1A807E0800B86C0A /* CustomChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04589EDB1A807E0800B86C0A /* CustomChatViewController.m */; };
@@ -813,6 +822,19 @@
 		040D28661A83A86E00160F71 /* launchImage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchImage1.png; sourceTree = "<group>"; };
 		040D28671A83A86E00160F71 /* launchImage2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchImage2.png; sourceTree = "<group>"; };
 		040D28681A83A86E00160F71 /* launchImage3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchImage3.png; sourceTree = "<group>"; };
+		040D286C1A83B36C00160F71 /* MLCustomjobListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLCustomjobListViewController.h; sourceTree = "<group>"; };
+		040D286D1A83B36C00160F71 /* MLCustomjobListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLCustomjobListViewController.m; sourceTree = "<group>"; };
+		040D286E1A83B36C00160F71 /* MLCustomjobListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLCustomjobListViewController.xib; sourceTree = "<group>"; };
+		040D28731A83B3F100160F71 /* AttachedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttachedCell.h; sourceTree = "<group>"; };
+		040D28741A83B3F100160F71 /* AttachedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttachedCell.m; sourceTree = "<group>"; };
+		040D28761A83B40F00160F71 /* UIButton+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Create.h"; sourceTree = "<group>"; };
+		040D28771A83B40F00160F71 /* UIButton+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Create.m"; sourceTree = "<group>"; };
+		040D28791A83B44200160F71 /* ButtonCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonCellTableViewCell.h; sourceTree = "<group>"; };
+		040D287A1A83B44200160F71 /* ButtonCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonCellTableViewCell.m; sourceTree = "<group>"; };
+		040D287B1A83B44200160F71 /* ButtonCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonCellTableViewCell.xib; sourceTree = "<group>"; };
+		040D287E1A83B4E700160F71 /* btnColor1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnColor1.png; sourceTree = "<group>"; };
+		040D287F1A83B4E700160F71 /* btnColor2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnColor2.png; sourceTree = "<group>"; };
+		040D28801A83B4E700160F71 /* btnColor3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnColor3.png; sourceTree = "<group>"; };
 		04589ED41A8078F700B86C0A /* EJZMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EJZMessageViewController.h; sourceTree = "<group>"; };
 		04589ED51A8078F700B86C0A /* EJZMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EJZMessageViewController.m; sourceTree = "<group>"; };
 		04589ED61A8078F700B86C0A /* EJZMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EJZMessageViewController.xib; sourceTree = "<group>"; };
@@ -1889,6 +1911,31 @@
 			path = EJianZhi;
 			sourceTree = "<group>";
 		};
+		040D28711A83B37A00160F71 /* MLCustonJobList */ = {
+			isa = PBXGroup;
+			children = (
+				040D28791A83B44200160F71 /* ButtonCellTableViewCell.h */,
+				040D287A1A83B44200160F71 /* ButtonCellTableViewCell.m */,
+				040D287B1A83B44200160F71 /* ButtonCellTableViewCell.xib */,
+				040D28721A83B3D100160F71 /* Class */,
+				040D286C1A83B36C00160F71 /* MLCustomjobListViewController.h */,
+				040D286D1A83B36C00160F71 /* MLCustomjobListViewController.m */,
+				040D286E1A83B36C00160F71 /* MLCustomjobListViewController.xib */,
+			);
+			name = MLCustonJobList;
+			sourceTree = "<group>";
+		};
+		040D28721A83B3D100160F71 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				040D28761A83B40F00160F71 /* UIButton+Create.h */,
+				040D28771A83B40F00160F71 /* UIButton+Create.m */,
+				040D28731A83B3F100160F71 /* AttachedCell.h */,
+				040D28741A83B3F100160F71 /* AttachedCell.m */,
+			);
+			name = Class;
+			sourceTree = "<group>";
+		};
 		04589ED91A807DE800B86C0A /* customClass */ = {
 			isa = PBXGroup;
 			children = (
@@ -2004,6 +2051,9 @@
 		04589F971A820A2F00B86C0A /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				040D287E1A83B4E700160F71 /* btnColor1.png */,
+				040D287F1A83B4E700160F71 /* btnColor2.png */,
+				040D28801A83B4E700160F71 /* btnColor3.png */,
 				040D28661A83A86E00160F71 /* launchImage1.png */,
 				040D28671A83A86E00160F71 /* launchImage2.png */,
 				040D28681A83A86E00160F71 /* launchImage3.png */,
@@ -3365,6 +3415,7 @@
 				3BAAEAEA1A49412D00253298 /* LaunchScreen.xib */,
 				040D27CA1A830CF100160F71 /* commonMacro.h */,
 				04589F911A8209AA00B86C0A /* DetailVC */,
+				040D28711A83B37A00160F71 /* MLCustonJobList */,
 				04589F6A1A82096A00B86C0A /* ScanVC */,
 				04589F5B1A82093300B86C0A /* resumeVC */,
 				04589F3D1A82092300B86C0A /* bannerView */,
@@ -3656,6 +3707,7 @@
 				040D27EF1A83135B00160F71 /* zhiwei.png in Resources */,
 				040D284B1A831DF800160F71 /* attendance1.png in Resources */,
 				040D27EB1A83135B00160F71 /* moreTop.png in Resources */,
+				040D28701A83B36C00160F71 /* MLCustomjobListViewController.xib in Resources */,
 				3BCBBD5D1A6D47FC00E581FD /* weiguan_1.png in Resources */,
 				047AA86C1A7BD77E00A3B278 /* chat_receiver_audio_playing003@2x.png in Resources */,
 				047AA87D1A7BD77E00A3B278 /* account.png in Resources */,
@@ -3723,6 +3775,7 @@
 				047AA6061A7BD6D800A3B278 /* chatBar_more_photo@2x.png in Resources */,
 				040D28511A831DF800160F71 /* mine1.png in Resources */,
 				047AA6F51A7BD6F600A3B278 /* MWPhotoBrowser.bundle in Resources */,
+				040D28811A83B4E700160F71 /* btnColor1.png in Resources */,
 				047AA8591A7BD77E00A3B278 /* chatBar_more_faceSelected.png in Resources */,
 				047AA8551A7BD77E00A3B278 /* chatBar_more_cardSelected.png in Resources */,
 				04589F631A82094200B86C0A /* ResumeVC.xib in Resources */,
@@ -3747,6 +3800,7 @@
 				047AA86A1A7BD77E00A3B278 /* chat_receiver_audio_playing002@2x.png in Resources */,
 				040D28381A831DF800160F71 /* menuHover.png in Resources */,
 				040D283E1A831DF800160F71 /* explore.png in Resources */,
+				040D287D1A83B44200160F71 /* ButtonCellTableViewCell.xib in Resources */,
 				04589FC11A820A2F00B86C0A /* explore@3x.png in Resources */,
 				040D27441A826AA300160F71 /* student.png in Resources */,
 				047AA8491A7BD77E00A3B278 /* VoiceSearchFeedback016@2x.png in Resources */,
@@ -3794,9 +3848,11 @@
 				047AA5CB1A7BD6D800A3B278 /* call_out@2x.png in Resources */,
 				047AA82C1A7BD77D00A3B278 /* VoiceSearchFeedback002.png in Resources */,
 				047AA6F71A7BD6F600A3B278 /* sr_refresh@2X.png in Resources */,
+				040D28831A83B4E700160F71 /* btnColor3.png in Resources */,
 				04589FBA1A820A2F00B86C0A /* add@2x.png in Resources */,
 				04589FD91A820A2F00B86C0A /* release@3x.png in Resources */,
 				040D27501A826B3100160F71 /* btnLeft.png in Resources */,
+				040D28821A83B4E700160F71 /* btnColor2.png in Resources */,
 				047AA8701A7BD77E00A3B278 /* chat_receiver_bg@2x.png in Resources */,
 				04589FC01A820A2F00B86C0A /* explore@2x.png in Resources */,
 				047AA6F61A7BD6F600A3B278 /* sr_refresh.png in Resources */,
@@ -4111,6 +4167,7 @@
 				047AA6261A7BD6D800A3B278 /* PublicGroupDetailViewController.m in Sources */,
 				04589F621A82094200B86C0A /* ResumeVC.m in Sources */,
 				047AA5C81A7BD6D800A3B278 /* ChatListCell.m in Sources */,
+				040D287C1A83B44200160F71 /* ButtonCellTableViewCell.m in Sources */,
 				047AA6421A7BD6D800A3B278 /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				047AA61A1A7BD6D800A3B278 /* ContactView.m in Sources */,
 				047AA6D41A7BD6F600A3B278 /* MWTapDetectingImageView.m in Sources */,
@@ -4160,11 +4217,13 @@
 				047AA6D01A7BD6F600A3B278 /* MWGridCell.m in Sources */,
 				047AA6DD1A7BD6F600A3B278 /* EMSDWebImageManager.m in Sources */,
 				047AA6481A7BD6D800A3B278 /* MagicalRecord+Options.m in Sources */,
+				040D28781A83B40F00160F71 /* UIButton+Create.m in Sources */,
 				047AA4C71A7BB5A500A3B278 /* JobListTableViewCell.m in Sources */,
 				047AA6411A7BD6D800A3B278 /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				047AA63B1A7BD6D800A3B278 /* NSManagedObject+MagicalFinders.m in Sources */,
 				047AA6D21A7BD6F600A3B278 /* MWPhoto.m in Sources */,
 				047AA60F1A7BD6D800A3B278 /* EMChatVideoBubbleView.m in Sources */,
+				040D286F1A83B36C00160F71 /* MLCustomjobListViewController.m in Sources */,
 				047AA6CA1A7BD6F600A3B278 /* EmojiEmoticons.m in Sources */,
 				047AA6451A7BD6D800A3B278 /* MagicalRecord+Actions.m in Sources */,
 				047AA6171A7BD6D800A3B278 /* MessageReadManager.m in Sources */,
@@ -4194,6 +4253,7 @@
 				047AA6D71A7BD6F600A3B278 /* DACircularProgressView.m in Sources */,
 				047AA72C1A7BD72400A3B278 /* BaseViewController.m in Sources */,
 				047AA6181A7BD6D800A3B278 /* ChatGroupDetailViewController.m in Sources */,
+				040D28751A83B3F100160F71 /* AttachedCell.m in Sources */,
 				047AA4C91A7BB5A500A3B278 /* listBadgeView.m in Sources */,
 				047AA8B81A7BDFCF00A3B278 /* LoginViewController.m in Sources */,
 				047AA6C91A7BD6F600A3B278 /* Emoji.m in Sources */,

@@ -10,7 +10,7 @@
 #import <BmobSDK/Bmob.h>
 #import "SRLoginVC.h"
 #import "MLJobListViewController.h"
-
+#import "MLCustomjobListViewController.h"
 @interface MLForthVC ()<finishLogin,UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
 
@@ -135,9 +135,10 @@
 - (IBAction)showMyAppliedJob:(id)sender {
     //自定义列表
     
-    
-    
-    
+    MLCustomjobListViewController *myAppliedJobListVC=[[MLCustomjobListViewController alloc]init];
+    myAppliedJobListVC.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:myAppliedJobListVC animated:YES];
+
 }
 
 - (IBAction)showMyFavoriteAction:(id)sender {
