@@ -266,7 +266,6 @@
                     </variation>
                     <connections>
                         <action selector="jobAsAccountingAction:" destination="-1" eventType="touchUpInside" id="g3g-EC-o39"/>
-                        <action selector="scan:" destination="-1" eventType="touchUpInside" id="sQ3-ar-All"/>
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accounting.png" translatesAutoresizingMaskIntoConstraints="NO" id="Tm2-XS-KA8">
@@ -467,7 +466,6 @@
                     </variation>
                     <connections>
                         <action selector="jobAsTeacherAction:" destination="-1" eventType="touchUpInside" id="yjU-Ef-9gB"/>
-                        <action selector="resume:" destination="-1" eventType="touchUpInside" id="tKR-Xa-1hS"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="耐心细致专业强" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MbM-6m-fNi">

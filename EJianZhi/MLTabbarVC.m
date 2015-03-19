@@ -16,6 +16,7 @@
 #import "EJZMessageViewController.h"
 #import "MLForthVC.h"
 
+#import "MLJobListViewController.h"
 
 @interface MLTabbarVC ()
 
@@ -96,10 +97,14 @@
    //page 1
     UIViewController *pageOneVC=[self makeRootByNavigationController:self.firstVC];
    //page 2
-    UIViewController *pageTwoVC=[self makeRootByNavigationController:self.secondVC];
+//    UIViewController *pageTwoVC=[self makeRootByNavigationController:self.secondVC];
+    MLJobListViewController *myJobVC=[[MLJobListViewController alloc]init];
+     UIViewController *pageTwoVC=[self makeRootByNavigationController:myJobVC];
+    
     
    //page 3
-    UIViewController *pageThreeVC=[self makeRootByNavigationController:self.messageVC];
+    
+   UIViewController *pageThreeVC=[self makeRootByNavigationController:self.messageVC];
    //page 4
     UIViewController *pageFourVC=[self makeRootByNavigationController:self.forthVC];
     
@@ -127,10 +132,10 @@
     tabBarItem1.title=@"首页";
     //    tabBarItem1.image=[UIImage imageNamed:@"userTabbar"];
     
-    tabBarItem2.title=@"探索";
+    tabBarItem2.title=@"申请";
     //    tabBarItem2.image=[UIImage imageNamed:@"letter"];
     
-    tabBarItem3.title=@"搜索";
+    tabBarItem3.title=@"消息";
     //    tabBarItem3.image=[UIImage imageNamed:@"edit"];
     
     tabBarItem4.title=@"我的";

@@ -20,6 +20,7 @@
 @interface AppDelegate ()
 
 @property (strong,nonatomic)MLTabbarVC *mainTabViewController;
+
 @end
 
 @implementation AppDelegate
@@ -36,6 +37,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [NSThread sleepForTimeInterval:3];
+    
+    
     
 //    #################
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

@@ -43,14 +43,7 @@
 @implementation MLFirstVC
 @synthesize tableHeadView=_tableHeadView;
 @synthesize tableView=_tableView;
-- (IBAction)scan:(id)sender {
-    //[self setupCamera];
-}
-- (IBAction)resume:(id)sender {
-    ResumeVC *VC=[[ResumeVC alloc]init];
-    VC.hidesBottomBarWhenPushed=YES;
-    [self.navigationController pushViewController:VC animated:YES];
-}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];

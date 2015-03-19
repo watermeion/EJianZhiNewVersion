@@ -16,6 +16,9 @@
 
 -(void)NewUserRegistInBackground:(NSString*)_username Pwd:(NSString*)_password Phone:(NSString *)_phone{
     
+    //环信注册接口
+    
+    //bomb注册接口
     BmobUser * user = [[BmobUser alloc] init];
     [user setUserName:_username];
     [user setPassword:_password];

@@ -10,6 +10,9 @@
 #define CollectionViewItemsWidth ((MainScreenWidth-(7*CollectionViewMiniInterItemsSpace))/7)
 #import "JobDetailVC.h"
 #import "freeselectViewCell.h"
+
+#import "ASDepthModalViewController.h"
+
 static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 
 
@@ -28,6 +31,16 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 @property (weak, nonatomic) IBOutlet UICollectionView *selectfreeCollectionOutlet;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewConstraint;
 
+//popUpView
+@property (strong, nonatomic) IBOutlet UIView *popUpView;
+- (IBAction)callAction:(id)sender;
+- (IBAction)messageAction:(id)sender;
+- (IBAction)closePopUpViewAction:(id)sender;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *popUpViewPhoneLabel;
+@property (weak, nonatomic) IBOutlet UILabel *popUpViewNameLabel;
+
 @end
 
 @implementation JobDetailVC
@@ -36,6 +49,10 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     [super viewDidLoad];
     [self updateConstraints];
     [self timeCollectionViewInit];
+    self.tabBarController.tabBar.hidden=YES;
+    //init rightBarButton
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"联系" style:UIBarButtonItemStylePlain target:self action:@selector(makeContactAction)];
+    
 }
 
 - (void)updateConstraints{
@@ -174,4 +191,32 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 }
 */
 
+-(void)makeContactAction
+{
+  //添加联系
+    self.popUpView.layer.cornerRadius=2;
+    self.popUpView.frame=CGRectMake(0, 0, 300, 280);
+//    self.popUpView.layer.shadowOpacity=0.7;
+//    self.popUpView.layer.shadowOffset=CGSizeMake(6, 6);
+//    self.popUpView.layer.shouldRasterize = YES;
+//    self.popUpView.layer.rasterizationScale = [[UIScreen mainScreen] scale];
+    UIColor *bgcolor=nil;
+    ASDepthModalAnimationStyle style = ASDepthModalAnimationDefault;
+    [ASDepthModalViewController presentView:self.popUpView withBackgroundColor:bgcolor popupAnimationStyle:style];
+
+}
+
+- (IBAction)callAction:(id)sender {
+    //打电话
+    
+}
+
+- (IBAction)messageAction:(id)sender {
+   //发短信
+    
+}
+
+- (IBAction)closePopUpViewAction:(id)sender {
+    [ASDepthModalViewController dismiss];
+}
 @end
