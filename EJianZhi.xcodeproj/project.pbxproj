@@ -574,6 +574,10 @@
 		04DC59A31ABDA3AD00E9C438 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DC599A1ABDA3AD00E9C438 /* UIScrollView+MJRefresh.m */; };
 		04DC59A41ABDA3AD00E9C438 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DC599C1ABDA3AD00E9C438 /* UIView+Extension.m */; };
 		04DC59A71ABDA65F00E9C438 /* PageSplitingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DC59A61ABDA65F00E9C438 /* PageSplitingManager.m */; };
+		04FD3C571AC1BCB7001A9BA1 /* MLLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FD3C561AC1BCB7001A9BA1 /* MLLocationManager.m */; };
+		04FD3C5D1AC1BDFC001A9BA1 /* AJLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FD3C5C1AC1BDFC001A9BA1 /* AJLocationManager.m */; };
+		04FD3C621AC1C0BB001A9BA1 /* MLMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FD3C5F1AC1C0BB001A9BA1 /* MLMapView.m */; };
+		04FD3C631AC1C0BB001A9BA1 /* CustomAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FD3C611AC1C0BB001A9BA1 /* CustomAnnotationView.m */; };
 		3B2E14681A5AAC97004F0107 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B2E14671A5AAC97004F0107 /* CoreLocation.framework */; };
 		3B2E146A1A5AACA0004F0107 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B2E14691A5AACA0004F0107 /* Security.framework */; };
 		3B2E146C1A5AACA6004F0107 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B2E146B1A5AACA6004F0107 /* CoreGraphics.framework */; };
@@ -1548,6 +1552,14 @@
 		04DC599C1ABDA3AD00E9C438 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		04DC59A51ABDA65F00E9C438 /* PageSplitingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageSplitingManager.h; sourceTree = "<group>"; };
 		04DC59A61ABDA65F00E9C438 /* PageSplitingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageSplitingManager.m; sourceTree = "<group>"; };
+		04FD3C551AC1BCB7001A9BA1 /* MLLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLLocationManager.h; sourceTree = "<group>"; };
+		04FD3C561AC1BCB7001A9BA1 /* MLLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLLocationManager.m; sourceTree = "<group>"; };
+		04FD3C5B1AC1BDFC001A9BA1 /* AJLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJLocationManager.h; sourceTree = "<group>"; };
+		04FD3C5C1AC1BDFC001A9BA1 /* AJLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJLocationManager.m; sourceTree = "<group>"; };
+		04FD3C5E1AC1C0BB001A9BA1 /* MLMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMapView.h; sourceTree = "<group>"; };
+		04FD3C5F1AC1C0BB001A9BA1 /* MLMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMapView.m; sourceTree = "<group>"; };
+		04FD3C601AC1C0BB001A9BA1 /* CustomAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotationView.h; sourceTree = "<group>"; };
+		04FD3C611AC1C0BB001A9BA1 /* CustomAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotationView.m; sourceTree = "<group>"; };
 		3B2E14671A5AAC97004F0107 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3B2E14691A5AACA0004F0107 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3B2E146B1A5AACA6004F0107 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1894,6 +1906,10 @@
 				044BA6C91ABB1810007EDE40 /* MLLoginManger.m */,
 				0401DD4E1AC1059600EB68E1 /* MLMapManager.h */,
 				0401DD4F1AC1059600EB68E1 /* MLMapManager.m */,
+				04FD3C551AC1BCB7001A9BA1 /* MLLocationManager.h */,
+				04FD3C561AC1BCB7001A9BA1 /* MLLocationManager.m */,
+				04FD3C5B1AC1BDFC001A9BA1 /* AJLocationManager.h */,
+				04FD3C5C1AC1BDFC001A9BA1 /* AJLocationManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -3374,6 +3390,25 @@
 			path = 3rdparty/MJRefresh;
 			sourceTree = "<group>";
 		};
+		04FD3C591AC1BD61001A9BA1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04FD3C5A1AC1BD6F001A9BA1 /* MapView */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		04FD3C5A1AC1BD6F001A9BA1 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				04FD3C5E1AC1C0BB001A9BA1 /* MLMapView.h */,
+				04FD3C5F1AC1C0BB001A9BA1 /* MLMapView.m */,
+				04FD3C601AC1C0BB001A9BA1 /* CustomAnnotationView.h */,
+				04FD3C611AC1C0BB001A9BA1 /* CustomAnnotationView.m */,
+			);
+			name = MapView;
+			sourceTree = "<group>";
+		};
 		24CBDFF63CEB51837E574DF4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -3468,6 +3503,7 @@
 		3BAAEADA1A49412D00253298 /* EJianZhi */ = {
 			isa = PBXGroup;
 			children = (
+				04FD3C591AC1BD61001A9BA1 /* View */,
 				044BA6D91ABB1D54007EDE40 /* Models */,
 				044BA6D21ABB1907007EDE40 /* ViewModels */,
 				044BA6C71ABB1810007EDE40 /* Managers */,
@@ -4205,6 +4241,7 @@
 				04DC598B1ABD28E700E9C438 /* ViewModel.m in Sources */,
 				047AA6121A7BD6D800A3B278 /* EMChatViewBaseCell.m in Sources */,
 				04DC59A31ABDA3AD00E9C438 /* UIScrollView+MJRefresh.m in Sources */,
+				04FD3C631AC1C0BB001A9BA1 /* CustomAnnotationView.m in Sources */,
 				040D28571A83954400160F71 /* MLNavi.m in Sources */,
 				047AA6441A7BD6D800A3B278 /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 				047AA63C1A7BD6D800A3B278 /* NSManagedObject+MagicalRecord.m in Sources */,
@@ -4231,7 +4268,9 @@
 				047AA6DE1A7BD6F600A3B278 /* EMSDWebImagePrefetcher.m in Sources */,
 				047AA63A1A7BD6D800A3B278 /* NSManagedObject+MagicalDataImport.m in Sources */,
 				047AA8B01A7BDEB100A3B278 /* DebugViewController.m in Sources */,
+				04FD3C621AC1C0BB001A9BA1 /* MLMapView.m in Sources */,
 				047AA6EC1A7BD6F600A3B278 /* PSTCollectionViewData.m in Sources */,
+				04FD3C5D1AC1BDFC001A9BA1 /* AJLocationManager.m in Sources */,
 				04589EDD1A807E0800B86C0A /* CustomChatViewController.m in Sources */,
 				04DC59A71ABDA65F00E9C438 /* PageSplitingManager.m in Sources */,
 				04DC597C1ABD1F8600E9C438 /* JianZhi.m in Sources */,
@@ -4272,6 +4311,7 @@
 				047AA6D41A7BD6F600A3B278 /* MWTapDetectingImageView.m in Sources */,
 				047AA72E1A7BD72400A3B278 /* EMNavigationController.m in Sources */,
 				047AA6E91A7BD6F600A3B278 /* PSTCollectionView.m in Sources */,
+				04FD3C571AC1BCB7001A9BA1 /* MLLocationManager.m in Sources */,
 				0401DD4D1AC04D7400EB68E1 /* MLJobDetailViewModel.m in Sources */,
 				3B5FBB9A1A6E8FFB009DA06B /* SRLoginBusiness.m in Sources */,
 				047AA6381A7BD6D800A3B278 /* NSString+MagicalDataImport.m in Sources */,

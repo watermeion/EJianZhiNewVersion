@@ -9,7 +9,22 @@
 #import "MLJobDetailViewModel.h"
 #import "MBProgressHUD+Add.h"
 #import "MBProgressHUD.h"
+#import "MLMapManager.h"
+@interface MLJobDetailViewModel()
+@property (weak,nonatomic) MLMapManager *mapManager;
+@end
+
 @implementation MLJobDetailViewModel
+
+
+- (MLMapManager*)mapManager
+{
+    if (_mapManager==nil) {
+        _mapManager=[MLMapManager shareInstance];
+    }
+    return _mapManager;
+}
+
 
 
 - (instancetype)init
@@ -31,7 +46,9 @@
     @weakify(self)
     [RACObserve(self, jianZhi) subscribeNext:^(id x) {
         @strongify(self)
-        [self mappingJianZhiModel:x];
+        if (x!=nil &&[x isKindOfClass:[JianZhi class]]) {
+            [self mappingJianZhiModel:x];
+        }
     }];
 }
 
@@ -93,6 +110,8 @@
     self.jobRequiredNum=[NSString stringWithFormat:@"%d",([data.jianZhiRecruitment intValue]-[data.jianZhiQiYeLuYongValue intValue])];
 #warning 需要请求评论数据
     self.jobCommentsText=[self setCommentTextWithNum:nil];
+    CLLocationCoordinate2D destination=CLLocationCoordinate2DMake(data.jianZhiPoint.latitude, data.jianZhiPoint.longitude);
+    [self.mapManager findRouteByCarFrom:CLLocationCoordinate2DMake(39.54,116.1) To:destination];
 }
 
 
