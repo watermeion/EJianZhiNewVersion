@@ -3,7 +3,6 @@
 pod 'ReactiveCocoa'
 pod 'AVOSCloud'
 pod 'UIAlertView-Blocks'
-pod 'SDWebImage'
 target 'EJianZhi' do
 
 end
