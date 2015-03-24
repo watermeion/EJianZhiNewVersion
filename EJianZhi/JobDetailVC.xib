@@ -1345,7 +1345,7 @@
                         <constraint firstAttribute="height" constant="30" id="5eP-NR-nBi"/>
                         <constraint firstAttribute="width" constant="30" id="Jg9-iP-zRU"/>
                     </constraints>
-                    <state key="normal" image="6A651AA8-70DA-41BF-925B-3DFF1772AB32">
+                    <state key="normal" image="0BEAF03A-A189-47FE-B583-80A26611A16D">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <variation key="default">
@@ -1517,7 +1517,7 @@
                         <constraint firstAttribute="height" constant="30" id="mGD-ll-beF"/>
                         <constraint firstAttribute="height" constant="30" id="o77-gK-nzv"/>
                     </constraints>
-                    <state key="normal" image="4B02181E-D4A4-4E8E-A1AB-7CEA8493BAC3">
+                    <state key="normal" image="7ADD0FB9-A084-4CF5-BD6B-B2977EF5A5F5">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <variation key="default">
@@ -1884,7 +1884,7 @@
         </view>
     </objects>
     <resources>
-        <image name="4B02181E-D4A4-4E8E-A1AB-7CEA8493BAC3" width="70" height="70">
+        <image name="0BEAF03A-A189-47FE-B583-80A26611A16D" width="70" height="70">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -2261,7 +2261,7 @@ sgC1ALcAuQC7AL0AwgDZANsA3VXfVeRV71X4VgtWD1YiVi1WNlY7VkNWRlZLVlpWXlZlVm1WelZ/VoFW
 g1aIVpBWk1aYVqBWo1a1VrhWvQAAAAAAAAIBAAAAAAAAAEIAAAAAAAAAAAAAAAAAAFa/A
 </mutableData>
         </image>
-        <image name="6A651AA8-70DA-41BF-925B-3DFF1772AB32" width="70" height="70">
+        <image name="7ADD0FB9-A084-4CF5-BD6B-B2977EF5A5F5" width="70" height="70">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

@@ -18,6 +18,7 @@
         self.pageManager=[[PageSplitingManager alloc]init];
         self.loginManager=[MLLoginManger shareInstance];
         //子类可以监控用户登录状态
+    
         
         return self;
     }

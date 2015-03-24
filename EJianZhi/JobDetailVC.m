@@ -121,6 +121,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     if (self.viewModel==nil) {
         self.viewModel=[[MLJobDetailViewModel alloc]init];
     }
+    
     //创建监听
     @weakify(self)
     [RACObserve(self.viewModel,worktime) subscribeNext:^(id x) {

@@ -59,6 +59,7 @@
          return @([self isValidPhone:text]);
      }];
     
+    
 
     
     RACSignal *validUserPwdSignal=[self.userPassword.rac_textSignal map:^id(NSString *text) {
@@ -97,14 +98,20 @@
     //创建注册按钮激活信号
     RACSignal *signUpActiveSignal=[RACSignal combineLatest:@[validUsernameSignal,validUserPwdSignal,validVerifycodeSignal,RACObserve(self, agreed)]
                                                     reduce:^id(NSNumber *phoneNumValid,NSNumber *passwordValid,NSNumber *verifycodeValid){
+                                                        
                                                         return @([phoneNumValid boolValue]&&[passwordValid boolValue]&&[verifycodeValid boolValue]&&self.agreed);
+                          
                                                     }];
     //配置注册按钮信号监听
     [signUpActiveSignal subscribeNext:^(NSNumber *isActive) {
-        self.registerButton.enabled=[isActive boolValue];
+//        self.registerButton.enabled=[isActive boolValue];
         self.registerButton.backgroundColor=[isActive boolValue]? [UIColor colorWithRed:0.88 green:0.38 blue:0.22 alpha:1.0f]:[UIColor grayColor];
     }];
     
+    RAC(self.registerButton,enabled)=[signUpActiveSignal map:^id(NSNumber *isActive) {
+        return isActive;
+    }];
+
 
 }
 
