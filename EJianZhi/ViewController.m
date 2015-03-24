@@ -24,14 +24,12 @@
     [ShareSDK getUserInfoWithType:ShareTypeSinaWeibo
                       authOptions:nil
                            result:^(BOOL result, id<ISSPlatformUser> userInfo, id<ICMErrorInfo> error) {
-                               
                                if (result)
                                {
                                    NSLog(@"uid = %@",[userInfo uid]);
                                    NSLog(@"name = %@",[userInfo nickname]);
                                    NSLog(@"icon = %@",[userInfo profileImage]);
                                }
-                               
                            }
      ];
 }

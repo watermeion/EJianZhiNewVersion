@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController">
+            <connections>
+                <outlet property="mySearchDisplayController" destination="nb9-0c-4WL" id="TUo-F3-lOe"/>
+                <outlet property="searchBar" destination="KFC-RS-M5f" id="FRA-zg-4Ps"/>
+                <outlet property="searchDisplayController" destination="nb9-0c-4WL" id="0sB-Sv-TYC"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="搜索" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KFC-RS-M5f">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="xUQ-NJ-V61"/>
+                    </connections>
+                </searchBar>
+            </subviews>
+            <color key="backgroundColor" red="0.91998208299999995" green="0.94209685769999996" blue="0.87839826239999996" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="KFC-RS-M5f" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="UDO-9I-Ads"/>
+                <constraint firstAttribute="trailing" secondItem="KFC-RS-M5f" secondAttribute="trailing" id="W6g-ut-uZ6"/>
+                <constraint firstItem="KFC-RS-M5f" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kQk-go-GeC"/>
+            </constraints>
+        </view>
+        <searchDisplayController id="nb9-0c-4WL">
+            <connections>
+                <outlet property="delegate" destination="-1" id="Rtn-2W-wZa"/>
+                <outlet property="searchBar" destination="KFC-RS-M5f" id="bAZ-ax-GLG"/>
+                <outlet property="searchContentsController" destination="-1" id="KJl-qk-NRH"/>
+                <outlet property="searchResultsDataSource" destination="-1" id="t1y-24-nx0"/>
+                <outlet property="searchResultsDelegate" destination="-1" id="lP9-FT-psg"/>
+            </connections>
+        </searchDisplayController>
+    </objects>
+</document>

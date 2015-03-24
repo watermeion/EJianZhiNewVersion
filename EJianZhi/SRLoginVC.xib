@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <objects>
@@ -96,35 +97,13 @@
                                     <include reference="c6V-WL-kVD"/>
                                 </mask>
                             </variation>
-                            <connections>
-                                <action selector="userAccountInput:" destination="-1" eventType="editingDidEnd" id="6AO-62-IND"/>
-                            </connections>
-                        </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OWm-4R-BCC">
-                            <rect key="frame" x="123" y="160" width="150" height="30"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="efw-fz-BHa"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
-                            <variation key="default">
-                                <mask key="constraints">
-                                    <exclude reference="efw-fz-BHa"/>
-                                </mask>
-                            </variation>
-                            <variation key="heightClass=regular-widthClass=compact">
-                                <mask key="constraints">
-                                    <include reference="efw-fz-BHa"/>
-                                </mask>
-                            </variation>
-                            <connections>
-                                <action selector="userPasswordInput:" destination="-1" eventType="editingDidEnd" id="EgE-47-hV0"/>
-                            </connections>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFf-Gc-dxW">
                             <rect key="frame" x="44" y="164" width="36" height="21"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="36" id="0bZ-eI-0zz"/>
+                                <constraint firstAttribute="width" constant="36" id="0bZ-eI-0zz">
+                                    <variation key="heightClass=regular-widthClass=compact" constant="71"/>
+                                </constraint>
                                 <constraint firstAttribute="height" constant="21" id="YIg-ma-rdB"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -143,6 +122,24 @@
                                 </mask>
                             </variation>
                         </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OWm-4R-BCC">
+                            <rect key="frame" x="123" y="160" width="150" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="efw-fz-BHa"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="efw-fz-BHa"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=compact">
+                                <mask key="constraints">
+                                    <include reference="efw-fz-BHa"/>
+                                </mask>
+                            </variation>
+                        </textField>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -150,6 +147,7 @@
                         <constraint firstItem="OWm-4R-BCC" firstAttribute="top" secondItem="00O-Dy-WYs" secondAttribute="bottom" constant="6" id="6Hz-zC-TIq"/>
                         <constraint firstItem="ZFf-Gc-dxW" firstAttribute="leading" secondItem="1vU-6Q-aDc" secondAttribute="leading" constant="31" id="7K2-Xp-6Dy"/>
                         <constraint firstItem="r9X-h0-5J9" firstAttribute="top" secondItem="zr1-2P-SNt" secondAttribute="bottom" constant="8" id="9Wi-Ll-Iss"/>
+                        <constraint firstItem="00O-Dy-WYs" firstAttribute="leading" secondItem="OWm-4R-BCC" secondAttribute="leading" constant="12" id="Ia4-RG-FHH"/>
                         <constraint firstAttribute="height" constant="226" id="Kon-Hg-YrC"/>
                         <constraint firstItem="OWm-4R-BCC" firstAttribute="leading" secondItem="1vU-6Q-aDc" secondAttribute="leading" constant="66" id="Uju-6S-NWW"/>
                         <constraint firstItem="iVp-dC-U0V" firstAttribute="top" secondItem="1vU-6Q-aDc" secondAttribute="top" constant="157" id="VEQ-jh-UjI"/>
@@ -161,6 +159,7 @@
                         <constraint firstAttribute="trailing" secondItem="OWm-4R-BCC" secondAttribute="trailing" constant="31" id="iJj-cp-kC0"/>
                         <constraint firstItem="ZFf-Gc-dxW" firstAttribute="top" secondItem="iVp-dC-U0V" secondAttribute="bottom" constant="14" id="jrv-Pd-iqU"/>
                         <constraint firstItem="r9X-h0-5J9" firstAttribute="leading" secondItem="1vU-6Q-aDc" secondAttribute="leading" constant="20" id="m9b-Fb-bs9"/>
+                        <constraint firstItem="OWm-4R-BCC" firstAttribute="leading" secondItem="ZFf-Gc-dxW" secondAttribute="trailing" constant="-1" id="ugg-Ga-yyv"/>
                         <constraint firstItem="00O-Dy-WYs" firstAttribute="leading" secondItem="1vU-6Q-aDc" secondAttribute="leading" constant="101" id="wll-Dp-nI6"/>
                     </constraints>
                     <variation key="default">
@@ -175,12 +174,14 @@
                             <exclude reference="YPE-YU-2fH"/>
                             <exclude reference="7K2-Xp-6Dy"/>
                             <exclude reference="jrv-Pd-iqU"/>
+                            <exclude reference="Ia4-RG-FHH"/>
                             <exclude reference="YhM-Em-6H8"/>
                             <exclude reference="hqG-PJ-KkX"/>
                             <exclude reference="wll-Dp-nI6"/>
                             <exclude reference="6Hz-zC-TIq"/>
                             <exclude reference="Uju-6S-NWW"/>
                             <exclude reference="iJj-cp-kC0"/>
+                            <exclude reference="ugg-Ga-yyv"/>
                         </mask>
                     </variation>
                     <variation key="heightClass=regular-widthClass=compact">
@@ -195,12 +196,14 @@
                             <include reference="YPE-YU-2fH"/>
                             <include reference="7K2-Xp-6Dy"/>
                             <include reference="jrv-Pd-iqU"/>
+                            <exclude reference="Ia4-RG-FHH"/>
                             <include reference="YhM-Em-6H8"/>
                             <include reference="hqG-PJ-KkX"/>
                             <include reference="wll-Dp-nI6"/>
                             <include reference="6Hz-zC-TIq"/>
-                            <include reference="Uju-6S-NWW"/>
+                            <exclude reference="Uju-6S-NWW"/>
                             <include reference="iJj-cp-kC0"/>
+                            <include reference="ugg-Ga-yyv"/>
                         </mask>
                     </variation>
                 </view>
@@ -212,13 +215,13 @@
                     <items>
                         <navigationItem title="e兼职" id="WoF-F8-Dtu">
                             <barButtonItem key="leftBarButtonItem" title="返回" id="Wx2-TL-jMV">
-                                <color key="tintColor" red="0.12941176469999999" green="0.68235294120000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <action selector="touchBack:" destination="-1" id="DSh-He-qaV"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem key="rightBarButtonItem" title="注册" id="aNT-dN-CZb">
-                                <color key="tintColor" red="0.12941176469999999" green="0.68235294120000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <action selector="touchRegister:" destination="-1" id="G0s-H7-F0X"/>
                                 </connections>
@@ -315,6 +318,6 @@
     </objects>
     <resources>
         <image name="box_2.png" width="516" height="180"/>
-        <image name="logo.png" width="110" height="110"/>
+        <image name="logo.png" width="80" height="80"/>
     </resources>
 </document>

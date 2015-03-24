@@ -21,11 +21,12 @@
     NSString *inputPhoneNumber;
     NSString *verifyCode;
     NSString *inputPassword;
-    BOOL agreed;
     NSTimer *timer;
     int seconds;
 }
 
+
+@property BOOL agreed;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
 @property (weak, nonatomic) IBOutlet UITextField *securityCode;
 @property (weak, nonatomic) IBOutlet UITextField *userPassword;

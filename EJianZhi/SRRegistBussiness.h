@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <BmobSDK/Bmob.h>
-
+#import "MLLoginManger.h"
 @protocol registerComplete <NSObject>
 @required
 - (void)registerComplete:(BOOL)isSucceed;
@@ -22,7 +22,7 @@
 @property (nonatomic,strong)NSString *pwd;
 @property (nonatomic,strong)NSString *phone;
 @property (nonatomic,strong)NSString *feedback;
-
+@property (nonatomic,weak) MLLoginManger *loginManager;
 
 -(void)NewUserRegistInBackground:(NSString*)username Pwd:(NSString*)password Phone:(NSString*) phone;
 

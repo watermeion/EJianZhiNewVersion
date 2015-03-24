@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import  "commonMacro.h"
+@class MLJobDetailViewModel;
+/**
+ *  使用时应该初始化viewModel方法
+ */
 @interface JobDetailVC : UIViewController
+
+
+
+- (void)setViewModelJianZhi:(id)data;
 
 @end

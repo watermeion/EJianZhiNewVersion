@@ -12,7 +12,7 @@
 #import "freeselectViewCell.h"
 
 #import "ASDepthModalViewController.h"
-
+#import "MLJobDetailViewModel.h"
 static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 
 
@@ -24,8 +24,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     CGFloat freecellwidth;
     bool selectFreeData[21];
 }
-
-@property (weak, nonatomic) IBOutlet UILabel *jobContentLabel;
+@property (strong,nonatomic) MLJobDetailViewModel *viewModel;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *jobContentViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UICollectionView *selectfreeCollectionOutlet;
@@ -41,24 +40,101 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 @property (weak, nonatomic) IBOutlet UILabel *popUpViewPhoneLabel;
 @property (weak, nonatomic) IBOutlet UILabel *popUpViewNameLabel;
 
+//绑定内容展示表现层
+
+@property (weak, nonatomic) IBOutlet UILabel *jobDetailTitleLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *jobDetailJobWageTypeImage;
+@property (weak, nonatomic) IBOutlet UILabel *jobDetailJobWagesLabel;
+@property (weak, nonatomic) IBOutlet UILabel *jobDetailJobWageTypeLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *jobDetailJobSubFlagImage;
+
+@property (weak, nonatomic) IBOutlet UILabel *jobDetailJobRequiredNumLabel;
+
+@property (weak, nonatomic) IBOutlet UIImageView *jobDetailJobFlagImage;
+@property (weak, nonatomic) IBOutlet UILabel *jobDetailTeShuYaoQiuLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *jobDetailAddressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *jobDetailAddressNaviLabel;
+@property (weak, nonatomic) IBOutlet UILabel *jobDetailJobQiYeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *jobDetailMoreJobBtn;
+@property (weak, nonatomic) IBOutlet UILabel *jobDetailJobXiangQingLabel;
+
+
+//另外获取的数据
+
+@property (weak, nonatomic) IBOutlet UILabel *jobDetailJobEvaluationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *jobDetailJobComments;
+@property (weak, nonatomic) IBOutlet UILabel *jobDetailWarnningLabel;
+@property (weak, nonatomic) IBOutlet UIButton *jobDetailModifyWorkTimeBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *jobDetailComplainBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *jobDetailAddFavioritesBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *jobDetailApplyBtn;
+
+
+
 @end
 
 @implementation JobDetailVC
 
+
+- (void)setViewModelJianZhi:(id)data
+{
+    if ([data isKindOfClass:[JianZhi class]]) {
+        
+        self.viewModel=[[MLJobDetailViewModel alloc]init];
+        self.viewModel.jianZhi=data;
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self updateConstraints];
     [self timeCollectionViewInit];
     self.tabBarController.tabBar.hidden=YES;
     //init rightBarButton
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"联系" style:UIBarButtonItemStylePlain target:self action:@selector(makeContactAction)];
     
+    if (self.viewModel==nil) {
+        self.viewModel=[[MLJobDetailViewModel alloc]init];
+    }
+    //创建监听
+    @weakify(self)
+    [RACObserve(self.viewModel,worktime) subscribeNext:^(id x) {
+        @strongify(self)
+        NSArray *workTimeArray=self.viewModel.worktime;
+            for (int i = 0; i < [workTimeArray count]; i++) {
+                NSLog(@"string:%@", [workTimeArray objectAtIndex:i]);
+                int num=[[workTimeArray objectAtIndex:i]integerValue];
+                if (num>0 && num <21) selectFreeData[num]=true;
+            }
+        [self.selectfreeCollectionOutlet reloadData];
+        
+    }];
+    
+    RAC(self.jobDetailTitleLabel,text)=RACObserve(self.viewModel, jobTitle);
+    RAC(self.jobDetailJobWagesLabel,text)=RACObserve(self.viewModel, jobWages);
+    RAC(self.jobDetailJobWageTypeLabel,text)=RACObserve(self.viewModel, jobWagesType);
+    RAC(self.jobDetailJobQiYeLabel,text)=RACObserve(self.viewModel, jobQiYeName);
+    RAC(self.jobDetailAddressLabel,text)=RACObserve(self.viewModel, jobAddress);
+    RAC(self.jobDetailAddressNaviLabel,text)=RACObserve(self.viewModel, jobAddressNavi);
+    RAC(self.jobDetailJobEvaluationLabel,text)=RACObserve(self.viewModel, jobEvaluation);
+    RAC(self.jobDetailJobXiangQingLabel,text)=RACObserve(self.viewModel,jobXiangQing);
+    RAC(self.popUpViewNameLabel,text)=RACObserve(self.viewModel, jobContactName);
+    RAC(self.popUpViewPhoneLabel,text)=RACObserve(self.viewModel, jobPhone);
+    RAC(self.jobDetailJobComments,text)=RACObserve(self.viewModel, jobCommentsText);
+#warning 色块变化监听
+    
+    
+    
 }
 
-- (void)updateConstraints{
-    NSString *str=@"1.负责在本学校的推广。梅州转发官方微信或微博信息至少3条，以及配合e兼职线下的活动。\n2.定期反馈学校的情况，包括学校大型活动的安排（量力而行）以及用于的反馈意见和建议。\n3.定期反馈学校的情况，包括学校大型活动的安排（量力而行）以及用于的反馈意见和建议。";
-    self.jobContentLabel.text=str;
-    CGRect rect =[self.jobContentLabel.text boundingRectWithSize:CGSizeMake([[UIScreen mainScreen] bounds].size.width-16, 1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]}  context:nil];
+- (void)updateConstraintsforJobContentLabelWithString:(NSString*) str{
+//    NSString *str=@"1.负责在本学校的推广。梅州转发官方微信或微博信息至少3条，以及配合e兼职线下的活动。\n2.定期反馈学校的情况，包括学校大型活动的安排（量力而行）以及用于的反馈意见和建议。\n3.定期反馈学校的情况，包括学校大型活动的安排（量力而行）以及用于的反馈意见和建议。";
+    if (str==nil) return;
+    self.jobDetailJobXiangQingLabel.text=str;
+    CGRect rect =[self.jobDetailJobXiangQingLabel.text boundingRectWithSize:CGSizeMake([[UIScreen mainScreen] bounds].size.width-16, 1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]}  context:nil];
     self.jobContentViewHeightConstraint.constant=rect.size.height;
     self.containerViewConstraint.constant=538+rect.size.height;
 }
@@ -208,15 +284,41 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 
 - (IBAction)callAction:(id)sender {
     //打电话
+    UIWebView*callWebview =[[UIWebView alloc] init];
     
+    NSString *telUrl = [NSString stringWithFormat:@"tel://%@",self.popUpViewPhoneLabel.text];
+    
+    NSURL *telURL =[NSURL URLWithString:telUrl];// 貌似tel:// 或者 tel: 都行
+    
+    [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
+    
+    //记得添加到view上
+    
+    [self.view addSubview:callWebview];
 }
 
 - (IBAction)messageAction:(id)sender {
    //发短信
+    UIWebView*callWebview =[[UIWebView alloc] init];
     
+    NSString *telUrl = [NSString stringWithFormat:@"sms://%@",self.popUpViewPhoneLabel.text];
+    
+    NSURL *telURL =[NSURL URLWithString:telUrl];// 貌似tel:// 或者 tel: 都行
+    
+    [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
+    
+    //记得添加到view上
+    
+    [self.view addSubview:callWebview];
 }
 
 - (IBAction)closePopUpViewAction:(id)sender {
     [ASDepthModalViewController dismiss];
+    
+    
 }
+
+
+
+
 @end

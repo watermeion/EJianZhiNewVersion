@@ -17,10 +17,16 @@
 #import "MobClick.h"
 #import "MLTabbarVC.h"
 
+
+#import "MLLoginManger.h"
+
+//子类化
+#import "User.h"
+#import "JianZhi.h"
 @interface AppDelegate ()
 
 @property (strong,nonatomic)MLTabbarVC *mainTabViewController;
-
+@property (strong,nonatomic)MLLoginManger *loginManager;
 @end
 
 @implementation AppDelegate
@@ -38,7 +44,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [NSThread sleepForTimeInterval:3];
     
-    
+//####AVOS Regist App Key
+    [AVOSCloud setApplicationId:@"owqomw6mc9jlqcj7xc2p3mdk7h4hqe2at944fzt0zb8jholj"
+                      clientKey:@"q9bmfdqt5926m2vgm54lu8ydwxz349448oo1fyu154b0izuw"];
+//####AVOS Analystics 
+    [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
     
 //    #################
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -132,6 +143,28 @@
     //短信验证模块
     [SMS_SDK registerApp:@"56454b8585da" withSecret:@"17e36cd8f741167baa78e940456c238c"];
 
+    
+    
+    //初始化各类控制器
+    self.loginManager=[MLLoginManger shareInstance];
+    
+    
+    //Enabling keyboard manager
+    [[IQKeyboardManager sharedManager] setEnable:YES];
+    [[IQKeyboardManager sharedManager] setKeyboardDistanceFromTextField:15];
+    //Enabling autoToolbar behaviour. If It is set to NO. You have to manually create UIToolbar for keyboard.
+    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:YES];
+    
+    //Setting toolbar behavious to IQAutoToolbarBySubviews. Set it to IQAutoToolbarByTag to manage previous/next according to UITextField's tag property in increasing order.
+    [[IQKeyboardManager sharedManager] setToolbarManageBehaviour:IQAutoToolbarBySubviews];
+    
+    //Resign textField if touched outside of UITextField/UITextView.
+    [[IQKeyboardManager sharedManager] setShouldResignOnTouchOutside:YES];
+    
+    
+    //注册子类化
+    [JianZhi registerSubclass];
+    [User registerSubclass];
     return YES;
 }
 

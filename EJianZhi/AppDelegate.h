@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "ChatMessageViewController.h"
+#import "IQKeyboardManager.h"
+#import <AVOSCloud/AVOSCloud.h>
+
+
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate,IChatManagerDelegate>
 {
 EMConnectionState _connectionState;

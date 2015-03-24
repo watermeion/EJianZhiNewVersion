@@ -41,7 +41,7 @@
     
     self.registerButton.enabled=NO;
     
-    agreed=YES;
+    self.agreed=YES;
     
     Register=[[SRRegistBussiness alloc]init];
     Register.registerDelegate=self;
@@ -51,6 +51,61 @@
     self.phoneNumber.keyboardType=UIKeyboardTypeNumberPad;
     self.securityCode.keyboardType=UIKeyboardTypeNumberPad;
     
+    
+    //RAC  创建用户账号、密码、验证码校验信号
+    RACSignal *validUsernameSignal =
+    [self.phoneNumber.rac_textSignal
+     map:^id(NSString *text) {
+         return @([self isValidPhone:text]);
+     }];
+    
+
+    
+    RACSignal *validUserPwdSignal=[self.userPassword.rac_textSignal map:^id(NSString *text) {
+        return @(text.length>0);
+    }];
+    
+    RACSignal *validVerifycodeSignal=[self.securityCode.rac_textSignal map:^id(NSString *text) {
+        return @(text.length>0);
+    }];
+    
+  
+    
+    //监听获取验证码按钮enabled
+    RAC(self.verificationButton, enabled) =
+    [validUsernameSignal
+     map:^id(NSNumber *passwordValid){
+         return @([passwordValid boolValue]);
+     }];
+    
+    
+    [self.phoneNumber.rac_textSignal subscribeNext:^(NSString *text) {
+        inputPhoneNumber=text;
+    }];
+    
+    
+    [self.userPassword.rac_textSignal subscribeNext:^(NSString *text) {
+        inputPassword=text;
+    }];
+    
+    [self.securityCode.rac_textSignal subscribeNext:^(NSString *text) {
+        verifyCode=text;
+    }];
+    
+    
+        
+    //创建注册按钮激活信号
+    RACSignal *signUpActiveSignal=[RACSignal combineLatest:@[validUsernameSignal,validUserPwdSignal,validVerifycodeSignal,RACObserve(self, agreed)]
+                                                    reduce:^id(NSNumber *phoneNumValid,NSNumber *passwordValid,NSNumber *verifycodeValid){
+                                                        return @([phoneNumValid boolValue]&&[passwordValid boolValue]&&[verifycodeValid boolValue]&&self.agreed);
+                                                    }];
+    //配置注册按钮信号监听
+    [signUpActiveSignal subscribeNext:^(NSNumber *isActive) {
+        self.registerButton.enabled=[isActive boolValue];
+        self.registerButton.backgroundColor=[isActive boolValue]? [UIColor colorWithRed:0.88 green:0.38 blue:0.22 alpha:1.0f]:[UIColor grayColor];
+    }];
+    
+
 }
 
 - (void)viewWillLayoutSubviews{
@@ -58,28 +113,27 @@
     self.navBar.translucent=NO;
 }
 
-- (IBAction)inputVerifyCode:(id)sender {
-    verifyCode=self.securityCode.text;
-    [self checkFinishedInput];
-}
-
-- (IBAction)inputPassword:(id)sender {
-    inputPassword=self.userPassword.text;
-    [self checkFinishedInput];
-}
-
-- (IBAction)inputPhoneNumber:(id)sender {
-    if(self.phoneNumber.text.length==11)
-    {
-        inputPhoneNumber=self.phoneNumber.text;
-        self.verificationButton.enabled=YES;
-    }else{
-        inputPhoneNumber=nil;
-        self.verificationButton.enabled=NO;
+/**
+ *  判断手机号是否正确
+ *
+ *  @param phoneNum 手机号
+ *
+ *  @return YES/NO123456
+ */
+- (BOOL)isValidPhone:(NSString *)phoneNum
+{
+    
+    if (phoneNum.length==11) {
+        return YES;
     }
-    [self checkFinishedInput];
+    return NO;
 }
 
+/**
+ *  注册完成回调，delegate 方法
+ *
+ *  @param isSucceed
+ */
 - (void)registerComplete:(BOOL)isSucceed{
     if (isSucceed) {
         [self dismissViewControllerAnimated:NO completion:^{
@@ -91,6 +145,12 @@
     }
 }
 
+
+/**
+ *  点击注册实践
+ *
+ *  @param sender
+ */
 - (IBAction)touchRegister:(id)sender {
     
     [SMS_SDK commitVerifyCode:verifyCode result:^(enum SMS_ResponseState state) {
@@ -109,6 +169,12 @@
     }];
 }
 
+
+/**
+ *  请求验证码事件
+ *
+ *  @param sender
+ */
 - (IBAction)verification:(id)sender {
     
     [SMS_SDK getVerifyCodeByPhoneNumber:inputPhoneNumber AndZone:@"86" result:^(enum SMS_GetVerifyCodeResponseState state) {
@@ -167,8 +233,7 @@
 #pragma mark - QCheckBoxDelegate
 
 - (void)didSelectedCheckBox:(QCheckBox *)checkbox checked:(BOOL)checked {
-    agreed=checked;
-    [self checkFinishedInput];
+    self.agreed=checked;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -178,12 +243,6 @@
     [_userPassword resignFirstResponder];
 }
 
-- (void)checkFinishedInput{
-    if (self.phoneNumber.text.length==11&&self.securityCode.text.length>0&&self.userPassword.text.length>0&&agreed) {
-        self.registerButton.enabled=YES;
-    }else
-        self.registerButton.enabled=NO;
-}
 
 -(void)initTimer
 {
@@ -224,16 +283,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

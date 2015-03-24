@@ -9,14 +9,15 @@
 #import "SRLoginVC.h"
 #import "SRRegisterVC.h"
 #import <BmobSDK/Bmob.h>
-
+#import "MLLoginViewModel.h"
+#import "MLLoginManger.h"
 @interface SRLoginVC ()<loginSucceed,successRegistered>
-
+@property (weak,nonatomic) MLLoginManger *loginManager;
 @end
 
 @implementation SRLoginVC
-@synthesize userAccount=_userAccount;
-@synthesize userPassword=_userPassword;
+//@synthesize userAccount=_userAccount;
+//@synthesize userPassword=_userPassword;
 
 static  SRLoginVC *thisController=nil;
 
@@ -31,7 +32,7 @@ static  SRLoginVC *thisController=nil;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.loginManager=[MLLoginManger shareInstance];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     
@@ -41,6 +42,64 @@ static  SRLoginVC *thisController=nil;
     
     loginer=[[SRLoginBusiness alloc]init];
     loginer.loginDelegate=self;
+    
+    
+    [self.userAccount.rac_textSignal subscribeNext:^(NSString *text) {
+        loginer.username=text;
+    }];
+    
+    
+    [self.userPassword.rac_textSignal subscribeNext:^(NSString *text) {
+        loginer.pwd=text;
+    }];
+    
+    
+//    //初始化检验步骤  误删后续有用
+//        RACSignal *validUsernameSignal = [self.userAccount.rac_textSignal map:^id(NSString *value) {
+//            return @(value.length > 0);
+//        }];
+//    
+//        RACSignal *validPasswordSignal = [self.userPassword.rac_textSignal map:^id(NSString *value) {
+//            return @(value.length > 0);
+//        }];
+    //
+    //
+//        [validUsernameSignal subscribeNext:^(NSNumber *usernameValid) {
+////            if ([usernameValid boolValue]==NO) {
+////                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请输入账户名或手机号码" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+////                [alert show];
+////            }
+//        }];
+    //
+//        [validPasswordSignal subscribeNext:^(NSNumber *passwordValid) {
+//            if ([passwordValid boolValue]==NO) {
+//                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请输入登陆密码" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+//                [alert show];
+//            }
+//    
+//        }];
+    //
+    //
+    //    //创建login信号
+//        RACSignal *loginActiveSignal=[RACSignal combineLatest:@[validUsernameSignal,validPasswordSignal]
+//           reduce:^id(NSNumber *usernameValid, NSNumber *passwordValid){
+//               return @(([usernameValid boolValue]&&[passwordValid boolValue]));
+//           }];
+//    
+    //设置loginbutton 的rac_command
+//    @weakify(self)
+//    self.loginButton.rac_command=[[RACCommand alloc]initWithEnabled:loginActiveSignal signalBlock:^RACSignal *(id input) {
+//        @strongify(self)
+//        [self touchLoginButton:nil];
+//        //监控这个这个信号，应该监控operation操作完成的信号
+//        return RACObserve(self.loginManager,LoginState);
+//    }];
+    
+//    RAC(self.loginButton,backgroundColor)=[loginActiveSignal map:^id(NSNumber *value) {
+//        @strongify(self)
+//        return self.loginButton.enabled? [UIColor colorWithRed:0.13 green:0.62 blue:0.52 alpha:1.0f]:[UIColor grayColor];
+//    }];
+    
 }
 
 - (void)viewWillLayoutSubviews{
@@ -98,18 +157,7 @@ static  SRLoginVC *thisController=nil;
     else
     {
         [loginer loginInbackground:loginer.username Pwd:loginer.pwd];
-        
     }
-}
-
-- (IBAction)userAccountInput:(id)sender {
-    
-    loginer.username=self.userAccount.text;
-}
-
-- (IBAction)userPasswordInput:(id)sender {
-    
-    loginer.pwd=self.userPassword.text;
 }
 
 - (void)logIn{
@@ -148,16 +196,5 @@ static  SRLoginVC *thisController=nil;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

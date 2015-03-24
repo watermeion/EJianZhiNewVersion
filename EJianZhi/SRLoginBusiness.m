@@ -8,27 +8,57 @@
 
 
 #import "SRLoginBusiness.h"
-
+#import "MLLoginManger.h"
 
 @implementation SRLoginBusiness
 
+
+-(instancetype)init
+{
+    if (self=[super init]) {
+        
+        self.loginManager=[MLLoginManger shareInstance];
+        return self;
+    }
+    return nil;
+
+
+}
+
+
 -(void)loginInbackground:(NSString *)username Pwd:(NSString *)pwd
 {
-    [BmobUser loginWithUsernameInBackground:username password:pwd block:^(BmobUser *user, NSError *error) {
-        if (user != nil&&!error) {
-            
-            [self dragUserDataFromBmob];
-        }
-        else {
+    
+    [AVUser logInWithUsernameInBackground:username password:pwd block:^(AVUser *user, NSError *error) {
+        if (user != nil) {
+            [self loginIsSucceed:YES];
+            SRUserInfo *userInfo=[[SRUserInfo alloc]init];
+            userInfo.username=user.username;
+            [self saveUserInfoLocally:userInfo];
+            //完成一些本地化操作
+        } else {
             [self loginIsSucceed:NO];
         }
     }];
+
+    
+    
+//    [BmobUser loginWithUsernameInBackground:username password:pwd block:^(BmobUser *user, NSError *error) {
+//        if (user != nil&&!error) {
+//            
+//            [self dragUserDataFromBmob];
+//        }
+//        else {
+//            [self loginIsSucceed:NO];
+//        }
+//    }];
 }
 
 -(BOOL)loginIsSucceed:(BOOL)result
 {
     if (result) {
         self.feedback=@"登录成功";
+        [self.loginManager setLoginState:active];
         [self.loginDelegate loginSucceed:YES];
     }
     else
@@ -67,27 +97,46 @@
 }
 
 
-+(BOOL)logOut
+-(BOOL)logOut
 {
     //退出机制
 
-    [BmobUser logout];  //清除缓存用户对象
     
-    if ([BmobUser getCurrentUser]==nil) {
-        //设置NSUserdefault
-        
-        NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
-        
-        [mySettingData setBool:NO forKey:@"auto_login"];
-        
-        [mySettingData removeObjectForKey: @"currentUserName"];
-        
-        [mySettingData synchronize];
-        
-        return YES;
-    }
-    else
-        return NO;
+    [AVUser logOut];
+    [self.loginManager setLoginState:unactive];
+        if ([AVUser currentUser]==nil) {
+            //设置NSUserdefault
+    
+            NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
+    
+            [mySettingData setBool:NO forKey:@"auto_login"];
+    
+            [mySettingData removeObjectForKey: @"currentUserName"];
+    
+            [mySettingData synchronize];
+            return YES;
+        }
+        else
+            return NO;
+    
+    
+//    [BmobUser logout];  //清除缓存用户对象
+//    
+//    if ([BmobUser getCurrentUser]==nil) {
+//        //设置NSUserdefault
+//        
+//        NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
+//        
+//        [mySettingData setBool:NO forKey:@"auto_login"];
+//        
+//        [mySettingData removeObjectForKey: @"currentUserName"];
+//        
+//        [mySettingData synchronize];
+//        
+//        return YES;
+//    }
+//    else
+//        return NO;
 }
 
 -(void)dragUserDataFromBmob

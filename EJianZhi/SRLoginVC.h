@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "SRLoginBusiness.h"
-
+#import "MLLoginViewModel.h"
 @protocol finishLogin <NSObject>
 @required
 - (void)finishLogin;
@@ -18,6 +18,10 @@
 @interface SRLoginVC : UIViewController{
     SRLoginBusiness *loginer;
 }
+
+
+@property (strong,nonatomic) MLLoginViewModel *viewModel;
+
 
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
 

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SRUserInfo.h"
-
+#import "MLLoginManger.h"
 @protocol loginSucceed <NSObject>
 @required
 - (void)loginSucceed:(BOOL)isSucceed;
@@ -21,6 +21,8 @@
 {
    
 }
+
+@property (nonatomic,weak) MLLoginManger *loginManager;
 
 @property (nonatomic,strong)NSString *username;
 @property (nonatomic,strong)NSString *pwd;
@@ -40,7 +42,9 @@
 -(BOOL)checkIfAuto_login;
 
 
-//登出类方法
-+(BOOL)logOut;
+//登出方法
+-(BOOL)logOut;
 
+
+-(instancetype)init;
 @end

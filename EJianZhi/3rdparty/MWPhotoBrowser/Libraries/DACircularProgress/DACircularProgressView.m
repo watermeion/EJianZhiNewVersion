@@ -100,7 +100,7 @@
     id appearance = [self appearance];
     [appearance setTrackTintColor:[[UIColor whiteColor] colorWithAlphaComponent:0.3f]];
     [appearance setProgressTintColor:[UIColor whiteColor]];
-    [appearance setBackgroundColor:[UIColor clearColor]];
+    [appearance setBackgroundColor:(__bridge CGColorRef)((__bridge UIColor *)((__bridge CGColorRef)([UIColor clearColor])))];
     [appearance setThicknessRatio:0.3f];
     [appearance setRoundedCorners:NO];
     

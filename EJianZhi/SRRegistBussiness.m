@@ -19,33 +19,54 @@
     //环信注册接口
     
     //bomb注册接口
-    BmobUser * user = [[BmobUser alloc] init];
-    [user setUserName:_username];
-    [user setPassword:_password];
+    
+    AVUser *user = [AVUser user];
+    user.username = _username;
+    user.password = _password;
+//    user.email = @"steve@company.com";
+    [user setObject:_phone forKey:@"mobilePhoneNumber"];
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        
         if (succeeded) {
-            
-           [self RegistHasSucceed];
+            [self RegistHasSucceed];
+            //注册成功保存用户数据
+            NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
+            [mySettingData setObject:_username forKey:@"currentUserName"];
+            [mySettingData synchronize];
             
         } else {
-            
             [self RegistHasFailed:error];
-
         }
     }];
+    
+//    BmobUser * user = [[BmobUser alloc] init];
+//    [user setUserName:_username];
+//    [user setPassword:_password];
+//    
+//    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        
+//        if (succeeded) {
+//            
+//           [self RegistHasSucceed];
+//            
+//        } else {
+//            
+//            [self RegistHasFailed:error];
+//
+//        }
+//    }];
 }
 
 -(void) RegistHasFailed:(NSError*)error
 {
-    self.feedback=@"该用户名已经被注册";
+    self.feedback=error.description;
     [self.registerDelegate registerComplete:NO];
 }
 
 -(void) RegistHasSucceed
 {
     self.feedback=@"注册成功";
+    [self.loginManager setLoginState:active];
     [self.registerDelegate registerComplete:YES];
 }
 

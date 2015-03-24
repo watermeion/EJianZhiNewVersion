@@ -1,0 +1,14 @@
+# Uncomment this line to define a global platform for your project
+#platform :ios, '6.0'
+pod 'ReactiveCocoa'
+pod 'AVOSCloud'
+pod 'UIAlertView-Blocks'
+pod 'SDWebImage'
+target 'EJianZhi' do
+
+end
+
+target 'EJianZhiTests' do
+
+end
+

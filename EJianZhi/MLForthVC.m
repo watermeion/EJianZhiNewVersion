@@ -11,13 +11,14 @@
 #import "SRLoginVC.h"
 #import "MLJobListViewController.h"
 #import "MLCustomjobListViewController.h"
+#import "MLLoginManger.h"
 @interface MLForthVC ()<finishLogin,UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 
-
-
+//登录控制器
+@property (weak,nonatomic) MLLoginManger *loginManager;
 
 @property (weak, nonatomic) IBOutlet UILabel *buttonLabel;
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
@@ -29,8 +30,6 @@
 
 - (IBAction)showMyFavoriteAction:(id)sender;
 
-
-
 @end
 
 @implementation MLForthVC
@@ -40,13 +39,21 @@
     self.edgesForExtendedLayout=UIRectEdgeNone;
     [self setNeedsStatusBarAppearanceUpdate];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
+    [[self.loginButton rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
+        // 登录button 处理函数
+        UIViewController *vc=[self.loginManager showLoginVC];
+        [self presentViewController:vc animated:YES completion:nil];
+    }];
     
+     self.loginManager=[MLLoginManger shareInstance];
 }
+
 
 -(void)viewWillLayoutSubviews
 {
-
-
+    
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -57,9 +64,10 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
+   [super viewDidAppear:animated];
     
-    if ([BmobUser getCurrentObject]!=nil) {
+    
+    if ([AVUser currentUser]!=nil) {
         [self finishLogin];
     }
     else {
@@ -67,14 +75,7 @@
     }
 }
 
-- (IBAction)login:(id)sender {
-    
-    if ([BmobUser getCurrentUser]==nil){
-        SRLoginVC *loginVC=[SRLoginVC shareLoginVC];
-        loginVC.finishLoginDelegate=self;
-        [self presentViewController:loginVC animated:YES completion:nil];
-    }
-}
+
 
 - (IBAction)logout:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"确定退出账户？" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:@"取消",nil];
@@ -85,7 +86,7 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex==0) {
         
-        BOOL isLogout=[SRLoginBusiness logOut];
+        BOOL isLogout=[[[SRLoginBusiness alloc]init]logOut];
         if (isLogout) {
             [self finishLogout];
         }
@@ -122,15 +123,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)showMyAppliedJob:(id)sender {
     //自定义列表
@@ -138,18 +131,16 @@
     MLCustomjobListViewController *myAppliedJobListVC=[[MLCustomjobListViewController alloc]init];
     myAppliedJobListVC.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:myAppliedJobListVC animated:YES];
-
+    
 }
 
 - (IBAction)showMyFavoriteAction:(id)sender {
-   
+    
     MLJobListViewController *myFavoriteListVC=[[MLJobListViewController alloc]init];
     myFavoriteListVC.navigationController.navigationItem.title=@"我的收藏";
     myFavoriteListVC.hidesBottomBarWhenPushed=YES;
     myFavoriteListVC.navigationController.navigationBar.hidden=NO;
     [self.navigationController pushViewController:myFavoriteListVC animated:YES];
 }
-
-
 
 @end
