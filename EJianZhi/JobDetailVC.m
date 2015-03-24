@@ -11,12 +11,13 @@
 #import "JobDetailVC.h"
 #import "freeselectViewCell.h"
 
-#import "ASDepthModalViewController.h"
+#import "PopoverView.h"
+//#import "ASDepthModalViewController.h"
 #import "MLJobDetailViewModel.h"
 static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 
 
-@interface JobDetailVC ()<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface JobDetailVC ()<UICollectionViewDataSource,UICollectionViewDelegate,PopoverViewDelegate>
 {
     NSMutableArray  *addedPicArray;
     NSArray  *selectfreetimepicArray;
@@ -34,6 +35,8 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 @property (strong, nonatomic) IBOutlet UIView *popUpView;
 - (IBAction)callAction:(id)sender;
 - (IBAction)messageAction:(id)sender;
+
+
 - (IBAction)closePopUpViewAction:(id)sender;
 
 
@@ -79,13 +82,32 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 
 @implementation JobDetailVC
 
+/**
+ *  init方法
+ *
+ *  @param data 给viewModel 传递的model信息
+ *
+ *  @return instancetype
+ */
+- (instancetype)initWithData:(id)data
+{
+    self=[super init];
+    if (self==nil) return nil;
+    [self setViewModelJianZhi:data];
+    return self;
+}
 
+
+/**
+ *  设置兼职数据
+ *
+ *  @param data <#data description#>
+ */
 - (void)setViewModelJianZhi:(id)data
 {
     if ([data isKindOfClass:[JianZhi class]]) {
         
-        self.viewModel=[[MLJobDetailViewModel alloc]init];
-        self.viewModel.jianZhi=data;
+        self.viewModel=[[MLJobDetailViewModel alloc]initWithData:data];
     }
 }
 
@@ -120,24 +142,48 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     RAC(self.jobDetailAddressLabel,text)=RACObserve(self.viewModel, jobAddress);
     RAC(self.jobDetailAddressNaviLabel,text)=RACObserve(self.viewModel, jobAddressNavi);
     RAC(self.jobDetailJobEvaluationLabel,text)=RACObserve(self.viewModel, jobEvaluation);
-    RAC(self.jobDetailJobXiangQingLabel,text)=RACObserve(self.viewModel,jobXiangQing);
+    
     RAC(self.popUpViewNameLabel,text)=RACObserve(self.viewModel, jobContactName);
     RAC(self.popUpViewPhoneLabel,text)=RACObserve(self.viewModel, jobPhone);
     RAC(self.jobDetailJobComments,text)=RACObserve(self.viewModel, jobCommentsText);
+    RAC(self.jobDetailTeShuYaoQiuLabel,text)=RACObserve(self.viewModel, jobTeShuYaoQiu);
+    RAC(self.jobDetailJobRequiredNumLabel,text)=RACObserve(self.viewModel, jobRequiredNum);
+    
+    
+    RAC(self.jobDetailJobXiangQingLabel,text)=RACObserve(self.viewModel,jobXiangQing);
 #warning 色块变化监听
-    
-    
-    
+}
+
+/**
+ *  修改视图大小
+ */
+- (void)viewWillLayoutSubviews
+{
+
+    [self updateConstraintsforJobContentLabelWithString:self.jobDetailJobXiangQingLabel.text];
 }
 
 - (void)updateConstraintsforJobContentLabelWithString:(NSString*) str{
 //    NSString *str=@"1.负责在本学校的推广。梅州转发官方微信或微博信息至少3条，以及配合e兼职线下的活动。\n2.定期反馈学校的情况，包括学校大型活动的安排（量力而行）以及用于的反馈意见和建议。\n3.定期反馈学校的情况，包括学校大型活动的安排（量力而行）以及用于的反馈意见和建议。";
     if (str==nil) return;
     self.jobDetailJobXiangQingLabel.text=str;
-    CGRect rect =[self.jobDetailJobXiangQingLabel.text boundingRectWithSize:CGSizeMake([[UIScreen mainScreen] bounds].size.width-16, 1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]}  context:nil];
-    self.jobContentViewHeightConstraint.constant=rect.size.height;
-    self.containerViewConstraint.constant=538+rect.size.height;
+//    CGRect rect =[self.jobDetailJobXiangQingLabel.text boundingRectWithSize:CGSizeMake([[UIScreen mainScreen] bounds].size.width-16, 1000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]}  context:nil];
+//    self.jobContentViewHeightConstraint.constant=rect.size.height;
+    float stringHeight=[self heightForString:str fontSize:14 andWidth:([[UIScreen mainScreen] bounds].size.width-16)];
+    self.jobContentViewHeightConstraint.constant=stringHeight;
+
+    self.containerViewConstraint.constant=608+stringHeight;
 }
+
+
+- (float) heightForString:(NSString *)value fontSize:(float)fontSize andWidth:(float)width
+{
+    CGSize sizeToFit = [value sizeWithFont:[UIFont systemFontOfSize:fontSize] constrainedToSize:CGSizeMake(width, CGFLOAT_MAX) lineBreakMode:UILineBreakModeWordWrap];//此处的换行类型（lineBreakMode）可根据自己的实际情况进行设置
+    return sizeToFit.height;
+}
+
+
+
 
 - (void)timeCollectionViewInit{
     selectfreetimepicArray = [[NSMutableArray alloc]init];
@@ -271,50 +317,41 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 {
   //添加联系
     self.popUpView.layer.cornerRadius=2;
-    self.popUpView.frame=CGRectMake(0, 0, 300, 280);
-//    self.popUpView.layer.shadowOpacity=0.7;
-//    self.popUpView.layer.shadowOffset=CGSizeMake(6, 6);
-//    self.popUpView.layer.shouldRasterize = YES;
-//    self.popUpView.layer.rasterizationScale = [[UIScreen mainScreen] scale];
-    UIColor *bgcolor=nil;
-    ASDepthModalAnimationStyle style = ASDepthModalAnimationDefault;
-    [ASDepthModalViewController presentView:self.popUpView withBackgroundColor:bgcolor popupAnimationStyle:style];
-
-}
+    self.popUpView.frame=CGRectMake((MainScreenWidth/2-150), (MainScreenHeight/2-140-64), 300, 280);
+    [PopoverView showPopoverAtPoint:CGPointMake(0, 0) inView:self.view withTitle:nil withContentView:self.popUpView delegate:self];
+ }
 
 - (IBAction)callAction:(id)sender {
     //打电话
-    UIWebView*callWebview =[[UIWebView alloc] init];
+//    UIWebView* callWebview =[[UIWebView alloc] init];
+//    
+    NSString *telUrl = [NSString stringWithFormat:@"tel://%@",self.viewModel.jobPhone];
+//
+//    NSURL *telURL =[NSURL URLWithString:telUrl];// 貌似tel:// 或者 tel: 都行
+//    
+//    [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
+//    
+//    //记得添加到view上
+//    [self.view addSubview:callWebview];
     
-    NSString *telUrl = [NSString stringWithFormat:@"tel://%@",self.popUpViewPhoneLabel.text];
-    
-    NSURL *telURL =[NSURL URLWithString:telUrl];// 貌似tel:// 或者 tel: 都行
-    
-    [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
-    
-    //记得添加到view上
-    
-    [self.view addSubview:callWebview];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:telUrl]]; //拨号
 }
 
 - (IBAction)messageAction:(id)sender {
    //发短信
     UIWebView*callWebview =[[UIWebView alloc] init];
     
-    NSString *telUrl = [NSString stringWithFormat:@"sms://%@",self.popUpViewPhoneLabel.text];
+    NSString *telUrl = [NSString stringWithFormat:@"sms://%@",self.viewModel.jobPhone];
     
     NSURL *telURL =[NSURL URLWithString:telUrl];// 貌似tel:// 或者 tel: 都行
     
     [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
     
     //记得添加到view上
-    
     [self.view addSubview:callWebview];
 }
 
 - (IBAction)closePopUpViewAction:(id)sender {
-    [ASDepthModalViewController dismiss];
-    
     
 }
 

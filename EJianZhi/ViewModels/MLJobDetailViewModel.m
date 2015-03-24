@@ -17,20 +17,37 @@
     self=[super init];
     if (self==nil) return nil;
 //    //监听兼职变化,有变化更新ViewModel
-    @weakify(self)
-    [RACObserve(self, jianZhi) subscribeNext:^(id x) {
-        @strongify(self)
-        [self mappingJianZhiModel:self.jianZhi];
-    }];
+    [self initRACFunction];
     return self;
 }
 
 
+/**
+ *  初始化类内监听设置
+ */
+- (void)initRACFunction
+{
+    //    //监听兼职变化,有变化更新ViewModel
+    @weakify(self)
+    [RACObserve(self, jianZhi) subscribeNext:^(id x) {
+        @strongify(self)
+        [self mappingJianZhiModel:x];
+    }];
+}
+
+/**
+ *  初始化实例
+ *
+ *  @param data <#data description#>
+ *
+ *  @return <#return value description#>
+ */
 - (instancetype)initWithData:(JianZhi *) data
 {
     self=[super init];
     if (self==nil) return nil;
     self.jianZhi=data;
+    [self initRACFunction];
     return self;
 }
 
@@ -41,10 +58,10 @@
 
 
 - (NSString *)setEvaluationTextWithResumeNum:(NSNumber *)jianliNum
-                                 ReceiveRate:(NSNumber *)rRate
+                                 ReceiveNum:(NSNumber *)rRate
                             SatisfactionRate:(NSNumber *)sRate
 {
-    return [NSString stringWithFormat:@"简历接收率%@%，满意度%@%，共服务%@个同学",[rRate stringValue],[sRate stringValue],[jianliNum stringValue]];
+    return [NSString stringWithFormat:@"收到简历%@份，满意度%@%%，共服务%@个同学",[jianliNum stringValue],[sRate stringValue],[rRate stringValue]];
 
 }
 
@@ -53,6 +70,7 @@
 {
     return [NSString stringWithFormat:@"共有来自宇宙的%@个同学吐槽",[commentsNum stringValue]];
 }
+
 /**
  *  将JianZhi Model转换为ViewModel 显示的内容
  *
@@ -64,15 +82,17 @@
     self.jobTitle=data.jianZhiTitle;
     self.jobWages=[data.jianZhiWage stringValue];
     self.jobWagesType=[NSString stringWithFormat:@"/%@",data.jianZhiWageType];
-    self.jobXiangQing=data.jianZhiContent;
+    self.jobXiangQing=[data.jianZhiContent stringByAppendingString:[NSString  stringWithFormat:@"\n \n %@",data.jianZhiRequirement]];
     self.jobTeShuYaoQiu=data.jianzhiTeShuYaoQiu;
     self.jobQiYeName=[self setQiYeName:data.jianZhiQiYeName];
     self.jobAddress=data.jianZhiAddress;
-//    self.jobEvaluation=self setEvaluationTextWithResumeNum:data.j ReceiveRate:<#(NSNumber *)#> SatisfactionRate:<#(NSNumber *)#>
+    self.jobEvaluation=[self setEvaluationTextWithResumeNum:data.jianZhiQiYeResumeValue ReceiveNum:data.jianZhiQiYeLuYongValue SatisfactionRate:data.jianZhiQiYeManYiDu];
     self.worktime=[self formatWorkTimeToArray:data.jianZhiWorkTime];
     self.jobPhone=data.jianZhiContactPhone;
     self.jobContactName=data.jianZhiContactName;
-//    self.jobCommentsText=self setCommentTextWithNum:data.ji
+    self.jobRequiredNum=[NSString stringWithFormat:@"%d",([data.jianZhiRecruitment intValue]-[data.jianZhiQiYeLuYongValue intValue])];
+#warning 需要请求评论数据
+    self.jobCommentsText=[self setCommentTextWithNum:nil];
 }
 
 
@@ -96,7 +116,9 @@
 }
 
 
-
 #warning 添加地图请求
 
+#warning 完善显示信息
+
+#warning 提交浏览次数
 @end

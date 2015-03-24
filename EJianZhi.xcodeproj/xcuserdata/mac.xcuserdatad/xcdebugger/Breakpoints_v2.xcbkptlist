@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EJianZhi/JobDetailVC.m"
-            timestampString = "448820335.390735"
+            timestampString = "448860498.636502"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>

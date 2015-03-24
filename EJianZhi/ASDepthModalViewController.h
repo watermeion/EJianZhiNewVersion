@@ -43,4 +43,7 @@ Mostly inspired by http://lab.hakim.se/avgrund/
 + (void)presentView:(UIView *)view;
 + (void)dismiss;
 
+
+- (void)presentView:(UIView *)view withBackgroundColor:(UIColor *)color popupAnimationStyle:(ASDepthModalAnimationStyle)popupAnimationStyle;
+
 @end

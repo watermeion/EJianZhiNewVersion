@@ -142,7 +142,7 @@
     cell.payPeriodLabel.text=[NSString stringWithFormat:@"/%@",jianzhi.jianZhiWageType];
     cell.keyConditionLabel.text=jianzhi.jianzhiTeShuYaoQiu;
     
-    cell.countNumbersWithinUnitsLabel.text=[NSString stringWithFormat:@"%d/%d人",[jianzhi.jianZhiQiYeLuYongValue intValue],[jianzhi.jianZhiQiYeResumeValue intValue]];
+    cell.countNumbersWithinUnitsLabel.text=[NSString stringWithFormat:@"%d/%d人",[jianzhi.jianZhiQiYeLuYongValue intValue],[jianzhi.jianZhiRecruitment intValue]];
     //待完善
     cell.distanceLabelWithinUnitLabel.text=[NSString stringWithFormat:@"%@km",@"10"];
     cell.IconView.badgeText=@"";
@@ -171,10 +171,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    JobDetailVC *detailVC=[[JobDetailVC alloc]init];
+    JobDetailVC *detailVC=[[JobDetailVC alloc]initWithData:[self.jianzhiViewModel.resultsList objectAtIndex:indexPath.row]];
     detailVC.hidesBottomBarWhenPushed=YES;
-    //传递数据
-    [detailVC setViewModelJianZhi:[self.jianzhiViewModel.resultsList objectAtIndex:indexPath.row]];
     [self.navigationController pushViewController:detailVC animated:YES];
     [self performSelector:@selector(deselect) withObject:nil afterDelay:0.5f];
 }

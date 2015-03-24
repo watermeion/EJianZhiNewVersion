@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0401DD4D1AC04D7400EB68E1 /* MLJobDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0401DD4C1AC04D7400EB68E1 /* MLJobDetailViewModel.m */; };
+		0401DD501AC1059600EB68E1 /* MLMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0401DD4F1AC1059600EB68E1 /* MLMapManager.m */; };
+		0401DD561AC1154800EB68E1 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0401DD551AC1154800EB68E1 /* PopoverView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		040D27361A826AA300160F71 /* accounting.png in Resources */ = {isa = PBXBuildFile; fileRef = 040D27261A826AA300160F71 /* accounting.png */; };
 		040D27371A826AA300160F71 /* card.png in Resources */ = {isa = PBXBuildFile; fileRef = 040D27271A826AA300160F71 /* card.png */; };
 		040D27381A826AA300160F71 /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = 040D27281A826AA300160F71 /* down.png */; };
@@ -672,6 +674,10 @@
 /* Begin PBXFileReference section */
 		0401DD4B1AC04D7400EB68E1 /* MLJobDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLJobDetailViewModel.h; sourceTree = "<group>"; };
 		0401DD4C1AC04D7400EB68E1 /* MLJobDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLJobDetailViewModel.m; sourceTree = "<group>"; };
+		0401DD4E1AC1059600EB68E1 /* MLMapManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMapManager.h; sourceTree = "<group>"; };
+		0401DD4F1AC1059600EB68E1 /* MLMapManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMapManager.m; sourceTree = "<group>"; };
+		0401DD541AC1154800EB68E1 /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopoverView.h; path = 3rdparty/PopoverView.h; sourceTree = "<group>"; };
+		0401DD551AC1154800EB68E1 /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopoverView.m; path = 3rdparty/PopoverView.m; sourceTree = "<group>"; };
 		040D27261A826AA300160F71 /* accounting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = accounting.png; sourceTree = "<group>"; };
 		040D27271A826AA300160F71 /* card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card.png; sourceTree = "<group>"; };
 		040D27281A826AA300160F71 /* down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down.png; sourceTree = "<group>"; };
@@ -1886,6 +1892,8 @@
 				04DC59A61ABDA65F00E9C438 /* PageSplitingManager.m */,
 				044BA6C81ABB1810007EDE40 /* MLLoginManger.h */,
 				044BA6C91ABB1810007EDE40 /* MLLoginManger.m */,
+				0401DD4E1AC1059600EB68E1 /* MLMapManager.h */,
+				0401DD4F1AC1059600EB68E1 /* MLMapManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -2133,6 +2141,8 @@
 		047AA4D01A7BD30100A3B278 /* 3rd Pary */ = {
 			isa = PBXGroup;
 			children = (
+				0401DD541AC1154800EB68E1 /* PopoverView.h */,
+				0401DD551AC1154800EB68E1 /* PopoverView.m */,
 				04DC598C1ABDA3AD00E9C438 /* MJRefresh */,
 				04DC59721ABC627600E9C438 /* IQKeyboardManager */,
 				04654FDC1A87A79B00906352 /* DpethModalView */,
@@ -4190,6 +4200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04654FDF1A87A81D00906352 /* ASDepthModalViewController.m in Sources */,
+				0401DD561AC1154800EB68E1 /* PopoverView.m in Sources */,
 				047AA7281A7BD72400A3B278 /* BaseTableViewCell.m in Sources */,
 				04DC598B1ABD28E700E9C438 /* ViewModel.m in Sources */,
 				047AA6121A7BD6D800A3B278 /* EMChatViewBaseCell.m in Sources */,
@@ -4378,6 +4389,7 @@
 				047AA60A1A7BD6D800A3B278 /* EMChatAudioBubbleView.m in Sources */,
 				047AA5D51A7BD6D800A3B278 /* ChatSendHelper.m in Sources */,
 				047AA5D71A7BD6D800A3B278 /* ConvertToCommonEmoticonsHelper.m in Sources */,
+				0401DD501AC1059600EB68E1 /* MLMapManager.m in Sources */,
 				04DC59A41ABDA3AD00E9C438 /* UIView+Extension.m in Sources */,
 				047AA8A31A7BDB4B00A3B278 /* ChatMessageViewController.m in Sources */,
 				047AA6EA1A7BD6F600A3B278 /* PSTCollectionViewCell.m in Sources */,

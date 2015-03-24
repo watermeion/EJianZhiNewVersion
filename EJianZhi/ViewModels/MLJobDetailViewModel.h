@@ -16,7 +16,17 @@
 }
 @property (strong,nonatomic) JianZhi *jianZhi;
 
--(void)mappingJianZhiModel:(JianZhi *)data;
+
+/**
+ *  初始化实例
+ *
+ *  @param data <#data description#>
+ *
+ *  @return <#return value description#>
+ */
+- (instancetype)initWithData:(JianZhi *) data;
+
+
 //页面所需数据
 
 @property (nonatomic,strong)NSString *jobTitle;
@@ -31,7 +41,7 @@
 @property (nonatomic,strong)NSString *jobCommentsText;
 
 @property (nonatomic,strong)NSString *warning;
-
+@property (nonatomic,strong)NSString *jobRequiredNum;
 @property (nonatomic,strong)NSArray *worktime;
 
 @property (nonatomic,strong)NSString *jobPhone;
