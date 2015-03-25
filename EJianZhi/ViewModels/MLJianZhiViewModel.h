@@ -37,4 +37,6 @@
 - (instancetype)init;
 
 - (void) footerRefresh;
+
+- (void) headerRefresh;
 @end

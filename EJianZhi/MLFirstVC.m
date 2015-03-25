@@ -24,17 +24,18 @@
 #import "MLJianZhiViewModel.h"
 #import "MLJobDetailViewModel.h"
 #import "JianZhi.h"
+#import "JobListTableViewController.h"
 #define IOS7 [[[UIDevice currentDevice] systemVersion]floatValue]>=7
 
 @interface MLFirstVC ()<ValueClickDelegate,UITableViewDataSource,UITableViewDelegate>
 {
-    int cellNum;
+
 }
 
 
-@property (strong,nonatomic) MLJianZhiViewModel *jianzhiViewModel;
+//@property (strong,nonatomic) MLJianZhiViewModel *jianzhiViewModel;
 
-
+@property (strong,nonatomic) JobListTableViewController *joblistTableVC;
 
 @property (strong, nonatomic) IBOutlet UIView *tableHeadView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -70,117 +71,114 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"分享" style:UIBarButtonItemStylePlain target:self action:@selector(shareJob)];
     self.navigationItem.rightBarButtonItem.tintColor=[UIColor whiteColor];
     
-    //初始化ViewModel
-    self.jianzhiViewModel=[[MLJianZhiViewModel alloc]init];
     
-    //监听ViewModel中results的变化
-     @weakify(self)
-    [RACObserve(self.jianzhiViewModel, resultsList) subscribeNext:^(NSArray *x) {
-        @strongify(self)
-        [self.tableView footerEndRefreshing];
-        [self.tableView reloadData];
-    }];
-    
-   
-    [RACObserve(self.jianzhiViewModel, error) subscribeNext:^(id x) {
-        @strongify(self)
-        [self.tableView footerEndRefreshing];
-        //提示错误
-    }];
-    
-    [self tableViewInit];
+    self.joblistTableVC=[[JobListTableViewController alloc]init];
+    [self addChildViewController:self.joblistTableVC];
+    [self addHeaderAndFooterToTableView];
+    [self.view addSubview: self.joblistTableVC.tableView];
     [self advertisementInit];
+    
+}
+
+
+-(void)addHeaderAndFooterToTableView
+{
+//添加头
+    [_tableHeadView setFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 284+130*[[UIScreen mainScreen] bounds].size.width/320)];
+    [self.joblistTableVC.tableView setTableHeaderView:_tableHeadView];
+//添加尾
+    [self.joblistTableVC addFooterRefresher];
+
 }
 
 //*********************tableView********************//
-- (void)tableViewInit{
-    cellNum=10;
-    _tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
-    [_tableView setDelegate:self];
-    [_tableView setDataSource:self];
-    _tableView.scrollEnabled=YES;
-    [_tableHeadView setFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 284+130*[[UIScreen mainScreen] bounds].size.width/320)];
-    [_tableView setTableHeaderView:_tableHeadView];
-    
-    //为tableView 添加下拉刷新
-     [_tableView addFooterWithTarget:self.jianzhiViewModel action:@selector(footerRefresh)];
-}
-
-
-
-- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-//    BOOL nibsRegistered = NO;
+//- (void)tableViewInit{
+//    _tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+//    [_tableView setDelegate:self];
+//    [_tableView setDataSource:self];
+//    _tableView.scrollEnabled=YES;
+//    [_tableHeadView setFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 284+130*[[UIScreen mainScreen] bounds].size.width/320)];
+//    [_tableView setTableHeaderView:_tableHeadView];
 //    
-//    static NSString *Cellidentifier=@"MLCell1";
+//    //为tableView 添加下拉刷新
+////     [_tableView addFooterWithTarget:self.jianzhiViewModel action:@selector(footerRefresh)];
+//}
+
+//
+//
+//- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    
+////    BOOL nibsRegistered = NO;
+////    
+////    static NSString *Cellidentifier=@"MLCell1";
+////    if (!nibsRegistered) {
+////        UINib *nib = [UINib nibWithNibName:@"MLCell1" bundle:nil];
+////        [tableView registerNib:nib forCellReuseIdentifier:Cellidentifier];
+////        nibsRegistered = YES;
+////    }
+////    
+////    MLCell1 *cell=[tableView dequeueReusableCellWithIdentifier:Cellidentifier forIndexPath:indexPath];
+////    cell.accessoryType=UITableViewCellAccessoryNone;
+////    
+////    NSUInteger row=[indexPath row];
+//    BOOL nibsRegistered = NO;
+//    static NSString *Cellidentifier=@"JobListTableViewCell";
 //    if (!nibsRegistered) {
-//        UINib *nib = [UINib nibWithNibName:@"MLCell1" bundle:nil];
+//        UINib *nib = [UINib nibWithNibName:@"JobListTableViewCell" bundle:nil];
 //        [tableView registerNib:nib forCellReuseIdentifier:Cellidentifier];
-//        nibsRegistered = YES;
 //    }
 //    
-//    MLCell1 *cell=[tableView dequeueReusableCellWithIdentifier:Cellidentifier forIndexPath:indexPath];
-//    cell.accessoryType=UITableViewCellAccessoryNone;
+//    JobListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:Cellidentifier forIndexPath:indexPath];
+//    //设置兼职信息列表内容
 //    
-//    NSUInteger row=[indexPath row];
-    BOOL nibsRegistered = NO;
-    static NSString *Cellidentifier=@"JobListTableViewCell";
-    if (!nibsRegistered) {
-        UINib *nib = [UINib nibWithNibName:@"JobListTableViewCell" bundle:nil];
-        [tableView registerNib:nib forCellReuseIdentifier:Cellidentifier];
-    }
-    
-    JobListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:Cellidentifier forIndexPath:indexPath];
-    //设置兼职信息列表内容
-    
-    JianZhi *jianzhi=[self.jianzhiViewModel.resultsList objectAtIndex:indexPath.row];
-
-    cell.titleLabel.text=jianzhi.jianZhiTitle;
-    cell.categoryLabel.text=jianzhi.jianZhiType;
-    cell.priceLabel.text=[jianzhi.jianZhiWage stringValue];
-    cell.payPeriodLabel.text=[NSString stringWithFormat:@"/%@",jianzhi.jianZhiWageType];
-    cell.keyConditionLabel.text=jianzhi.jianzhiTeShuYaoQiu;
-    
-    cell.countNumbersWithinUnitsLabel.text=[NSString stringWithFormat:@"%d/%d人",[jianzhi.jianZhiQiYeLuYongValue intValue],[jianzhi.jianZhiRecruitment intValue]];
-    //待完善
-    cell.distanceLabelWithinUnitLabel.text=[NSString stringWithFormat:@"%@km",@"10"];
-    cell.IconView.badgeText=@"";
-    //兼职的IconView
-    return cell;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    
-    if (self.jianzhiViewModel.resultsList==nil) {
-        return cellNum;
-    }
-    return self.jianzhiViewModel.resultsList.count;
-}
-
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-//改变行高
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 90;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    JobDetailVC *detailVC=[[JobDetailVC alloc]initWithData:[self.jianzhiViewModel.resultsList objectAtIndex:indexPath.row]];
-    detailVC.hidesBottomBarWhenPushed=YES;
-    [self.navigationController pushViewController:detailVC animated:YES];
-    [self performSelector:@selector(deselect) withObject:nil afterDelay:0.5f];
-}
-
-- (void)deselect
-{
-    [_tableView deselectRowAtIndexPath:[_tableView indexPathForSelectedRow] animated:YES];
-}
+//    JianZhi *jianzhi=[self.jianzhiViewModel.resultsList objectAtIndex:indexPath.row];
+//
+//    cell.titleLabel.text=jianzhi.jianZhiTitle;
+//    cell.categoryLabel.text=jianzhi.jianZhiType;
+//    cell.priceLabel.text=[jianzhi.jianZhiWage stringValue];
+//    cell.payPeriodLabel.text=[NSString stringWithFormat:@"/%@",jianzhi.jianZhiWageType];
+//    cell.keyConditionLabel.text=jianzhi.jianzhiTeShuYaoQiu;
+//    
+//    cell.countNumbersWithinUnitsLabel.text=[NSString stringWithFormat:@"%d/%d人",[jianzhi.jianZhiQiYeLuYongValue intValue],[jianzhi.jianZhiRecruitment intValue]];
+//    //待完善
+//    cell.distanceLabelWithinUnitLabel.text=[NSString stringWithFormat:@"%@km",@"10"];
+//    cell.IconView.badgeText=@"";
+//    //兼职的IconView
+//    return cell;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//{
+//    
+//    if (self.jianzhiViewModel.resultsList==nil) {
+//        return cellNum;
+//    }
+//    return self.jianzhiViewModel.resultsList.count;
+//}
+//
+//-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+//{
+//    return 1;
+//}
+//
+////改变行高
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return 120;
+//}
+//
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    JobDetailVC *detailVC=[[JobDetailVC alloc]initWithData:[self.jianzhiViewModel.resultsList objectAtIndex:indexPath.row]];
+//    detailVC.hidesBottomBarWhenPushed=YES;
+//    [self.navigationController pushViewController:detailVC animated:YES];
+//    [self performSelector:@selector(deselect) withObject:nil afterDelay:0.5f];
+//}
+//
+//- (void)deselect
+//{
+//    [_tableView deselectRowAtIndexPath:[_tableView indexPathForSelectedRow] animated:YES];
+//}
 
 
 - (void)location{

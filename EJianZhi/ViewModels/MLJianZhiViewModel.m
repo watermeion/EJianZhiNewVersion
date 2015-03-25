@@ -116,4 +116,13 @@
 }
 
 
+- (void)headerRefresh
+{
+
+    [self firstLoad];
+//    NSString *classname=[NSString stringWithFormat:@"%@",[JianZhi class]];
+//    [self.pageManager resetPageSplitingManager];
+//    [self queryObjectsFromAVOSWithClassName:classname Skip:[self.pageManager getNextStartAt] Limit:self.pageManager.pageSize];
+}
+
 @end

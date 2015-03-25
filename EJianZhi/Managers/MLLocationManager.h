@@ -17,8 +17,14 @@
  */
 @property (nonatomic) CLLocationCoordinate2D currentUserLocation;
 
-
+/**
+ *  单例
+ *
+ *  @return <#return value description#>
+ */
 +(instancetype)shareInstance;
 
+
++(void)startLocating;
 
 @end

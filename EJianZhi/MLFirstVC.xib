@@ -10,7 +10,6 @@
             <connections>
                 <outlet property="blankView" destination="YOl-In-FRw" id="GW3-he-Nux"/>
                 <outlet property="tableHeadView" destination="VUo-5C-knY" id="McK-sw-zSX"/>
-                <outlet property="tableView" destination="Fb4-gR-OrC" id="kAk-Ul-diF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,42 +17,7 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Fb4-gR-OrC">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <color key="backgroundColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="sectionIndexBackgroundColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
-                </tableView>
-            </subviews>
             <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
-            <constraints>
-                <constraint firstAttribute="bottom" secondItem="Fb4-gR-OrC" secondAttribute="bottom" id="chB-Lf-I12"/>
-                <constraint firstItem="Fb4-gR-OrC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hAG-uc-kZb"/>
-                <constraint firstAttribute="trailing" secondItem="Fb4-gR-OrC" secondAttribute="trailing" id="kSG-JY-WgS"/>
-                <constraint firstItem="Fb4-gR-OrC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="pA6-pP-o09"/>
-            </constraints>
-            <variation key="default">
-                <mask key="subviews">
-                    <exclude reference="Fb4-gR-OrC"/>
-                </mask>
-                <mask key="constraints">
-                    <exclude reference="chB-Lf-I12"/>
-                    <exclude reference="hAG-uc-kZb"/>
-                    <exclude reference="kSG-JY-WgS"/>
-                    <exclude reference="pA6-pP-o09"/>
-                </mask>
-            </variation>
-            <variation key="heightClass=regular-widthClass=compact">
-                <mask key="subviews">
-                    <include reference="Fb4-gR-OrC"/>
-                </mask>
-                <mask key="constraints">
-                    <include reference="chB-Lf-I12"/>
-                    <include reference="hAG-uc-kZb"/>
-                    <include reference="kSG-JY-WgS"/>
-                    <include reference="pA6-pP-o09"/>
-                </mask>
-            </variation>
             <point key="canvasLocation" x="50" y="-56"/>
         </view>
         <view contentMode="scaleToFill" id="VUo-5C-knY">

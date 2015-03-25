@@ -121,6 +121,8 @@
 		040D28811A83B4E700160F71 /* btnColor1.png in Resources */ = {isa = PBXBuildFile; fileRef = 040D287E1A83B4E700160F71 /* btnColor1.png */; };
 		040D28821A83B4E700160F71 /* btnColor2.png in Resources */ = {isa = PBXBuildFile; fileRef = 040D287F1A83B4E700160F71 /* btnColor2.png */; };
 		040D28831A83B4E700160F71 /* btnColor3.png in Resources */ = {isa = PBXBuildFile; fileRef = 040D28801A83B4E700160F71 /* btnColor3.png */; };
+		04298E7B1AC2F3B10084BC57 /* JobListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04298E791AC2F3B10084BC57 /* JobListTableViewController.m */; };
+		04298E7C1AC2F3B10084BC57 /* JobListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04298E7A1AC2F3B10084BC57 /* JobListTableViewController.xib */; };
 		044BA6BC1ABAF92C007EDE40 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 044BA6BB1ABAF92C007EDE40 /* Images-2.xcassets */; };
 		044BA6BE1ABB0A27007EDE40 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044BA6BD1ABB0A27007EDE40 /* AVOSCloud.framework */; };
 		044BA6CA1ABB1810007EDE40 /* MLLoginManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 044BA6C91ABB1810007EDE40 /* MLLoginManger.m */; };
@@ -799,6 +801,9 @@
 		040D287E1A83B4E700160F71 /* btnColor1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnColor1.png; sourceTree = "<group>"; };
 		040D287F1A83B4E700160F71 /* btnColor2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnColor2.png; sourceTree = "<group>"; };
 		040D28801A83B4E700160F71 /* btnColor3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnColor3.png; sourceTree = "<group>"; };
+		04298E781AC2F3B10084BC57 /* JobListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobListTableViewController.h; sourceTree = "<group>"; };
+		04298E791AC2F3B10084BC57 /* JobListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobListTableViewController.m; sourceTree = "<group>"; };
+		04298E7A1AC2F3B10084BC57 /* JobListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobListTableViewController.xib; sourceTree = "<group>"; };
 		044BA6BA1ABAF7F7007EDE40 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		044BA6BB1ABAF92C007EDE40 /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
 		044BA6BD1ABB0A27007EDE40 /* AVOSCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVOSCloud.framework; path = "Pods/AVOSCloud/iOS/release-v3.0.0/AVOSCloud.framework"; sourceTree = "<group>"; };
@@ -1897,19 +1902,79 @@
 			name = Class;
 			sourceTree = "<group>";
 		};
-		044BA6C71ABB1810007EDE40 /* Managers */ = {
+		04298E7D1AC2FBC20084BC57 /* MapManager */ = {
+			isa = PBXGroup;
+			children = (
+				0401DD4E1AC1059600EB68E1 /* MLMapManager.h */,
+				0401DD4F1AC1059600EB68E1 /* MLMapManager.m */,
+			);
+			name = MapManager;
+			sourceTree = "<group>";
+		};
+		04298E7F1AC2FBD60084BC57 /* LoginManager */ = {
+			isa = PBXGroup;
+			children = (
+				044BA6C81ABB1810007EDE40 /* MLLoginManger.h */,
+				044BA6C91ABB1810007EDE40 /* MLLoginManger.m */,
+			);
+			name = LoginManager;
+			sourceTree = "<group>";
+		};
+		04298E801AC2FBE20084BC57 /* PageSplitingManager */ = {
 			isa = PBXGroup;
 			children = (
 				04DC59A51ABDA65F00E9C438 /* PageSplitingManager.h */,
 				04DC59A61ABDA65F00E9C438 /* PageSplitingManager.m */,
-				044BA6C81ABB1810007EDE40 /* MLLoginManger.h */,
-				044BA6C91ABB1810007EDE40 /* MLLoginManger.m */,
-				0401DD4E1AC1059600EB68E1 /* MLMapManager.h */,
-				0401DD4F1AC1059600EB68E1 /* MLMapManager.m */,
+			);
+			name = PageSplitingManager;
+			sourceTree = "<group>";
+		};
+		04298E811AC2FBFF0084BC57 /* JobListViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				04DC59861ABD26CD00E9C438 /* MLJianZhiViewModel.h */,
+				04DC59871ABD26CD00E9C438 /* MLJianZhiViewModel.m */,
+			);
+			name = JobListViewModel;
+			sourceTree = "<group>";
+		};
+		04298E821AC2FC130084BC57 /* JobDetailViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0401DD4B1AC04D7400EB68E1 /* MLJobDetailViewModel.h */,
+				0401DD4C1AC04D7400EB68E1 /* MLJobDetailViewModel.m */,
+			);
+			name = JobDetailViewModel;
+			sourceTree = "<group>";
+		};
+		04298E831AC2FC2B0084BC57 /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
 				04FD3C551AC1BCB7001A9BA1 /* MLLocationManager.h */,
 				04FD3C561AC1BCB7001A9BA1 /* MLLocationManager.m */,
 				04FD3C5B1AC1BDFC001A9BA1 /* AJLocationManager.h */,
 				04FD3C5C1AC1BDFC001A9BA1 /* AJLocationManager.m */,
+			);
+			name = LocationManager;
+			sourceTree = "<group>";
+		};
+		04298E841AC2FC3E0084BC57 /* JobListTableVC */ = {
+			isa = PBXGroup;
+			children = (
+				04298E781AC2F3B10084BC57 /* JobListTableViewController.h */,
+				04298E791AC2F3B10084BC57 /* JobListTableViewController.m */,
+				04298E7A1AC2F3B10084BC57 /* JobListTableViewController.xib */,
+			);
+			name = JobListTableVC;
+			sourceTree = "<group>";
+		};
+		044BA6C71ABB1810007EDE40 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				04298E801AC2FBE20084BC57 /* PageSplitingManager */,
+				04298E7F1AC2FBD60084BC57 /* LoginManager */,
+				04298E7D1AC2FBC20084BC57 /* MapManager */,
+				04298E831AC2FC2B0084BC57 /* LocationManager */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1919,10 +1984,8 @@
 			children = (
 				044BA6D31ABB1907007EDE40 /* MLLoginViewModel.h */,
 				044BA6D41ABB1907007EDE40 /* MLLoginViewModel.m */,
-				04DC59861ABD26CD00E9C438 /* MLJianZhiViewModel.h */,
-				04DC59871ABD26CD00E9C438 /* MLJianZhiViewModel.m */,
-				0401DD4B1AC04D7400EB68E1 /* MLJobDetailViewModel.h */,
-				0401DD4C1AC04D7400EB68E1 /* MLJobDetailViewModel.m */,
+				04298E811AC2FBFF0084BC57 /* JobListViewModel */,
+				04298E821AC2FC130084BC57 /* JobDetailViewModel */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -3393,6 +3456,10 @@
 		04FD3C591AC1BD61001A9BA1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3B5FBB911A6E8FED009DA06B /* Login&Register */,
+				04589F911A8209AA00B86C0A /* DetailVC */,
+				040D28711A83B37A00160F71 /* MLCustonJobList */,
+				04298E841AC2FC3E0084BC57 /* JobListTableVC */,
 				04FD3C5A1AC1BD6F001A9BA1 /* MapView */,
 			);
 			name = View;
@@ -3518,15 +3585,12 @@
 				3BAAEAE81A49412D00253298 /* Images.xcassets */,
 				3BAAEAEA1A49412D00253298 /* LaunchScreen.xib */,
 				040D27CA1A830CF100160F71 /* commonMacro.h */,
-				04589F911A8209AA00B86C0A /* DetailVC */,
-				040D28711A83B37A00160F71 /* MLCustonJobList */,
 				04589F6A1A82096A00B86C0A /* ScanVC */,
 				04589F3D1A82092300B86C0A /* bannerView */,
 				047AA4D01A7BD30100A3B278 /* 3rd Pary */,
 				047AA4D11A7BD36D00A3B278 /* IMMessgeView */,
 				047AA4C11A7BB58200A3B278 /* ListTableViewControllor */,
 				04654FA31A8798FB00906352 /* ResumeVC */,
-				3B5FBB911A6E8FED009DA06B /* Login&Register */,
 				3BCBBD3D1A6D358200E581FD /* ForthVC */,
 				3BCBBD3C1A6D357A00E581FD /* ThirdVC */,
 				3BCBBD3B1A6D357200E581FD /* SecondVC */,
@@ -4107,6 +4171,7 @@
 				3BCBBD211A6D2FC700E581FD /* activity_selected.png in Resources */,
 				047AA88F1A7BD77E00A3B278 /* tabbarBackground.png in Resources */,
 				04654FCB1A8798FB00906352 /* label_xx.png in Resources */,
+				04298E7C1AC2F3B10084BC57 /* JobListTableViewController.xib in Resources */,
 				3BCBBD621A6D47FC00E581FD /* weiguan_3@2x.png in Resources */,
 				3B5FBB501A6DF465009DA06B /* about_us.png in Resources */,
 				047AA8321A7BD77D00A3B278 /* VoiceSearchFeedback005.png in Resources */,
@@ -4271,6 +4336,7 @@
 				04FD3C621AC1C0BB001A9BA1 /* MLMapView.m in Sources */,
 				047AA6EC1A7BD6F600A3B278 /* PSTCollectionViewData.m in Sources */,
 				04FD3C5D1AC1BDFC001A9BA1 /* AJLocationManager.m in Sources */,
+				04298E7B1AC2F3B10084BC57 /* JobListTableViewController.m in Sources */,
 				04589EDD1A807E0800B86C0A /* CustomChatViewController.m in Sources */,
 				04DC59A71ABDA65F00E9C438 /* PageSplitingManager.m in Sources */,
 				04DC597C1ABD1F8600E9C438 /* JianZhi.m in Sources */,

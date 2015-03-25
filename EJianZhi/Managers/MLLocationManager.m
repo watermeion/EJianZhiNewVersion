@@ -21,4 +21,9 @@ static MLLocationManager *thisInstance;
     });
     return thisInstance;
 }
+
+
+
+
+
 @end
