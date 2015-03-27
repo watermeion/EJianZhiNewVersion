@@ -20,10 +20,9 @@
 {
     if (self=[super init]) {
         //可进行一些初始化设置
-        [self firstLoad];
         self.pageManager.pageSize=5;
+        [self firstLoad];
         //监控网络、用户登录等连接。
-        
         RACSignal *loginActiveSignal=[RACObserve(self.loginManager,LoginState) map:^id(NSNumber *value) {
             return @([value intValue]==active?YES:NO);
         }];
@@ -44,6 +43,7 @@
     //初始化分页控制器
     [self.pageManager resetPageSplitingManager];
     NSString *classname=[NSString stringWithFormat:@"%@",[JianZhi class]];
+    //不同的类别不同的
     [self queryObjectsFromAVOSWithClassName:classname Skip:[self.pageManager getNextStartAt] Limit:self.pageManager.pageSize];
 }
 
@@ -118,7 +118,6 @@
 
 - (void)headerRefresh
 {
-
     [self firstLoad];
 //    NSString *classname=[NSString stringWithFormat:@"%@",[JianZhi class]];
 //    [self.pageManager resetPageSplitingManager];

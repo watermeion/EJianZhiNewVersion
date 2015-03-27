@@ -123,6 +123,10 @@
 		040D28831A83B4E700160F71 /* btnColor3.png in Resources */ = {isa = PBXBuildFile; fileRef = 040D28801A83B4E700160F71 /* btnColor3.png */; };
 		04298E7B1AC2F3B10084BC57 /* JobListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04298E791AC2F3B10084BC57 /* JobListTableViewController.m */; };
 		04298E7C1AC2F3B10084BC57 /* JobListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04298E7A1AC2F3B10084BC57 /* JobListTableViewController.xib */; };
+		04298E891AC301B90084BC57 /* CityListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04298E871AC301B90084BC57 /* CityListTableViewController.m */; };
+		04298E8A1AC301B90084BC57 /* CityListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04298E881AC301B90084BC57 /* CityListTableViewController.xib */; };
+		04298E8C1AC3023B0084BC57 /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04298E8B1AC3023B0084BC57 /* city.plist */; };
+		04298E8F1AC302810084BC57 /* MLMainPageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04298E8E1AC302810084BC57 /* MLMainPageViewModel.m */; };
 		044BA6BC1ABAF92C007EDE40 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 044BA6BB1ABAF92C007EDE40 /* Images-2.xcassets */; };
 		044BA6BE1ABB0A27007EDE40 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044BA6BD1ABB0A27007EDE40 /* AVOSCloud.framework */; };
 		044BA6CA1ABB1810007EDE40 /* MLLoginManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 044BA6C91ABB1810007EDE40 /* MLLoginManger.m */; };
@@ -559,6 +563,16 @@
 		047AA8B81A7BDFCF00A3B278 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047AA8B61A7BDFCF00A3B278 /* LoginViewController.m */; };
 		0499254C1A8F9D2D0015DC2A /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499254A1A8F9D2D0015DC2A /* LaunchViewController.m */; };
 		0499254D1A8F9D2D0015DC2A /* LaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0499254B1A8F9D2D0015DC2A /* LaunchViewController.xib */; };
+		04CBF5931AC5A0440016F7E0 /* down_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CBF58F1AC5A0440016F7E0 /* down_dark.png */; };
+		04CBF5941AC5A0440016F7E0 /* DropDownListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBF5921AC5A0440016F7E0 /* DropDownListView.m */; };
+		04CBF5971AC5A7C40016F7E0 /* ForthCoordinateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBF5961AC5A7C40016F7E0 /* ForthCoordinateController.m */; };
+		04CBF59B1AC5A9790016F7E0 /* JobListWithDropDownListVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBF5991AC5A9790016F7E0 /* JobListWithDropDownListVCViewController.m */; };
+		04CBF59C1AC5A9790016F7E0 /* JobListWithDropDownListVCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04CBF59A1AC5A9790016F7E0 /* JobListWithDropDownListVCViewController.xib */; };
+		04CBF5A01AC5AB930016F7E0 /* PullServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBF59F1AC5AB930016F7E0 /* PullServerManager.m */; };
+		04CBF5A41AC5AD050016F7E0 /* DropDownListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBF5A31AC5AD050016F7E0 /* DropDownListViewModel.m */; };
+		04CBF5AA1AC5B2B10016F7E0 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBF5A81AC5B2B10016F7E0 /* MapViewController.m */; };
+		04CBF5AB1AC5B2B10016F7E0 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04CBF5A91AC5B2B10016F7E0 /* MapViewController.xib */; };
+		04CBF5B21AC5C2C70016F7E0 /* MapJobViewModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBF5B11AC5C2C70016F7E0 /* MapJobViewModal.m */; };
 		04DC59771ABC627600E9C438 /* IQButtonBarArrowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DC59731ABC627600E9C438 /* IQButtonBarArrowLeft@2x.png */; };
 		04DC59781ABC627600E9C438 /* IQButtonBarArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DC59741ABC627600E9C438 /* IQButtonBarArrowRight@2x.png */; };
 		04DC59791ABC627600E9C438 /* IQKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DC59761ABC627600E9C438 /* IQKeyboardManager.m */; };
@@ -576,7 +590,6 @@
 		04DC59A31ABDA3AD00E9C438 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DC599A1ABDA3AD00E9C438 /* UIScrollView+MJRefresh.m */; };
 		04DC59A41ABDA3AD00E9C438 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DC599C1ABDA3AD00E9C438 /* UIView+Extension.m */; };
 		04DC59A71ABDA65F00E9C438 /* PageSplitingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DC59A61ABDA65F00E9C438 /* PageSplitingManager.m */; };
-		04FD3C571AC1BCB7001A9BA1 /* MLLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FD3C561AC1BCB7001A9BA1 /* MLLocationManager.m */; };
 		04FD3C5D1AC1BDFC001A9BA1 /* AJLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FD3C5C1AC1BDFC001A9BA1 /* AJLocationManager.m */; };
 		04FD3C621AC1C0BB001A9BA1 /* MLMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FD3C5F1AC1C0BB001A9BA1 /* MLMapView.m */; };
 		04FD3C631AC1C0BB001A9BA1 /* CustomAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FD3C611AC1C0BB001A9BA1 /* CustomAnnotationView.m */; };
@@ -804,6 +817,12 @@
 		04298E781AC2F3B10084BC57 /* JobListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobListTableViewController.h; sourceTree = "<group>"; };
 		04298E791AC2F3B10084BC57 /* JobListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobListTableViewController.m; sourceTree = "<group>"; };
 		04298E7A1AC2F3B10084BC57 /* JobListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobListTableViewController.xib; sourceTree = "<group>"; };
+		04298E861AC301B90084BC57 /* CityListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityListTableViewController.h; sourceTree = "<group>"; };
+		04298E871AC301B90084BC57 /* CityListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityListTableViewController.m; sourceTree = "<group>"; };
+		04298E881AC301B90084BC57 /* CityListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityListTableViewController.xib; sourceTree = "<group>"; };
+		04298E8B1AC3023B0084BC57 /* city.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = city.plist; sourceTree = "<group>"; };
+		04298E8D1AC302810084BC57 /* MLMainPageViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMainPageViewModel.h; sourceTree = "<group>"; };
+		04298E8E1AC302810084BC57 /* MLMainPageViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLMainPageViewModel.m; sourceTree = "<group>"; };
 		044BA6BA1ABAF7F7007EDE40 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		044BA6BB1ABAF92C007EDE40 /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
 		044BA6BD1ABB0A27007EDE40 /* AVOSCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVOSCloud.framework; path = "Pods/AVOSCloud/iOS/release-v3.0.0/AVOSCloud.framework"; sourceTree = "<group>"; };
@@ -1525,6 +1544,24 @@
 		049925491A8F9D2D0015DC2A /* LaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchViewController.h; sourceTree = "<group>"; };
 		0499254A1A8F9D2D0015DC2A /* LaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchViewController.m; sourceTree = "<group>"; };
 		0499254B1A8F9D2D0015DC2A /* LaunchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchViewController.xib; sourceTree = "<group>"; };
+		04CBF58F1AC5A0440016F7E0 /* down_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down_dark.png; sourceTree = "<group>"; };
+		04CBF5901AC5A0440016F7E0 /* DropDownChooseProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownChooseProtocol.h; sourceTree = "<group>"; };
+		04CBF5911AC5A0440016F7E0 /* DropDownListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownListView.h; sourceTree = "<group>"; };
+		04CBF5921AC5A0440016F7E0 /* DropDownListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownListView.m; sourceTree = "<group>"; };
+		04CBF5951AC5A7C40016F7E0 /* ForthCoordinateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForthCoordinateController.h; sourceTree = "<group>"; };
+		04CBF5961AC5A7C40016F7E0 /* ForthCoordinateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForthCoordinateController.m; sourceTree = "<group>"; };
+		04CBF5981AC5A9790016F7E0 /* JobListWithDropDownListVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobListWithDropDownListVCViewController.h; sourceTree = "<group>"; };
+		04CBF5991AC5A9790016F7E0 /* JobListWithDropDownListVCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobListWithDropDownListVCViewController.m; sourceTree = "<group>"; };
+		04CBF59A1AC5A9790016F7E0 /* JobListWithDropDownListVCViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobListWithDropDownListVCViewController.xib; sourceTree = "<group>"; };
+		04CBF59E1AC5AB930016F7E0 /* PullServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullServerManager.h; sourceTree = "<group>"; };
+		04CBF59F1AC5AB930016F7E0 /* PullServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullServerManager.m; sourceTree = "<group>"; };
+		04CBF5A21AC5AD050016F7E0 /* DropDownListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownListViewModel.h; sourceTree = "<group>"; };
+		04CBF5A31AC5AD050016F7E0 /* DropDownListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownListViewModel.m; sourceTree = "<group>"; };
+		04CBF5A71AC5B2B10016F7E0 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		04CBF5A81AC5B2B10016F7E0 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		04CBF5A91AC5B2B10016F7E0 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		04CBF5B01AC5C2C70016F7E0 /* MapJobViewModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapJobViewModal.h; sourceTree = "<group>"; };
+		04CBF5B11AC5C2C70016F7E0 /* MapJobViewModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapJobViewModal.m; sourceTree = "<group>"; };
 		04DC59731ABC627600E9C438 /* IQButtonBarArrowLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IQButtonBarArrowLeft@2x.png"; sourceTree = "<group>"; };
 		04DC59741ABC627600E9C438 /* IQButtonBarArrowRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IQButtonBarArrowRight@2x.png"; sourceTree = "<group>"; };
 		04DC59751ABC627600E9C438 /* IQKeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQKeyboardManager.h; sourceTree = "<group>"; };
@@ -1557,8 +1594,6 @@
 		04DC599C1ABDA3AD00E9C438 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		04DC59A51ABDA65F00E9C438 /* PageSplitingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageSplitingManager.h; sourceTree = "<group>"; };
 		04DC59A61ABDA65F00E9C438 /* PageSplitingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageSplitingManager.m; sourceTree = "<group>"; };
-		04FD3C551AC1BCB7001A9BA1 /* MLLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLLocationManager.h; sourceTree = "<group>"; };
-		04FD3C561AC1BCB7001A9BA1 /* MLLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLLocationManager.m; sourceTree = "<group>"; };
 		04FD3C5B1AC1BDFC001A9BA1 /* AJLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJLocationManager.h; sourceTree = "<group>"; };
 		04FD3C5C1AC1BDFC001A9BA1 /* AJLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJLocationManager.m; sourceTree = "<group>"; };
 		04FD3C5E1AC1C0BB001A9BA1 /* MLMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMapView.h; sourceTree = "<group>"; };
@@ -1950,8 +1985,6 @@
 		04298E831AC2FC2B0084BC57 /* LocationManager */ = {
 			isa = PBXGroup;
 			children = (
-				04FD3C551AC1BCB7001A9BA1 /* MLLocationManager.h */,
-				04FD3C561AC1BCB7001A9BA1 /* MLLocationManager.m */,
 				04FD3C5B1AC1BDFC001A9BA1 /* AJLocationManager.h */,
 				04FD3C5C1AC1BDFC001A9BA1 /* AJLocationManager.m */,
 			);
@@ -1968,9 +2001,21 @@
 			name = JobListTableVC;
 			sourceTree = "<group>";
 		};
+		04298E851AC301790084BC57 /* locationTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				04298E8B1AC3023B0084BC57 /* city.plist */,
+				04298E861AC301B90084BC57 /* CityListTableViewController.h */,
+				04298E871AC301B90084BC57 /* CityListTableViewController.m */,
+				04298E881AC301B90084BC57 /* CityListTableViewController.xib */,
+			);
+			name = locationTableViewController;
+			sourceTree = "<group>";
+		};
 		044BA6C71ABB1810007EDE40 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				04CBF5A11AC5ABD20016F7E0 /* PullServerManager */,
 				04298E801AC2FBE20084BC57 /* PageSplitingManager */,
 				04298E7F1AC2FBD60084BC57 /* LoginManager */,
 				04298E7D1AC2FBC20084BC57 /* MapManager */,
@@ -1982,10 +2027,10 @@
 		044BA6D21ABB1907007EDE40 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				044BA6D31ABB1907007EDE40 /* MLLoginViewModel.h */,
-				044BA6D41ABB1907007EDE40 /* MLLoginViewModel.m */,
+				04CBF5A61AC5AD240016F7E0 /* MLLoginViewModel */,
 				04298E811AC2FBFF0084BC57 /* JobListViewModel */,
 				04298E821AC2FC130084BC57 /* JobDetailViewModel */,
+				04CBF5A51AC5AD140016F7E0 /* MainPageViewModel */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -3418,6 +3463,68 @@
 			name = IMLogin;
 			sourceTree = "<group>";
 		};
+		04CBF58E1AC5A0440016F7E0 /* DropDownList */ = {
+			isa = PBXGroup;
+			children = (
+				04CBF58F1AC5A0440016F7E0 /* down_dark.png */,
+				04CBF5901AC5A0440016F7E0 /* DropDownChooseProtocol.h */,
+				04CBF5911AC5A0440016F7E0 /* DropDownListView.h */,
+				04CBF5921AC5A0440016F7E0 /* DropDownListView.m */,
+				04CBF5A21AC5AD050016F7E0 /* DropDownListViewModel.h */,
+				04CBF5A31AC5AD050016F7E0 /* DropDownListViewModel.m */,
+			);
+			path = DropDownList;
+			sourceTree = "<group>";
+		};
+		04CBF59D1AC5A97E0016F7E0 /* JobListwithDropDown */ = {
+			isa = PBXGroup;
+			children = (
+				04CBF5981AC5A9790016F7E0 /* JobListWithDropDownListVCViewController.h */,
+				04CBF5991AC5A9790016F7E0 /* JobListWithDropDownListVCViewController.m */,
+				04CBF59A1AC5A9790016F7E0 /* JobListWithDropDownListVCViewController.xib */,
+			);
+			name = JobListwithDropDown;
+			sourceTree = "<group>";
+		};
+		04CBF5A11AC5ABD20016F7E0 /* PullServerManager */ = {
+			isa = PBXGroup;
+			children = (
+				04CBF59E1AC5AB930016F7E0 /* PullServerManager.h */,
+				04CBF59F1AC5AB930016F7E0 /* PullServerManager.m */,
+			);
+			name = PullServerManager;
+			sourceTree = "<group>";
+		};
+		04CBF5A51AC5AD140016F7E0 /* MainPageViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				04298E8D1AC302810084BC57 /* MLMainPageViewModel.h */,
+				04298E8E1AC302810084BC57 /* MLMainPageViewModel.m */,
+			);
+			name = MainPageViewModel;
+			sourceTree = "<group>";
+		};
+		04CBF5A61AC5AD240016F7E0 /* MLLoginViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				044BA6D31ABB1907007EDE40 /* MLLoginViewModel.h */,
+				044BA6D41ABB1907007EDE40 /* MLLoginViewModel.m */,
+			);
+			name = MLLoginViewModel;
+			sourceTree = "<group>";
+		};
+		04CBF5AC1AC5B2BA0016F7E0 /* MapViewController */ = {
+			isa = PBXGroup;
+			children = (
+				04CBF5A71AC5B2B10016F7E0 /* MapViewController.h */,
+				04CBF5A81AC5B2B10016F7E0 /* MapViewController.m */,
+				04CBF5A91AC5B2B10016F7E0 /* MapViewController.xib */,
+				04CBF5B01AC5C2C70016F7E0 /* MapJobViewModal.h */,
+				04CBF5B11AC5C2C70016F7E0 /* MapJobViewModal.m */,
+			);
+			name = MapViewController;
+			sourceTree = "<group>";
+		};
 		04DC59721ABC627600E9C438 /* IQKeyboardManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -3456,11 +3563,12 @@
 		04FD3C591AC1BD61001A9BA1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04FD3C5A1AC1BD6F001A9BA1 /* MapView */,
+				04CBF58E1AC5A0440016F7E0 /* DropDownList */,
+				04298E851AC301790084BC57 /* locationTableViewController */,
 				3B5FBB911A6E8FED009DA06B /* Login&Register */,
-				04589F911A8209AA00B86C0A /* DetailVC */,
 				040D28711A83B37A00160F71 /* MLCustonJobList */,
 				04298E841AC2FC3E0084BC57 /* JobListTableVC */,
-				04FD3C5A1AC1BD6F001A9BA1 /* MapView */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -3585,7 +3693,9 @@
 				3BAAEAE81A49412D00253298 /* Images.xcassets */,
 				3BAAEAEA1A49412D00253298 /* LaunchScreen.xib */,
 				040D27CA1A830CF100160F71 /* commonMacro.h */,
+				04CBF5AC1AC5B2BA0016F7E0 /* MapViewController */,
 				04589F6A1A82096A00B86C0A /* ScanVC */,
+				04589F911A8209AA00B86C0A /* DetailVC */,
 				04589F3D1A82092300B86C0A /* bannerView */,
 				047AA4D01A7BD30100A3B278 /* 3rd Pary */,
 				047AA4D11A7BD36D00A3B278 /* IMMessgeView */,
@@ -3686,6 +3796,7 @@
 		3BCBBD3A1A6D356500E581FD /* FirstVC */ = {
 			isa = PBXGroup;
 			children = (
+				04CBF59D1AC5A97E0016F7E0 /* JobListwithDropDown */,
 				040D27591A826BCB00160F71 /* obsoletedClass */,
 				04589F1B1A82083400B86C0A /* MLFirstVC.h */,
 				04589F1C1A82083400B86C0A /* MLFirstVC.m */,
@@ -3720,6 +3831,8 @@
 				3BCBBD481A6D35C500E581FD /* MLForthVC.h */,
 				3BCBBD491A6D35C500E581FD /* MLForthVC.m */,
 				3BCBBD4A1A6D35C500E581FD /* MLForthVC.xib */,
+				04CBF5951AC5A7C40016F7E0 /* ForthCoordinateController.h */,
+				04CBF5961AC5A7C40016F7E0 /* ForthCoordinateController.m */,
 			);
 			name = ForthVC;
 			sourceTree = "<group>";
@@ -4078,7 +4191,10 @@
 				04654FCA1A8798FB00906352 /* label_jm.png in Resources */,
 				047AA82E1A7BD77D00A3B278 /* VoiceSearchFeedback003.png in Resources */,
 				040D27B81A8306C400160F71 /* no.png in Resources */,
+				04CBF59C1AC5A9790016F7E0 /* JobListWithDropDownListVCViewController.xib in Resources */,
+				04CBF5931AC5A0440016F7E0 /* down_dark.png in Resources */,
 				047AA8281A7BD77D00A3B278 /* chatFire_audioPlaying3.png in Resources */,
+				04298E8C1AC3023B0084BC57 /* city.plist in Resources */,
 				0499254D1A8F9D2D0015DC2A /* LaunchViewController.xib in Resources */,
 				047AA8681A7BD77E00A3B278 /* chat_receiver_audio_playing001@2x.png in Resources */,
 				3BCBBD5F1A6D47FC00E581FD /* weiguan_2.png in Resources */,
@@ -4086,6 +4202,7 @@
 				04589F8E1A82098F00B86C0A /* zbar-help.html in Resources */,
 				047AA5CE1A7BD6D800A3B278 /* call_silence.png in Resources */,
 				040D27761A82724600160F71 /* btn_td.jpg in Resources */,
+				04298E8A1AC301B90084BC57 /* CityListTableViewController.xib in Resources */,
 				047AA8211A7BD77D00A3B278 /* chatListCellHead@2x.png in Resources */,
 				3BAAEAEC1A49412D00253298 /* LaunchScreen.xib in Resources */,
 				040D27BE1A8306C400160F71 /* user_mark.png in Resources */,
@@ -4189,6 +4306,7 @@
 				047AA5DD1A7BD6D800A3B278 /* faceDelete@2x.png in Resources */,
 				040D27C51A830B8000160F71 /* no@2x.png in Resources */,
 				047AA5E71A7BD6D800A3B278 /* chatBar_keyboardSelected.png in Resources */,
+				04CBF5AB1AC5B2B10016F7E0 /* MapViewController.xib in Resources */,
 				040D27BB1A8306C400160F71 /* search.png in Resources */,
 				040D27C91A830B8000160F71 /* yes@3x.png in Resources */,
 				040D27AA1A8306C400160F71 /* checkbox2.png in Resources */,
@@ -4300,6 +4418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04CBF5B21AC5C2C70016F7E0 /* MapJobViewModal.m in Sources */,
 				04654FDF1A87A81D00906352 /* ASDepthModalViewController.m in Sources */,
 				0401DD561AC1154800EB68E1 /* PopoverView.m in Sources */,
 				047AA7281A7BD72400A3B278 /* BaseTableViewCell.m in Sources */,
@@ -4335,7 +4454,10 @@
 				047AA8B01A7BDEB100A3B278 /* DebugViewController.m in Sources */,
 				04FD3C621AC1C0BB001A9BA1 /* MLMapView.m in Sources */,
 				047AA6EC1A7BD6F600A3B278 /* PSTCollectionViewData.m in Sources */,
+				04298E8F1AC302810084BC57 /* MLMainPageViewModel.m in Sources */,
 				04FD3C5D1AC1BDFC001A9BA1 /* AJLocationManager.m in Sources */,
+				04CBF5971AC5A7C40016F7E0 /* ForthCoordinateController.m in Sources */,
+				04298E891AC301B90084BC57 /* CityListTableViewController.m in Sources */,
 				04298E7B1AC2F3B10084BC57 /* JobListTableViewController.m in Sources */,
 				04589EDD1A807E0800B86C0A /* CustomChatViewController.m in Sources */,
 				04DC59A71ABDA65F00E9C438 /* PageSplitingManager.m in Sources */,
@@ -4359,6 +4481,7 @@
 				047AA6491A7BD6D800A3B278 /* MagicalRecord+Setup.m in Sources */,
 				047AA63F1A7BD6D800A3B278 /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				047AA6131A7BD6D800A3B278 /* EMChatViewCell.m in Sources */,
+				04CBF59B1AC5A9790016F7E0 /* JobListWithDropDownListVCViewController.m in Sources */,
 				047AA6161A7BD6D800A3B278 /* MessageModelManager.m in Sources */,
 				047AA6241A7BD6D800A3B278 /* GroupSettingViewController.m in Sources */,
 				047AA5E01A7BD6D800A3B278 /* DXRecordView.m in Sources */,
@@ -4371,13 +4494,13 @@
 				047AA6301A7BD6D800A3B278 /* RealtimeSearchUtil.m in Sources */,
 				047AA6261A7BD6D800A3B278 /* PublicGroupDetailViewController.m in Sources */,
 				047AA5C81A7BD6D800A3B278 /* ChatListCell.m in Sources */,
+				04CBF5A01AC5AB930016F7E0 /* PullServerManager.m in Sources */,
 				040D287C1A83B44200160F71 /* ButtonCellTableViewCell.m in Sources */,
 				047AA6421A7BD6D800A3B278 /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				047AA61A1A7BD6D800A3B278 /* ContactView.m in Sources */,
 				047AA6D41A7BD6F600A3B278 /* MWTapDetectingImageView.m in Sources */,
 				047AA72E1A7BD72400A3B278 /* EMNavigationController.m in Sources */,
 				047AA6E91A7BD6F600A3B278 /* PSTCollectionView.m in Sources */,
-				04FD3C571AC1BCB7001A9BA1 /* MLLocationManager.m in Sources */,
 				0401DD4D1AC04D7400EB68E1 /* MLJobDetailViewModel.m in Sources */,
 				3B5FBB9A1A6E8FFB009DA06B /* SRLoginBusiness.m in Sources */,
 				047AA6381A7BD6D800A3B278 /* NSString+MagicalDataImport.m in Sources */,
@@ -4443,6 +4566,7 @@
 				047AA6171A7BD6D800A3B278 /* MessageReadManager.m in Sources */,
 				047AA6E61A7BD6F600A3B278 /* UIImageView+EMWebCache.m in Sources */,
 				047AA6CD1A7BD6F600A3B278 /* MBProgressHUD+Add.m in Sources */,
+				04CBF5941AC5A0440016F7E0 /* DropDownListView.m in Sources */,
 				047AA6281A7BD6D800A3B278 /* ChineseToPinyin.m in Sources */,
 				047AA70E1A7BD70400A3B278 /* UIResponder+Router.m in Sources */,
 				04DC59791ABC627600E9C438 /* IQKeyboardManager.m in Sources */,
@@ -4472,6 +4596,7 @@
 				047AA6D71A7BD6F600A3B278 /* DACircularProgressView.m in Sources */,
 				047AA72C1A7BD72400A3B278 /* BaseViewController.m in Sources */,
 				047AA6181A7BD6D800A3B278 /* ChatGroupDetailViewController.m in Sources */,
+				04CBF5A41AC5AD050016F7E0 /* DropDownListViewModel.m in Sources */,
 				040D28751A83B3F100160F71 /* AttachedCell.m in Sources */,
 				047AA4C91A7BB5A500A3B278 /* listBadgeView.m in Sources */,
 				04654FD01A8798FB00906352 /* MLStudentCard.m in Sources */,
@@ -4485,6 +4610,7 @@
 				047AA6DC1A7BD6F600A3B278 /* EMSDWebImageDownloaderOperation.m in Sources */,
 				047AA6EB1A7BD6F600A3B278 /* PSTCollectionViewController.m in Sources */,
 				047AA6E31A7BD6F600A3B278 /* UIImage+EMMultiFormat.m in Sources */,
+				04CBF5AA1AC5B2B10016F7E0 /* MapViewController.m in Sources */,
 				047AA72A1A7BD72400A3B278 /* EMTextView.m in Sources */,
 				047AA6331A7BD6D800A3B278 /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				04589F571A82092300B86C0A /* SDWebImageManager.m in Sources */,

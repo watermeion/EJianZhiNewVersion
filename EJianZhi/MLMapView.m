@@ -8,17 +8,17 @@
 
 #import "MLMapView.h"
 #import "CustomAnnotationView.h"
-#import "MLLocationManager.h"
-
+#include "AJLocationManager.h"
 @implementation MLMapView
 @synthesize mapView=_mapView;
+
+
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         
-        [self KeyCheck];
         _mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
         [self addSubview:_mapView];
         _mapView.userInteractionEnabled=YES;
@@ -30,26 +30,51 @@
     return self;
 }
 
-- (void)KeyCheck{
-    [MAMapServices sharedServices].apiKey =@"c38130d72c3068f07be6c23c7e791f47";
-}
 
-- (void)addAnnotation:(NSArray*)point Title:(NSString*)title tag:(int)tag SetToCenter:(BOOL)isCenter{
+
+/**
+ *  添加Annotation到地图上
+ *
+ *  @param point    点做坐标
+ *  @param title    显示的内容
+ *  @param index    对应tableView 的tag
+ *  @param isCenter 是否设置该点坐标为地图中心
+ */
+- (void)addAnnotation:(CLLocationCoordinate2D)point Title:(NSString*)title Index:(NSInteger)index SetToCenter:(BOOL)isCenter{
     MAPointAnnotation *sellerPoint = [[MAPointAnnotation alloc] init];
-    nowTag=tag;
+    nowTag=index;
     [pointAnnoArray addObject:sellerPoint];
-    CLLocationCoordinate2D coord=CLLocationCoordinate2DMake([[point objectAtIndex:1] doubleValue], [[point objectAtIndex:0] doubleValue]);
-    sellerPoint.coordinate = coord;
+    sellerPoint.coordinate = point;
     sellerPoint.title=title;
-    
     [_mapView addAnnotation:sellerPoint];
-    
     if (isCenter) {
-        _mapView.region = MACoordinateRegionMake(coord,MACoordinateSpanMake(0.005, 0.005));
+        _mapView.region = MACoordinateRegionMake(point,MACoordinateSpanMake(0.005, 0.005));
     }else{
         _mapView.showsUserLocation=YES;
     }
 }
+
+
+
+//- (void)addAnnotation:(NSArray*)point Title:(NSString*)title tag:(int)tag SetToCenter:(BOOL)isCenter{
+//    MAPointAnnotation *sellerPoint = [[MAPointAnnotation alloc] init];
+//    nowTag=tag;
+//    [pointAnnoArray addObject:sellerPoint];
+//    CLLocationCoordinate2D coord=CLLocationCoordinate2DMake([[point objectAtIndex:1] doubleValue], [[point objectAtIndex:0] doubleValue]);
+//    sellerPoint.coordinate = coord;
+//    sellerPoint.title=title;
+//    
+//    [_mapView addAnnotation:sellerPoint];
+//    
+//    if (isCenter) {
+//        _mapView.region = MACoordinateRegionMake(coord,MACoordinateSpanMake(0.005, 0.005));
+//    }else{
+//        _mapView.showsUserLocation=YES;
+//    }
+//}
+
+
+
 
 - (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation
 {
@@ -89,11 +114,18 @@
     
 }
 
+
+
+
 -(void)mapView:(MAMapView*)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation
 {
     if (requestUserLocation) {
-        MLLocationManager *locationMange=[MLLocationManager shareInstance];
-        locationMange.currentUserLocation=userLocation.coordinate;
+        //更新用户信息
+        
+        AJLocationManager *locationManger=[AJLocationManager shareLocation];
+        locationManger.lastCoordinate=userLocation.coordinate;
+        [locationManger getReverseGeocode];
+        
         requestUserLocation=NO;
         _mapView.showsUserLocation=YES;
     }else if (firstLoad) {
@@ -111,12 +143,25 @@
 - (void)setShowUserLocation:(BOOL)isShow{
     requestUserLocation=YES;
     _mapView.showsUserLocation=isShow;
+    //
 }
 
 - (void)removeAllAnnotations{
     [_mapView removeAnnotations:pointAnnoArray];
     [pointAnnoArray removeAllObjects];
 }
+
+/**
+ *  在地图上显示数据
+ */
+- (void)addDateInMapView
+{
+
+  
+
+}
+
+
 
 @end
 

@@ -27,9 +27,13 @@
 @property(nonatomic, retain) MAMapView *mapView;
 
 - (void)addAnnotation:(NSArray*)point Title:(NSString*)title tag:(int)tag SetToCenter:(BOOL)isCenter;
+
+
 - (void)removeAllAnnotations;
 //主动请求定位
 - (void)setShowUserLocation:(BOOL)isShow;
+
+
 
 @property(nonatomic,weak) id<showDetailDelegate> showDetailDelegate;
 

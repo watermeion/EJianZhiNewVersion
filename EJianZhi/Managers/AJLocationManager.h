@@ -6,6 +6,10 @@
 //  Copyright (c) 2014年 AlienJun. All rights reserved.
 //
 
+
+#define CityNotFound @"City Not founded"
+#define AddressNotFound @"Address Not founded"
+
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 typedef void (^LocationBlock)(CLLocationCoordinate2D locationCorrrdinate);
@@ -15,11 +19,15 @@ typedef void(^NSStringBlock)(NSString *addressString);
 
 /**
  *  第三方位置管理器，by AlienJun
+ *
+ *  管理App中所有位置请求的逻辑 by gyb
  */
+
 @interface AJLocationManager : NSObject<CLLocationManagerDelegate>
 @property (nonatomic) CLLocationCoordinate2D lastCoordinate;
 @property(nonatomic,strong)NSString *lastCity;
 @property (nonatomic,strong) NSString *lastAddress;
+
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
 +(AJLocationManager *)shareLocation;
@@ -70,4 +78,11 @@ typedef void(^NSStringBlock)(NSString *addressString);
  *  @param errorBlock errorBlock description
  */
 - (void) getCity:(NSStringBlock)cityBlock error:(LocationErrorBlock) errorBlock;
+
+/**
+ *  逆向地理编码，通过最新位置获得地址
+ */
+- (void) getReverseGeocode;
+
+
 @end

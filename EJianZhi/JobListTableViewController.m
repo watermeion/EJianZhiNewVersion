@@ -15,8 +15,6 @@
 
 @interface JobListTableViewController ()
 
-@property (strong,nonatomic) MLJianZhiViewModel *viewModel;
-
 
 @end
 

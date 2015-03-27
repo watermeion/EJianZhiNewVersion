@@ -25,6 +25,12 @@
 #import "MLJobDetailViewModel.h"
 #import "JianZhi.h"
 #import "JobListTableViewController.h"
+#import "MLMainPageViewModel.h"
+#import <UIAlertView+Blocks.h>
+#import "JobListWithDropDownListVCViewController.h"
+
+
+
 #define IOS7 [[[UIDevice currentDevice] systemVersion]floatValue]>=7
 
 @interface MLFirstVC ()<ValueClickDelegate,UITableViewDataSource,UITableViewDelegate>
@@ -38,9 +44,10 @@
 @property (strong,nonatomic) JobListTableViewController *joblistTableVC;
 
 @property (strong, nonatomic) IBOutlet UIView *tableHeadView;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet SRAdvertisingView *blankView;
+@property (strong, nonatomic) IBOutlet UIView *tableHeadView2;
 
+@property (weak, nonatomic) IBOutlet SRAdvertisingView *blankView;
+@property (strong,nonatomic)MLMainPageViewModel *viewModel;
 
 - (IBAction)findJobWithLocationAction:(id)sender;
 
@@ -58,7 +65,7 @@
 
 @implementation MLFirstVC
 @synthesize tableHeadView=_tableHeadView;
-@synthesize tableView=_tableView;
+
 
 
 - (void)viewDidLoad {
@@ -66,29 +73,35 @@
     
     self.navigationItem.titleView=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"searchBar"]];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"北京" style:UIBarButtonItemStylePlain target:self action:@selector(location)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"选择城市" style:UIBarButtonItemStylePlain target:self action:@selector(Location)];
     self.navigationItem.leftBarButtonItem.tintColor=[UIColor whiteColor];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"分享" style:UIBarButtonItemStylePlain target:self action:@selector(shareJob)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"分享" style:UIBarButtonItemStylePlain target:self action:@selector(shareJob)];
     self.navigationItem.rightBarButtonItem.tintColor=[UIColor whiteColor];
     
-    
+    self.viewModel=[[MLMainPageViewModel alloc]init];
     self.joblistTableVC=[[JobListTableViewController alloc]init];
+    
     [self addChildViewController:self.joblistTableVC];
     [self addHeaderAndFooterToTableView];
     [self.view addSubview: self.joblistTableVC.tableView];
     [self advertisementInit];
+    
+    //监听城市信息
+    RAC(self.navigationItem.leftBarButtonItem,title)=RACObserve(self.viewModel, cityName);
+    [self.viewModel startLocatingToGetCity];
+    //加载特定刷新数据
     
 }
 
 
 -(void)addHeaderAndFooterToTableView
 {
-//添加头
+//添加表头
+//    [_tableHeadView setFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 112+130*[[UIScreen mainScreen] bounds].size.width/320)];
     [_tableHeadView setFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 284+130*[[UIScreen mainScreen] bounds].size.width/320)];
     [self.joblistTableVC.tableView setTableHeaderView:_tableHeadView];
-//添加尾
+//添加表尾
     [self.joblistTableVC addFooterRefresher];
-
 }
 
 //*********************tableView********************//
@@ -181,15 +194,35 @@
 //}
 
 
-- (void)location{
+
+/**
+ *  位置定位
+ *  逻辑是进入首页先自动定位 如果失败再让用户手选，和美团一样
+ */
+- (void)Location{
+    //显示位置信息，用户位置信息
+    RIButtonItem *cancelButtonItem = [RIButtonItem itemWithLabel:@"知道了" action:^{
+        NSLog(@"Press Button Cancel");
+    }];
+    RIButtonItem *otherButtonItem = [RIButtonItem itemWithLabel:@"确定" action:^{
+        NSLog(@"Press Button OK");
+        //初始化城市列表
+    }];
     
+    
+    NSString *message=[NSString stringWithFormat:@"目前仅支持北京地区，其他地区敬请期待",self.viewModel.cityName];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提醒" message: message cancelButtonItem:cancelButtonItem otherButtonItems:nil];
+    [alert show];
 }
 
+
+#pragma --mark 分享功能
 - (void)shareJob{
     
 }
 
 //*********************Banner********************//
+#pragma --mark BannerView Method
 -(void)advertisementInit{
     
 
@@ -206,7 +239,17 @@
     [self.blankView addSubview:bannerView];
 }
 
+
+/**
+ *  banner 点击时间
+ *
+ *  @param vid <#vid description#>
+ */
 - (void)buttonClick:(int)vid{
+    
+    
+    
+    
     
 }
 
@@ -245,10 +288,12 @@
 }
 */
 
-
+#pragma --mark  选择附近的兼职 按钮事件
 - (IBAction)findJobWithLocationAction:(id)sender {
-    
-    [self showListView];
+    JobListWithDropDownListVCViewController *nearByList=[[JobListWithDropDownListVCViewController alloc]init];
+    nearByList.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:nearByList animated:YES];
+
 }
 
 - (IBAction)findJobWithCardAction:(id)sender {
