@@ -40,18 +40,6 @@
             [self loginIsSucceed:NO];
         }
     }];
-
-    
-    
-//    [BmobUser loginWithUsernameInBackground:username password:pwd block:^(BmobUser *user, NSError *error) {
-//        if (user != nil&&!error) {
-//            
-//            [self dragUserDataFromBmob];
-//        }
-//        else {
-//            [self loginIsSucceed:NO];
-//        }
-//    }];
 }
 
 -(BOOL)loginIsSucceed:(BOOL)result
@@ -85,7 +73,7 @@
 
 -(BOOL)checkIfAuto_login
 {
-    BmobUser *cuser=[BmobUser getCurrentUser];
+    AVUser *cuser=[AVUser currentUser];
     if(cuser!=nil)
     {
         return YES;
@@ -139,28 +127,28 @@
 //        return NO;
 }
 
--(void)dragUserDataFromBmob
-{
-    BmobQuery *query  = [BmobUser query];
-    BmobUser *currentUser=[BmobUser getCurrentObject];
-    
-    [query getObjectInBackgroundWithId:[currentUser objectId] block:^(BmobObject *object, NSError *error) {
-        if (error == nil) {
-            SRUserInfo *user=[SRUserInfo shareInstance];
-            user.username=[object objectForKey:@"username"];
-            user.email=[object objectForKey:@"email"];
-            user.phone=[object objectForKey:@"phone"];
-            
-            //本地化
-            [self saveUserInfoLocally:user];
-            
-            [self loginIsSucceed:YES];
-            
-        } else {
-            
-            [self loginIsSucceed:NO];
-        }
-    }];
-}
+//-(void)dragUserDataFromBmob
+//{
+//    BmobQuery *query  = [BmobUser query];
+//    BmobUser *currentUser=[BmobUser getCurrentObject];
+//    
+//    [query getObjectInBackgroundWithId:[currentUser objectId] block:^(BmobObject *object, NSError *error) {
+//        if (error == nil) {
+//            SRUserInfo *user=[SRUserInfo shareInstance];
+//            user.username=[object objectForKey:@"username"];
+//            user.email=[object objectForKey:@"email"];
+//            user.phone=[object objectForKey:@"phone"];
+//            
+//            //本地化
+//            [self saveUserInfoLocally:user];
+//            
+//            [self loginIsSucceed:YES];
+//            
+//        } else {
+//            
+//            [self loginIsSucceed:NO];
+//        }
+//    }];
+//}
 
 @end

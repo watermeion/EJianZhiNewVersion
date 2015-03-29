@@ -7,7 +7,7 @@
 //
 
 #import "SRRegisterVC.h"
-#import <BmobSDK/Bmob.h>
+//#import <BmobSDK/Bmob.h>
 #import "SRLoginVC.h"
 #import "SMS_SDK/SMS_SDK.h"
 

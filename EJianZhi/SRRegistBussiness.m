@@ -39,22 +39,6 @@
         }
     }];
     
-//    BmobUser * user = [[BmobUser alloc] init];
-//    [user setUserName:_username];
-//    [user setPassword:_password];
-//    
-//    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        
-//        if (succeeded) {
-//            
-//           [self RegistHasSucceed];
-//            
-//        } else {
-//            
-//            [self RegistHasFailed:error];
-//
-//        }
-//    }];
 }
 
 -(void) RegistHasFailed:(NSError*)error

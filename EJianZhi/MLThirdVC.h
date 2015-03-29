@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CDBaseTableController.h"
 
 @interface MLThirdVC : UIViewController
 

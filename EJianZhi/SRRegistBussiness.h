@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <BmobSDK/Bmob.h>
 #import "MLLoginManger.h"
 @protocol registerComplete <NSObject>
 @required

@@ -8,7 +8,7 @@
 
 #import "SRLoginVC.h"
 #import "SRRegisterVC.h"
-#import <BmobSDK/Bmob.h>
+
 #import "MLLoginViewModel.h"
 #import "MLLoginManger.h"
 @interface SRLoginVC ()<loginSucceed,successRegistered>
