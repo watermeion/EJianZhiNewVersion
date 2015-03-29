@@ -20,7 +20,7 @@
 {
     if (self=[super init]) {
         //可进行一些初始化设置
-        self.pageManager.pageSize=5;
+        self.pageManager.pageSize=6;
         [self firstLoad];
         //监控网络、用户登录等连接。
         RACSignal *loginActiveSignal=[RACObserve(self.loginManager,LoginState) map:^id(NSNumber *value) {

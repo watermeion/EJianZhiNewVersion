@@ -9,17 +9,6 @@
 #import "listBadgeView.h"
 
 
-#define Job1FillColor [UIColor colorWithRed: 0.337 green: 0.479 blue: 0.861 alpha: 1]
-
-#define Job2FillColor [UIColor colorWithRed: 0.337 green: 0.479 blue: 0.861 alpha: 1]
-
-#define Job3FillColor [UIColor colorWithRed: 0.337 green: 0.479 blue: 0.861 alpha: 1]
-
-#define Job4FillColor [UIColor colorWithRed: 0.337 green: 0.479 blue: 0.861 alpha: 1]
-
-
-
-
 @implementation listBadgeView
 
 
@@ -84,7 +73,7 @@
 -(void)drawWithoutBadge
 {
     //// Color Declarations
-    UIColor* color3 = [UIColor colorWithRed: 0.337 green: 0.479 blue: 0.861 alpha: 1];
+    UIColor* color3 = GreenFillColor;
     
     //// backgroud Drawing
     UIBezierPath* backgroudPath = [UIBezierPath bezierPathWithRect: CGRectMake(0, 0, 80, 80)];
@@ -120,7 +109,7 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     //// Color Declarations
-    UIColor* color3 = [UIColor colorWithRed: 0.337 green: 0.479 blue: 0.861 alpha: 1];
+    UIColor* color3 = GreenFillColor;
     
     //// backgroud Drawing
     UIBezierPath* backgroudPath = [UIBezierPath bezierPathWithRect: CGRectMake(0, 0, 80, 80)];
@@ -147,11 +136,10 @@
     CGContextTranslateCTM(context, 2, 25.51);
     CGContextRotateCTM(context, -45 * M_PI / 180);
     
-    CGRect contentTextRect = CGRectMake(0, 0, 36, 12);
+    CGRect contentTextRect = CGRectMake(0, 0, 40, 12);
     NSMutableParagraphStyle* contentTextStyle = NSMutableParagraphStyle.defaultParagraphStyle.mutableCopy;
-    contentTextStyle.alignment = NSTextAlignmentCenter;
-    
-    NSDictionary* contentTextFontAttributes = @{NSFontAttributeName: [UIFont fontWithName: @"Helvetica" size: 12], NSForegroundColorAttributeName: UIColor.blackColor, NSParagraphStyleAttributeName: contentTextStyle};
+    contentTextStyle.alignment = NSTextAlignmentJustified;
+    NSDictionary* contentTextFontAttributes = @{NSFontAttributeName: [UIFont fontWithName: @"Helvetica" size: 9], NSForegroundColorAttributeName: UIColor.blackColor, NSParagraphStyleAttributeName: contentTextStyle};
     
     [self.badgeText drawInRect: contentTextRect withAttributes: contentTextFontAttributes];
     

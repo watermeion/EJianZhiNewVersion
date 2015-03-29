@@ -156,6 +156,28 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     RAC(self.jobDetailJobXiangQingLabel,text)=RACObserve(self.viewModel,jobXiangQing);
 #warning 色块变化监听
     RAC(self.jobDetailJobFlagImage,image)=RACObserve(self.viewModel, typeImage);
+    
+#warning 绑定按钮事件
+    self.jobDetailApplyBtn.rac_command=[[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+        //点击申请button
+        UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"" message:@"精彩内容敬请期待~！" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
+        [alertView show];
+        return [RACSignal empty];
+    }];
+    
+    self.jobDetailComplainBtn.rac_command=[[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+        //点击申请button
+        UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"" message:@"精彩内容敬请期待~！" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
+         [alertView show];
+        return [RACSignal empty];
+    }];
+    
+    self.jobDetailAddFavioritesBtn.rac_command=[[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+        //点击申请button
+        UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:@"" message:@"精彩内容敬请期待~！" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
+        [alertView show];
+        return [RACSignal empty];
+    }];
 }
 
 /**
@@ -163,7 +185,6 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
  */
 - (void)viewWillLayoutSubviews
 {
-
     [self updateConstraintsforJobContentLabelWithString:self.jobDetailJobXiangQingLabel.text];
 }
 

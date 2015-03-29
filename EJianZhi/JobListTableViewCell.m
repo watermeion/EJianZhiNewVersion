@@ -14,6 +14,7 @@
     // Initialization code
     self.IconView.type=WithBadge;
 //    self.IconView.badgeText=@"有校友";
+    
     self.IconView.backgroundColor=GreenFillColor;
     //设置圆角
     [self.IconView.layer setMasksToBounds:YES];

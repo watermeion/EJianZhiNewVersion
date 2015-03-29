@@ -65,8 +65,19 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     UITapGestureRecognizer *gesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(indentify)];
     gesture.delegate=self;
     [self.indentifyImage addGestureRecognizer:gesture];
+    
+    self.navigationItem.title=@"我的简历";
 }
 
+
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.navigationController.navigationBar.hidden=NO;
+
+}
 
 - (IBAction)clickBtn1:(id)sender {
     [switcher forceSelectedIndex:1 animated:YES];

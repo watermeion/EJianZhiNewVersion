@@ -69,7 +69,6 @@
 - (void)viewDidAppear:(BOOL)animated{
    [super viewDidAppear:animated];
     
-    
     if ([AVUser currentUser]!=nil) {
         [self finishLogin];
     }
@@ -77,8 +76,6 @@
         [self finishLogout];
     }
 }
-
-
 
 - (IBAction)logout:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"确定退出账户？" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:@"取消",nil];
@@ -130,7 +127,9 @@
 #pragma --mark  显示简历
 - (IBAction)showResumeAction:(id)sender {
     ResumeVC *resumeVC=[[ResumeVC alloc]init];
+    resumeVC.navigationController.title=@"填写简历";
     resumeVC.hidesBottomBarWhenPushed=YES;
+    
     [self.navigationController pushViewController:resumeVC animated:YES];
 }
 

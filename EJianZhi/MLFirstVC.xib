@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
-            <point key="canvasLocation" x="50" y="-56"/>
+            <point key="canvasLocation" x="-80" y="-71"/>
         </view>
         <view contentMode="scaleToFill" id="VUo-5C-knY">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -218,7 +218,7 @@
                         <action selector="jobAsAccountingAction:" destination="-1" eventType="touchUpInside" id="g3g-EC-o39"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accounting.png" translatesAutoresizingMaskIntoConstraints="NO" id="Tm2-XS-KA8">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="protait1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Tm2-XS-KA8">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="56" id="JTL-ZI-CJq">
@@ -327,7 +327,7 @@
                         </mask>
                     </variation>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="model.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ddm-wB-1ZK">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="protait2-60.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ddm-wB-1ZK">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="IeS-Nl-j1j">
@@ -465,7 +465,7 @@ EOWutuaVmeS4k+Wcug
                         </mask>
                     </variation>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teacher.png" translatesAutoresizingMaskIntoConstraints="NO" id="o4a-uO-A9O">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="protait3.png" translatesAutoresizingMaskIntoConstraints="NO" id="o4a-uO-A9O">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="56" id="54q-fR-U2F">
@@ -576,7 +576,7 @@ EOWutuaVmeS4k+Wcug
                         </mask>
                     </variation>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="student.png" translatesAutoresizingMaskIntoConstraints="NO" id="AA7-nt-aSH">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="protait5.png" translatesAutoresizingMaskIntoConstraints="NO" id="AA7-nt-aSH">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="BH3-an-5oU">
@@ -1028,12 +1028,12 @@ EOWutuaVmeS4k+Wcug
         </view>
     </objects>
     <resources>
-        <image name="accounting.png" width="96" height="96"/>
         <image name="arrow.png" width="30" height="30"/>
         <image name="card.png" width="110" height="110"/>
-        <image name="model.png" width="96" height="96"/>
         <image name="nearby.png" width="110" height="110"/>
-        <image name="student.png" width="96" height="96"/>
-        <image name="teacher.png" width="96" height="96"/>
+        <image name="protait1.png" width="57" height="57"/>
+        <image name="protait2-60.png" width="60" height="60"/>
+        <image name="protait3.png" width="57" height="57"/>
+        <image name="protait5.png" width="57" height="57"/>
     </resources>
 </document>
