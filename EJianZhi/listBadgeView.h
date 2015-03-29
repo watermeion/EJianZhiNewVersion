@@ -23,6 +23,9 @@ typedef enum
 
 #define Job4FillColor [UIColor colorWithRed: 0.337 green: 0.479 blue: 0.861 alpha: 1]
 
+#define GreenFillColor [UIColor colorWithRed: 0.22 green: 0.69 blue: 0.58 alpha: 1]
+
+
 
 //#define WithBadge 1
 //#define WithOutBadge 2

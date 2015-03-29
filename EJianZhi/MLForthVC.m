@@ -11,6 +11,10 @@
 #import "MLJobListViewController.h"
 #import "MLCustomjobListViewController.h"
 #import "MLLoginManger.h"
+
+
+//子视图控制器
+#import "ResumeVC.h"
 @interface MLForthVC ()<finishLogin,UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
 
@@ -24,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 
+- (IBAction)showResumeAction:(id)sender;
 
 - (IBAction)showMyAppliedJob:(id)sender;
 
@@ -52,14 +57,12 @@
 -(void)viewWillLayoutSubviews
 {
     
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden=YES;
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -123,16 +126,27 @@
 }
 
 
+#pragma --mark  显示简历
+- (IBAction)showResumeAction:(id)sender {
+    ResumeVC *resumeVC=[[ResumeVC alloc]init];
+    resumeVC.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:resumeVC animated:YES];
+}
 
+
+
+#pragma --mark  显示我的申请界面
 - (IBAction)showMyAppliedJob:(id)sender {
     //自定义列表
     
-    MLCustomjobListViewController *myAppliedJobListVC=[[MLCustomjobListViewController alloc]init];
-    myAppliedJobListVC.hidesBottomBarWhenPushed=YES;
-    [self.navigationController pushViewController:myAppliedJobListVC animated:YES];
+//    MLCustomjobListViewController *myAppliedJobListVC=[[MLCustomjobListViewController alloc]init];
+//    myAppliedJobListVC.hidesBottomBarWhenPushed=YES;
+//    [self.navigationController pushViewController:myAppliedJobListVC animated:YES];
     
 }
 
+
+#pragma --mark  显示我的收藏
 - (IBAction)showMyFavoriteAction:(id)sender {
     
     MLJobListViewController *myFavoriteListVC=[[MLJobListViewController alloc]init];
@@ -141,5 +155,10 @@
     myFavoriteListVC.navigationController.navigationBar.hidden=NO;
     [self.navigationController pushViewController:myFavoriteListVC animated:YES];
 }
+
+
+
+
+
 
 @end

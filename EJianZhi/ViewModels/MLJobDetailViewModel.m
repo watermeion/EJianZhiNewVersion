@@ -103,15 +103,22 @@
     self.jobTeShuYaoQiu=data.jianzhiTeShuYaoQiu;
     self.jobQiYeName=[self setQiYeName:data.jianZhiQiYeName];
     self.jobAddress=data.jianZhiAddress;
+    self.jobAddressNavi=@"4辆直达公交，大概需要50分钟，从您当前定位点需要耗费大约3元地铁公交到达";
+    
     self.jobEvaluation=[self setEvaluationTextWithResumeNum:data.jianZhiQiYeResumeValue ReceiveNum:data.jianZhiQiYeLuYongValue SatisfactionRate:data.jianZhiQiYeManYiDu];
     self.worktime=[self formatWorkTimeToArray:data.jianZhiWorkTime];
     self.jobPhone=data.jianZhiContactPhone;
     self.jobContactName=data.jianZhiContactName;
     self.jobRequiredNum=[NSString stringWithFormat:@"%d",([data.jianZhiRecruitment intValue]-[data.jianZhiQiYeLuYongValue intValue])];
 #warning 需要请求评论数据
-    self.jobCommentsText=[self setCommentTextWithNum:nil];
+    self.jobCommentsText=[self setCommentTextWithNum:@(10)];
     CLLocationCoordinate2D destination=CLLocationCoordinate2DMake(data.jianZhiPoint.latitude, data.jianZhiPoint.longitude);
     [self.mapManager findRouteByCarFrom:CLLocationCoordinate2DMake(39.54,116.1) To:destination];
+    NSArray *imageArray=@[@"protait1",@"protait2",@"protait3",@"protait4",@"protait5"];
+    
+    int j=(int)(4.0*rand()/(RAND_MAX+1.0));
+    NSString *name=[imageArray objectAtIndex:j];
+    self.typeImage=[UIImage imageNamed:name];
 }
 
 

@@ -99,6 +99,13 @@
 
 -(void)startLocation
 {
+    if ([[[UIDevice currentDevice] systemVersion] doubleValue] > 8.0)
+    {
+        //设置定位权限 仅ios8有意义
+        [self.locationManager requestWhenInUseAuthorization];// 前台定位
+        
+        //  [locationManager requestAlwaysAuthorization];// 前后台同时定位
+    }
     [_locationManager startUpdatingLocation];
 }
 
@@ -109,6 +116,8 @@
 
 
 #pragma mark - CCLocationManagerDelegate
+
+
 //当用户改变位置的时候，CLLocationManager回调的方法
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
@@ -132,16 +141,18 @@
              if([placemark.addressDictionary objectForKey:@"FormattedAddressLines"] != NULL)
                  MyAddress = [[placemark.addressDictionary objectForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
              else
-                 MyAddress = @"Address Not founded";
+                 MyAddress = AddressNotFound;
              
-             if([placemark.addressDictionary objectForKey:@"SubAdministrativeArea"] != NULL)
-                 city = [placemark.addressDictionary objectForKey:@"SubAdministrativeArea"];
-             else if([placemark.addressDictionary objectForKey:@"City"] != NULL)
-                 city = [placemark.addressDictionary objectForKey:@"City"];
-             else if([placemark.addressDictionary objectForKey:@"Country"] != NULL)
-                 city = [placemark.addressDictionary objectForKey:@"Country"];
+             if (placemark.administrativeArea!=nil) city=placemark.administrativeArea;
+             
+//             if([placemark.addressDictionary objectForKey:@"SubAdministrativeArea"] != NULL)
+//                 city = [placemark.addressDictionary objectForKey:@"SubAdministrativeArea"];
+//             else if([placemark.addressDictionary objectForKey:@"City"] != NULL)
+//                 city = [placemark.addressDictionary objectForKey:@"City"];
+//             else if([placemark.addressDictionary objectForKey:@"Country"] != NULL)
+//                 city = [placemark.addressDictionary objectForKey:@"Country"];
              else
-                 city = @"City Not founded";
+                 city = CityNotFound;
              
              self.lastCity = city;
              self.lastAddress=MyAddress;
@@ -166,6 +177,13 @@
          
      }];
 }
+
+
+
+
+
+
+
 
 
 //当iPhone无法获得当前位置的信息时，所回调的方法是
@@ -202,23 +220,20 @@
              if([placemark.addressDictionary objectForKey:@"FormattedAddressLines"] != NULL)
                  MyAddress = [[placemark.addressDictionary objectForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
              else
-                 MyAddress = @"Address Not founded";
+                 MyAddress = AddressNotFound;
              
-             if([placemark.addressDictionary objectForKey:@"SubAdministrativeArea"] != NULL)
+             if([placemark.addressDictionary objectForKey:@"administrativeArea"] != NULL)
+                 city = [placemark.addressDictionary objectForKey:@"administrativeArea"];
+             else if([placemark.addressDictionary objectForKey:@"SubAdministrativeArea"] != NULL)
                  city = [placemark.addressDictionary objectForKey:@"SubAdministrativeArea"];
-             else if([placemark.addressDictionary objectForKey:@"City"] != NULL)
-                 city = [placemark.addressDictionary objectForKey:@"City"];
              else if([placemark.addressDictionary objectForKey:@"Country"] != NULL)
                  city = [placemark.addressDictionary objectForKey:@"Country"];
              else
-                 city = @"City Not founded";
+                 city = CityNotFound;
              
-             NSLog(@"%@",city);
-             NSLog(@"%@", MyAddress);
              self.lastCity = city;
              self.lastAddress=MyAddress;
          }
-         
          [self stopLocation];
      }];
     

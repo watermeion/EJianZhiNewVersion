@@ -20,14 +20,14 @@
     if (self) {
         _pageSize=size;
         _pagination=0;
-        _firstStartIndex=1;
+        _firstStartIndex=0;
     }
     return self;
 }
 
 -(NSUInteger)getNextStartAt
 {
-    nextStartAt=self.pagination*self.pageSize;
+    nextStartAt=self.pagination*self.pageSize+_firstStartIndex;
     return nextStartAt;
 }
 /**

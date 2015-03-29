@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class MLJianZhiViewModel;
 @interface JobListTableViewController : UITableViewController
 
+@property (strong,nonatomic) MLJianZhiViewModel *viewModel;
+
+
+- (NSArray*)getViewModelResultsList;
 
 
 - (void)addFooterRefresher;

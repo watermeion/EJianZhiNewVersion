@@ -8,15 +8,25 @@
 
 #import <Foundation/Foundation.h>
 #import <MAMapKit/MAMapKit.h>
+#import <AMapCommonObj.h>
 /**
- *  管理app中对AMap 使用，控制mapKey验证，持有MapView等
+ *  管理app中对AMap 使用，控制mapKey验证，所有高德地图有关的操作都封装在这个类中等
  */
+@class MLMapView;
 @interface MLMapManager : NSObject
 
 +(instancetype)shareInstance;
 
 -(void)checkMapKey;
 
+/**
+ *  初始化新的MapView,
+ *
+ *  @param frame frame description
+ *
+ *  @return <#return value description#>
+ */
+- (MLMapView *)getMapViewInstanceInitWithFrame:(CGRect)frame;
 
 /**
  *  驾驶路径规划

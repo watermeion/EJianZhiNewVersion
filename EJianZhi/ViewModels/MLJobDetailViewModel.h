@@ -48,4 +48,7 @@
 @property (nonatomic,strong)NSString *jobContactName;
 //页面所需评价、评论数据请求
 
+@property (nonatomic,strong)UIImage *typeImage;
+
+
 @end

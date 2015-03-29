@@ -13,8 +13,8 @@
 - (void)awakeFromNib {
     // Initialization code
     self.IconView.type=WithBadge;
-    self.IconView.badgeText=@"有校友";
-    self.IconView.backgroundColor=DefaultFillColor;
+//    self.IconView.badgeText=@"有校友";
+    self.IconView.backgroundColor=GreenFillColor;
     //设置圆角
     [self.IconView.layer setMasksToBounds:YES];
     [self.IconView.layer setCornerRadius:10.0f];

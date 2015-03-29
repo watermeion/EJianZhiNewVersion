@@ -5,6 +5,8 @@
 //  Created by Mac on 3/24/15.
 //  Copyright (c) 2015 &#40635;&#36771;&#24037;&#20316;&#23460;. All rights reserved.
 //
+
+
 /**
  *  完成地图的所有操作，包括地理编码查询，地图显示，导航查询等
  */
@@ -12,12 +14,13 @@
 
 #import "MLMapManager.h"
 #import "MLMapView.h"
-#import "MLLocationManager.h"
+#import "AJLocationManager.h"
 #import <AMapSearchAPI.h>
+
 @interface MLMapManager()<AMapSearchDelegate>
 
 //@property (strong,nonatomic) MLMapView *mapView;
-@property (weak,nonatomic)MLLocationManager *locationManager;
+@property (nonatomic,weak) AJLocationManager *locationManager;
 @property (strong,nonatomic)AMapSearchAPI *searchAPI;
 @end
 
@@ -32,7 +35,7 @@ static NSString *mapKey=@"75b8982e76c3c19b749f1fb7fd9ef67a";
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         thisInstance=[[super alloc]init];
-        thisInstance.locationManager=[MLLocationManager shareInstance];
+        thisInstance.locationManager=[AJLocationManager shareLocation];
          //初始化检索对象
 //        thisInstance.searchAPI = [[AMapSearchAPI alloc] initWithSearchKey:mapKey Delegate:thisInstance];
     });
@@ -175,7 +178,73 @@ static NSString *mapKey=@"75b8982e76c3c19b749f1fb7fd9ef67a";
 }
 
 
+/**
+ *  geo正向地理编码,目前仅支持北京
+ *
+ */
+-(void)geoCodeSearch:(NSString *)searchContext
+{
+    //构造AMapGeocodeSearchRequest对象，address为必选项，city为可选项
+    AMapGeocodeSearchRequest *geoRequest = [[AMapGeocodeSearchRequest alloc] init];
+    geoRequest.searchType = AMapSearchType_Geocode;
+    geoRequest.address = searchContext;
+    geoRequest.city = @[@"beijing"];
+    
+    //发起正向地理编码
+    [self.searchAPI AMapGeocodeSearch: geoRequest];
+}
 
+/**
+ *  实现正向地理编码的回调函数
+ *
+ *  @param request  request description
+ *  @param response response description
+ */
+- (void)onGeocodeSearchDone:(AMapGeocodeSearchRequest *)request response:(AMapGeocodeSearchResponse *)response
+{
+    if(response.geocodes.count == 0)
+    {
+        return;
+    }
+    
+    //通过AMapGeocodeSearchResponse对象处理搜索结果
+    NSString *strCount = [NSString stringWithFormat:@"count: %ld", (long)response.count];
+    NSString *strGeocodes = @"";
+    for (AMapTip *p in response.geocodes) {
+        strGeocodes = [NSString stringWithFormat:@"%@\ngeocode: %@", strGeocodes, p.description];
+    }
+    NSString *result = [NSString stringWithFormat:@"%@ \n %@", strCount, strGeocodes];
+    NSLog(@"Geocode: %@", result);
+}
 
+/**
+ *  逆向地理编码
+ */
+
+-(void)reGeocodeSearch:(CLLocationCoordinate2D)position
+{
+
+    //构造AMapReGeocodeSearchRequest对象，location为必选项，radius为可选项
+    AMapReGeocodeSearchRequest *regeoRequest = [[AMapReGeocodeSearchRequest alloc] init];
+    regeoRequest.searchType = AMapSearchType_ReGeocode;
+    
+    regeoRequest.location = [AMapGeoPoint locationWithLatitude:position.latitude longitude:position.longitude];
+    regeoRequest.radius = 10000;
+    regeoRequest.requireExtension = YES;
+    
+    //发起逆地理编码
+    [self.searchAPI AMapReGoecodeSearch: regeoRequest];
+}
+
+//实现逆地理编码的回调函数
+- (void)onReGeocodeSearchDone:(AMapReGeocodeSearchRequest *)request response:(AMapReGeocodeSearchResponse *)response
+{
+    if(response.regeocode != nil)
+    {
+        //通过AMapReGeocodeSearchResponse对象处理搜索结果
+        NSString *result = [NSString stringWithFormat:@"ReGeocode: %@", response.regeocode];
+        NSLog(@"ReGeo: %@", result);
+    }
+}
 
 @end
