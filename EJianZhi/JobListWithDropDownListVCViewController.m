@@ -8,13 +8,12 @@
 
 #import "JobListWithDropDownListVCViewController.h"
 #import "JobListTableViewController.h"
-#import "DropDownListView.h"
-#import "DropDownListViewModel.h"
+
 #import "MapViewController.h"
 
 @interface JobListWithDropDownListVCViewController ()
 @property (strong,nonatomic) JobListTableViewController *tableList;
-@property (strong,nonatomic) DropDownListViewModel *dropListViewModel;
+
 @end
 
 @implementation JobListWithDropDownListVCViewController
@@ -29,10 +28,7 @@
     self.edgesForExtendedLayout=UIRectEdgeNone;
     self.tableList=[[JobListTableViewController alloc]init];
     [self addChildViewController:self.tableList];
-    self.dropListViewModel=[[DropDownListViewModel alloc]init];
-    DropDownListView *dropDownView = [[DropDownListView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width, 40) dataSource:self.dropListViewModel delegate:self.dropListViewModel];
-    dropDownView.mSuperView = self.view;
-    [self.view addSubview:dropDownView];
+
     
     self.tableList.view.frame=CGRectMake(0, 40,self.tableList.view.frame.size.width,self.view.frame.size.height-40);
     [self.view addSubview:self.tableList.view];

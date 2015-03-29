@@ -157,8 +157,6 @@
 		04589F8E1A82098F00B86C0A /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = 04589F7C1A82098F00B86C0A /* zbar-help.html */; };
 		04589F8F1A82098F00B86C0A /* zbar-helpicons.png in Resources */ = {isa = PBXBuildFile; fileRef = 04589F7D1A82098F00B86C0A /* zbar-helpicons.png */; };
 		04589F901A82098F00B86C0A /* zbar-samples.png in Resources */ = {isa = PBXBuildFile; fileRef = 04589F7E1A82098F00B86C0A /* zbar-samples.png */; };
-		04589F951A8209B600B86C0A /* JobDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04589F931A8209B600B86C0A /* JobDetailVC.m */; };
-		04589F961A8209B600B86C0A /* JobDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04589F941A8209B600B86C0A /* JobDetailVC.xib */; };
 		04589FB91A820A2F00B86C0A /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 04589F981A820A2F00B86C0A /* add.png */; };
 		04589FBA1A820A2F00B86C0A /* add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04589F991A820A2F00B86C0A /* add@2x.png */; };
 		04589FBB1A820A2F00B86C0A /* add@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04589F9A1A820A2F00B86C0A /* add@3x.png */; };
@@ -564,14 +562,10 @@
 		0499254C1A8F9D2D0015DC2A /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499254A1A8F9D2D0015DC2A /* LaunchViewController.m */; };
 		0499254D1A8F9D2D0015DC2A /* LaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0499254B1A8F9D2D0015DC2A /* LaunchViewController.xib */; };
 		04CBF5931AC5A0440016F7E0 /* down_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CBF58F1AC5A0440016F7E0 /* down_dark.png */; };
-		04CBF5941AC5A0440016F7E0 /* DropDownListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBF5921AC5A0440016F7E0 /* DropDownListView.m */; };
 		04CBF5971AC5A7C40016F7E0 /* ForthCoordinateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBF5961AC5A7C40016F7E0 /* ForthCoordinateController.m */; };
 		04CBF59B1AC5A9790016F7E0 /* JobListWithDropDownListVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBF5991AC5A9790016F7E0 /* JobListWithDropDownListVCViewController.m */; };
 		04CBF59C1AC5A9790016F7E0 /* JobListWithDropDownListVCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04CBF59A1AC5A9790016F7E0 /* JobListWithDropDownListVCViewController.xib */; };
 		04CBF5A01AC5AB930016F7E0 /* PullServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBF59F1AC5AB930016F7E0 /* PullServerManager.m */; };
-		04CBF5A41AC5AD050016F7E0 /* DropDownListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBF5A31AC5AD050016F7E0 /* DropDownListViewModel.m */; };
-		04CBF5AA1AC5B2B10016F7E0 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBF5A81AC5B2B10016F7E0 /* MapViewController.m */; };
-		04CBF5AB1AC5B2B10016F7E0 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04CBF5A91AC5B2B10016F7E0 /* MapViewController.xib */; };
 		04CBF5B21AC5C2C70016F7E0 /* MapJobViewModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CBF5B11AC5C2C70016F7E0 /* MapJobViewModal.m */; };
 		04CBF5B61AC6DAA10016F7E0 /* mapDetail.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CBF5B51AC6DAA10016F7E0 /* mapDetail.png */; };
 		04CBF5B81AC6DAC10016F7E0 /* annotation.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CBF5B71AC6DAC10016F7E0 /* annotation.png */; };
@@ -707,6 +701,10 @@
 		3BAAEAE91A49412D00253298 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BAAEAE81A49412D00253298 /* Images.xcassets */; };
 		3BAAEAEC1A49412D00253298 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BAAEAEA1A49412D00253298 /* LaunchScreen.xib */; };
 		3BAAEAF81A49412D00253298 /* EJianZhiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAAEAF71A49412D00253298 /* EJianZhiTests.m */; };
+		3BB4C3911AC7B79F0058678C /* JobDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB4C38F1AC7B79F0058678C /* JobDetailVC.m */; };
+		3BB4C3921AC7B79F0058678C /* JobDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BB4C3901AC7B79F0058678C /* JobDetailVC.xib */; };
+		3BB4C3961AC7B8620058678C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB4C3931AC7B8620058678C /* MapViewController.m */; };
+		3BB4C3971AC7B8620058678C /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BB4C3941AC7B8620058678C /* MapViewController.xib */; };
 		3BB7F2471A6FF170007F944F /* SRRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB7F2451A6FF170007F944F /* SRRegisterVC.m */; };
 		3BB7F2481A6FF170007F944F /* SRRegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BB7F2461A6FF170007F944F /* SRRegisterVC.xib */; };
 		3BCBBD1F1A6D2FC700E581FD /* activity.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BCBBD0F1A6D2FC700E581FD /* activity.png */; };
@@ -751,13 +749,9 @@
 		3BD077E61AC68BFF002EA65D /* NSString+JSMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD077A51AC68BFF002EA65D /* NSString+JSMessagesView.m */; };
 		3BD077E71AC68BFF002EA65D /* bubble-default-incoming-green.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077A81AC68BFF002EA65D /* bubble-default-incoming-green.png */; };
 		3BD077E81AC68BFF002EA65D /* bubble-default-incoming-green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077A91AC68BFF002EA65D /* bubble-default-incoming-green@2x.png */; };
-		3BD077E91AC68BFF002EA65D /* bubble-default-incoming-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077AA1AC68BFF002EA65D /* bubble-default-incoming-selected.png */; };
 		3BD077EA1AC68BFF002EA65D /* bubble-default-incoming-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077AB1AC68BFF002EA65D /* bubble-default-incoming-selected@2x.png */; };
-		3BD077EB1AC68BFF002EA65D /* bubble-default-incoming.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077AC1AC68BFF002EA65D /* bubble-default-incoming.png */; };
 		3BD077EC1AC68BFF002EA65D /* bubble-default-incoming@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077AD1AC68BFF002EA65D /* bubble-default-incoming@2x.png */; };
 		3BD077ED1AC68BFF002EA65D /* bubble-default-outgoing-green.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077AE1AC68BFF002EA65D /* bubble-default-outgoing-green.png */; };
-		3BD077EE1AC68BFF002EA65D /* bubble-default-outgoing-green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077AF1AC68BFF002EA65D /* bubble-default-outgoing-green@2x.png */; };
-		3BD077EF1AC68BFF002EA65D /* bubble-default-outgoing-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077B01AC68BFF002EA65D /* bubble-default-outgoing-selected.png */; };
 		3BD077F01AC68BFF002EA65D /* bubble-default-outgoing-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077B11AC68BFF002EA65D /* bubble-default-outgoing-selected@2x.png */; };
 		3BD077F11AC68BFF002EA65D /* bubble-default-outgoing.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077B21AC68BFF002EA65D /* bubble-default-outgoing.png */; };
 		3BD077F21AC68BFF002EA65D /* bubble-default-outgoing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077B31AC68BFF002EA65D /* bubble-default-outgoing@2x.png */; };
@@ -765,7 +759,6 @@
 		3BD077F41AC68BFF002EA65D /* bubble-flat-incoming-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077B51AC68BFF002EA65D /* bubble-flat-incoming-selected@2x.png */; };
 		3BD077F51AC68BFF002EA65D /* bubble-flat-incoming.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077B61AC68BFF002EA65D /* bubble-flat-incoming.png */; };
 		3BD077F61AC68BFF002EA65D /* bubble-flat-incoming@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077B71AC68BFF002EA65D /* bubble-flat-incoming@2x.png */; };
-		3BD077F71AC68BFF002EA65D /* bubble-flat-outgoing-old.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077B81AC68BFF002EA65D /* bubble-flat-outgoing-old.png */; };
 		3BD077F81AC68BFF002EA65D /* bubble-flat-outgoing-old@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077B91AC68BFF002EA65D /* bubble-flat-outgoing-old@2x.png */; };
 		3BD077F91AC68BFF002EA65D /* bubble-flat-outgoing-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077BA1AC68BFF002EA65D /* bubble-flat-outgoing-selected.png */; };
 		3BD077FA1AC68BFF002EA65D /* bubble-flat-outgoing-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077BB1AC68BFF002EA65D /* bubble-flat-outgoing-selected@2x.png */; };
@@ -778,7 +771,6 @@
 		3BD078011AC68BFF002EA65D /* bubble-square-outgoing-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077C21AC68BFF002EA65D /* bubble-square-outgoing-selected.png */; };
 		3BD078021AC68BFF002EA65D /* bubble-square-outgoing-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077C31AC68BFF002EA65D /* bubble-square-outgoing-selected@2x.png */; };
 		3BD078031AC68BFF002EA65D /* bubble-square-outgoing.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077C41AC68BFF002EA65D /* bubble-square-outgoing.png */; };
-		3BD078041AC68BFF002EA65D /* bubble-square-outgoing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077C51AC68BFF002EA65D /* bubble-square-outgoing@2x.png */; };
 		3BD078051AC68BFF002EA65D /* bubble-typing.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077C61AC68BFF002EA65D /* bubble-typing.png */; };
 		3BD078061AC68BFF002EA65D /* bubble-typing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077C71AC68BFF002EA65D /* bubble-typing@2x.png */; };
 		3BD078071AC68BFF002EA65D /* input-bar-flat.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077C81AC68BFF002EA65D /* input-bar-flat.png */; };
@@ -794,7 +786,6 @@
 		3BD078111AC68BFF002EA65D /* send.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077D21AC68BFF002EA65D /* send.png */; };
 		3BD078121AC68BFF002EA65D /* send@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077D31AC68BFF002EA65D /* send@2x.png */; };
 		3BD078131AC68BFF002EA65D /* messageReceived.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077D51AC68BFF002EA65D /* messageReceived.aiff */; };
-		3BD078141AC68BFF002EA65D /* messageSent.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 3BD077D61AC68BFF002EA65D /* messageSent.aiff */; };
 		3BD078151AC68BFF002EA65D /* UIButton+JSMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD077D81AC68BFF002EA65D /* UIButton+JSMessagesView.m */; };
 		3BD078161AC68BFF002EA65D /* UIColor+JSMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD077DA1AC68BFF002EA65D /* UIColor+JSMessagesView.m */; };
 		3BD078171AC68BFF002EA65D /* UIImage+JSMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD077DC1AC68BFF002EA65D /* UIImage+JSMessagesView.m */; };
@@ -1052,9 +1043,6 @@
 		04589F871A82098F00B86C0A /* ZBarReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderViewController.h; sourceTree = "<group>"; };
 		04589F881A82098F00B86C0A /* ZBarSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSDK.h; sourceTree = "<group>"; };
 		04589F891A82098F00B86C0A /* ZBarSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSymbol.h; sourceTree = "<group>"; };
-		04589F921A8209B600B86C0A /* JobDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobDetailVC.h; sourceTree = "<group>"; };
-		04589F931A8209B600B86C0A /* JobDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobDetailVC.m; sourceTree = "<group>"; };
-		04589F941A8209B600B86C0A /* JobDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobDetailVC.xib; sourceTree = "<group>"; };
 		04589F981A820A2F00B86C0A /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		04589F991A820A2F00B86C0A /* add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add@2x.png"; sourceTree = "<group>"; };
 		04589F9A1A820A2F00B86C0A /* add@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add@3x.png"; sourceTree = "<group>"; };
@@ -1701,9 +1689,6 @@
 		0499254A1A8F9D2D0015DC2A /* LaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchViewController.m; sourceTree = "<group>"; };
 		0499254B1A8F9D2D0015DC2A /* LaunchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchViewController.xib; sourceTree = "<group>"; };
 		04CBF58F1AC5A0440016F7E0 /* down_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down_dark.png; sourceTree = "<group>"; };
-		04CBF5901AC5A0440016F7E0 /* DropDownChooseProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownChooseProtocol.h; sourceTree = "<group>"; };
-		04CBF5911AC5A0440016F7E0 /* DropDownListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownListView.h; sourceTree = "<group>"; };
-		04CBF5921AC5A0440016F7E0 /* DropDownListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownListView.m; sourceTree = "<group>"; };
 		04CBF5951AC5A7C40016F7E0 /* ForthCoordinateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForthCoordinateController.h; sourceTree = "<group>"; };
 		04CBF5961AC5A7C40016F7E0 /* ForthCoordinateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForthCoordinateController.m; sourceTree = "<group>"; };
 		04CBF5981AC5A9790016F7E0 /* JobListWithDropDownListVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobListWithDropDownListVCViewController.h; sourceTree = "<group>"; };
@@ -1711,11 +1696,6 @@
 		04CBF59A1AC5A9790016F7E0 /* JobListWithDropDownListVCViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobListWithDropDownListVCViewController.xib; sourceTree = "<group>"; };
 		04CBF59E1AC5AB930016F7E0 /* PullServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullServerManager.h; sourceTree = "<group>"; };
 		04CBF59F1AC5AB930016F7E0 /* PullServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullServerManager.m; sourceTree = "<group>"; };
-		04CBF5A21AC5AD050016F7E0 /* DropDownListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownListViewModel.h; sourceTree = "<group>"; };
-		04CBF5A31AC5AD050016F7E0 /* DropDownListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownListViewModel.m; sourceTree = "<group>"; };
-		04CBF5A71AC5B2B10016F7E0 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		04CBF5A81AC5B2B10016F7E0 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		04CBF5A91AC5B2B10016F7E0 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		04CBF5B01AC5C2C70016F7E0 /* MapJobViewModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapJobViewModal.h; sourceTree = "<group>"; };
 		04CBF5B11AC5C2C70016F7E0 /* MapJobViewModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapJobViewModal.m; sourceTree = "<group>"; };
 		04CBF5B51AC6DAA10016F7E0 /* mapDetail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapDetail.png; sourceTree = "<group>"; };
@@ -1878,6 +1858,12 @@
 		3BAAEAF11A49412D00253298 /* EJianZhiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EJianZhiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BAAEAF61A49412D00253298 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BAAEAF71A49412D00253298 /* EJianZhiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EJianZhiTests.m; sourceTree = "<group>"; };
+		3BB4C38E1AC7B79F0058678C /* JobDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobDetailVC.h; sourceTree = "<group>"; };
+		3BB4C38F1AC7B79F0058678C /* JobDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobDetailVC.m; sourceTree = "<group>"; };
+		3BB4C3901AC7B79F0058678C /* JobDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JobDetailVC.xib; sourceTree = "<group>"; };
+		3BB4C3931AC7B8620058678C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		3BB4C3941AC7B8620058678C /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		3BB4C3951AC7B8620058678C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		3BB7F2441A6FF170007F944F /* SRRegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRegisterVC.h; sourceTree = "<group>"; };
 		3BB7F2451A6FF170007F944F /* SRRegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRRegisterVC.m; sourceTree = "<group>"; };
 		3BB7F2461A6FF170007F944F /* SRRegisterVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRRegisterVC.xib; sourceTree = "<group>"; };
@@ -2481,9 +2467,6 @@
 		04589F911A8209AA00B86C0A /* DetailVC */ = {
 			isa = PBXGroup;
 			children = (
-				04589F921A8209B600B86C0A /* JobDetailVC.h */,
-				04589F931A8209B600B86C0A /* JobDetailVC.m */,
-				04589F941A8209B600B86C0A /* JobDetailVC.xib */,
 			);
 			name = DetailVC;
 			sourceTree = "<group>";
@@ -3822,11 +3805,6 @@
 			isa = PBXGroup;
 			children = (
 				04CBF58F1AC5A0440016F7E0 /* down_dark.png */,
-				04CBF5901AC5A0440016F7E0 /* DropDownChooseProtocol.h */,
-				04CBF5911AC5A0440016F7E0 /* DropDownListView.h */,
-				04CBF5921AC5A0440016F7E0 /* DropDownListView.m */,
-				04CBF5A21AC5AD050016F7E0 /* DropDownListViewModel.h */,
-				04CBF5A31AC5AD050016F7E0 /* DropDownListViewModel.m */,
 			);
 			path = DropDownList;
 			sourceTree = "<group>";
@@ -3871,9 +3849,9 @@
 		04CBF5AC1AC5B2BA0016F7E0 /* MapViewController */ = {
 			isa = PBXGroup;
 			children = (
-				04CBF5A71AC5B2B10016F7E0 /* MapViewController.h */,
-				04CBF5A81AC5B2B10016F7E0 /* MapViewController.m */,
-				04CBF5A91AC5B2B10016F7E0 /* MapViewController.xib */,
+				3BB4C3931AC7B8620058678C /* MapViewController.m */,
+				3BB4C3941AC7B8620058678C /* MapViewController.xib */,
+				3BB4C3951AC7B8620058678C /* MapViewController.h */,
 				04CBF5B01AC5C2C70016F7E0 /* MapJobViewModal.h */,
 				04CBF5B11AC5C2C70016F7E0 /* MapJobViewModal.m */,
 			);
@@ -4118,6 +4096,7 @@
 		3BAAEADA1A49412D00253298 /* EJianZhi */ = {
 			isa = PBXGroup;
 			children = (
+				3BB4C38D1AC7B79F0058678C /* jobDetail */,
 				3BD077891AC68A82002EA65D /* AVOSChat */,
 				04FD3C591AC1BD61001A9BA1 /* View */,
 				044BA6D91ABB1D54007EDE40 /* Models */,
@@ -4182,6 +4161,16 @@
 				3BAAEAF61A49412D00253298 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3BB4C38D1AC7B79F0058678C /* jobDetail */ = {
+			isa = PBXGroup;
+			children = (
+				3BB4C38E1AC7B79F0058678C /* JobDetailVC.h */,
+				3BB4C38F1AC7B79F0058678C /* JobDetailVC.m */,
+				3BB4C3901AC7B79F0058678C /* JobDetailVC.xib */,
+			);
+			path = jobDetail;
 			sourceTree = "<group>";
 		};
 		3BCBBD0E1A6D2FBD00E581FD /* image */ = {
@@ -4582,6 +4571,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04CBF6351AC6EE210016F7E0 /* protait3.png in Resources */,
+				3BB4C3971AC7B8620058678C /* MapViewController.xib in Resources */,
 				040D273D1A826AA300160F71 /* label_zm.png in Resources */,
 				047AA5F01A7BD6D800A3B278 /* chatBar_recordBg@2x.png in Resources */,
 				3BCBBD1F1A6D2FC700E581FD /* activity.png in Resources */,
@@ -4652,7 +4642,7 @@
 				047AA86C1A7BD77E00A3B278 /* chat_receiver_audio_playing003@2x.png in Resources */,
 				047AA87D1A7BD77E00A3B278 /* account.png in Resources */,
 				047AA87A1A7BD77E00A3B278 /* chat_sender_audio_playing_full@2x.png in Resources */,
-				3BD077EE1AC68BFF002EA65D /* bubble-default-outgoing-green@2x.png in Resources */,
+				04CBF6151AC6EE210016F7E0 /* iTunesArtwork@2x in Resources */,
 				047AA83A1A7BD77D00A3B278 /* VoiceSearchFeedback009.png in Resources */,
 				3BCBBD4F1A6D3D7400E581FD /* searchBar.png in Resources */,
 				3BD0780F1AC68BFF002EA65D /* send-highlighted.png in Resources */,
@@ -4661,7 +4651,7 @@
 				040D27371A826AA300160F71 /* card.png in Resources */,
 				047AA6031A7BD6D800A3B278 /* chatBar_more_locationSelected.png in Resources */,
 				047AA8471A7BD77E00A3B278 /* VoiceSearchFeedback015@2x.png in Resources */,
-				3BD077F71AC68BFF002EA65D /* bubble-flat-outgoing-old.png in Resources */,
+				04CBF6411AC6EE210016F7E0 /* protait4@2x.png in Resources */,
 				047AA8871A7BD77E00A3B278 /* tabbar_contacts.png in Resources */,
 				04589FC81A820A2F00B86C0A /* mine.png in Resources */,
 				3BCBBD641A6D47FC00E581FD /* weiguan_4@2x.png in Resources */,
@@ -4714,7 +4704,6 @@
 				047AA61D1A7BD6D800A3B278 /* group_invitee_delete@2x.png in Resources */,
 				04589FBF1A820A2F00B86C0A /* explore1@3x.png in Resources */,
 				047AA8B71A7BDFCF00A3B278 /* LoginViewController.xib in Resources */,
-				04589F961A8209B600B86C0A /* JobDetailVC.xib in Resources */,
 				04589FC61A820A2F00B86C0A /* message@2x.png in Resources */,
 				047AA8221A7BD77D00A3B278 /* chatFire_audioPlaying0.png in Resources */,
 				047AA8641A7BD77E00A3B278 /* chat_location_preview@2x.png in Resources */,
@@ -4745,7 +4734,7 @@
 				047AA8781A7BD77E00A3B278 /* chat_sender_audio_playing_003@2x.png in Resources */,
 				040D27E71A83135B00160F71 /* jianli.png in Resources */,
 				04654FD81A8798FB00906352 /* radio_unchecked@2x.png in Resources */,
-				3BD078041AC68BFF002EA65D /* bubble-square-outgoing@2x.png in Resources */,
+				04CBF63E1AC6EE210016F7E0 /* protait4-Spotlight-40@2x.png in Resources */,
 				047AA5FA1A7BD6D800A3B278 /* chatBar_colorMore_photoSelected@2x.png in Resources */,
 				047AA8601A7BD77E00A3B278 /* chat_location_detail_disclosure@2x.png in Resources */,
 				040D27831A82724600160F71 /* label_more.png in Resources */,
@@ -4809,7 +4798,7 @@
 				040D27ED1A83135B00160F71 /* tisheng.png in Resources */,
 				047AA5E11A7BD6D800A3B278 /* chatBar_face.png in Resources */,
 				040D27B61A8306C400160F71 /* label_xx.png in Resources */,
-				3BD077EF1AC68BFF002EA65D /* bubble-default-outgoing-selected.png in Resources */,
+				04CBF6301AC6EE210016F7E0 /* protait3-Small@2x.png in Resources */,
 				047AA5CB1A7BD6D800A3B278 /* call_out@2x.png in Resources */,
 				04CBF62D1AC6EE210016F7E0 /* protait3-60@2x.png in Resources */,
 				047AA82C1A7BD77D00A3B278 /* VoiceSearchFeedback002.png in Resources */,
@@ -4820,7 +4809,8 @@
 				04589FBA1A820A2F00B86C0A /* add@2x.png in Resources */,
 				04589FD91A820A2F00B86C0A /* release@3x.png in Resources */,
 				040D27501A826B3100160F71 /* btnLeft.png in Resources */,
-				3BD077EB1AC68BFF002EA65D /* bubble-default-incoming.png in Resources */,
+				04CBF5D71AC6E24A0016F7E0 /* greenPin.png in Resources */,
+				04CBF62B1AC6EE210016F7E0 /* protait2@2x.png in Resources */,
 				040D28821A83B4E700160F71 /* btnColor2.png in Resources */,
 				04CBF5C91AC6E0480016F7E0 /* Icon-60@2x.png in Resources */,
 				047AA8701A7BD77E00A3B278 /* chat_receiver_bg@2x.png in Resources */,
@@ -4939,7 +4929,7 @@
 				04CBF63F1AC6EE210016F7E0 /* protait4-Spotlight-40@3x.png in Resources */,
 				047AA8A41A7BDB4B00A3B278 /* ChatMessageViewController.xib in Resources */,
 				04589FC21A820A2F00B86C0A /* message.png in Resources */,
-				3BD078141AC68BFF002EA65D /* messageSent.aiff in Resources */,
+				04CBF6271AC6EE210016F7E0 /* protait2-Spotlight-40.png in Resources */,
 				3B5FBB481A6DF428009DA06B /* user_qrcode.png in Resources */,
 				047AA5F21A7BD6D800A3B278 /* chatBar_recordSelected@2x.png in Resources */,
 				04CBF62A1AC6EE210016F7E0 /* protait2.png in Resources */,
@@ -4999,13 +4989,14 @@
 				3B5FBB421A6DF117009DA06B /* user_bg.png in Resources */,
 				04654FC91A8798FB00906352 /* freeselectViewCell.xib in Resources */,
 				3B5FBB5A1A6DF533009DA06B /* profile_pop_button_background_bottom.png in Resources */,
+				3BB4C3921AC7B79F0058678C /* JobDetailVC.xib in Resources */,
 				3BCBBD231A6D2FC700E581FD /* find_selected.png in Resources */,
 				047AA8621A7BD77E00A3B278 /* chat_location_detail_disclosureHL@2x.png in Resources */,
 				047AA8791A7BD77E00A3B278 /* chat_sender_audio_playing_full.png in Resources */,
 				3BD077F11AC68BFF002EA65D /* bubble-default-outgoing.png in Resources */,
 				04589FC51A820A2F00B86C0A /* message1@3x.png in Resources */,
 				047AA8851A7BD77E00A3B278 /* tabbar_chatsHL.png in Resources */,
-				3BD077E91AC68BFF002EA65D /* bubble-default-incoming-selected.png in Resources */,
+				04CBF6371AC6EE210016F7E0 /* protait4-60.png in Resources */,
 				047AA8371A7BD77D00A3B278 /* VoiceSearchFeedback007@2x.png in Resources */,
 				04589FCC1A820A2F00B86C0A /* mine@2x.png in Resources */,
 				3BCBBD211A6D2FC700E581FD /* activity_selected.png in Resources */,
@@ -5041,7 +5032,6 @@
 				047AA5E71A7BD6D800A3B278 /* chatBar_keyboardSelected.png in Resources */,
 				04CBF6141AC6EE210016F7E0 /* iTunesArtwork in Resources */,
 				04CBF6311AC6EE210016F7E0 /* protait3-Small@3x.png in Resources */,
-				04CBF5AB1AC5B2B10016F7E0 /* MapViewController.xib in Resources */,
 				040D27BB1A8306C400160F71 /* search.png in Resources */,
 				040D27C91A830B8000160F71 /* yes@3x.png in Resources */,
 				3BD077EC1AC68BFF002EA65D /* bubble-default-incoming@2x.png in Resources */,
@@ -5260,6 +5250,7 @@
 				04CBF5A01AC5AB930016F7E0 /* PullServerManager.m in Sources */,
 				040D287C1A83B44200160F71 /* ButtonCellTableViewCell.m in Sources */,
 				047AA6421A7BD6D800A3B278 /* NSManagedObjectModel+MagicalRecord.m in Sources */,
+				3BB4C3911AC7B79F0058678C /* JobDetailVC.m in Sources */,
 				047AA61A1A7BD6D800A3B278 /* ContactView.m in Sources */,
 				047AA6D41A7BD6F600A3B278 /* MWTapDetectingImageView.m in Sources */,
 				047AA72E1A7BD72400A3B278 /* EMNavigationController.m in Sources */,
@@ -5291,13 +5282,13 @@
 				04DC59881ABD26CD00E9C438 /* MLJianZhiViewModel.m in Sources */,
 				3BAAEAE41A49412D00253298 /* ViewController.m in Sources */,
 				04DC59A21ABDA3AD00E9C438 /* UIScrollView+Extension.m in Sources */,
-				04589F951A8209B600B86C0A /* JobDetailVC.m in Sources */,
 				047AA8AF1A7BDEB100A3B278 /* BlackListViewController.m in Sources */,
 				04589F231A82083400B86C0A /* MLCell1.m in Sources */,
 				047AA62B1A7BD6D800A3B278 /* AddFriendCell.m in Sources */,
 				047AA6151A7BD6D800A3B278 /* MessageModel.m in Sources */,
 				047AA6E81A7BD6F600A3B278 /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,
 				047AA6D91A7BD6F600A3B278 /* EMSDWebImageCompat.m in Sources */,
+				3BB4C3961AC7B8620058678C /* MapViewController.m in Sources */,
 				3BB7F2471A6FF170007F944F /* SRRegisterVC.m in Sources */,
 				3BDA641B1A6F557900D7A5BC /* SRRegistBussiness.m in Sources */,
 				047AA6CE1A7BD6F600A3B278 /* MBProgressHUD.m in Sources */,
@@ -5334,7 +5325,6 @@
 				047AA6171A7BD6D800A3B278 /* MessageReadManager.m in Sources */,
 				047AA6E61A7BD6F600A3B278 /* UIImageView+EMWebCache.m in Sources */,
 				047AA6CD1A7BD6F600A3B278 /* MBProgressHUD+Add.m in Sources */,
-				04CBF5941AC5A0440016F7E0 /* DropDownListView.m in Sources */,
 				047AA6281A7BD6D800A3B278 /* ChineseToPinyin.m in Sources */,
 				047AA70E1A7BD70400A3B278 /* UIResponder+Router.m in Sources */,
 				04DC59791ABC627600E9C438 /* IQKeyboardManager.m in Sources */,

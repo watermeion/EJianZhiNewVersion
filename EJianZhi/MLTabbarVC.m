@@ -94,8 +94,11 @@
    //page 1
     UIViewController *pageOneVC=[self makeRootByNavigationController:self.firstVC];
    //page 2
-    MLJobListViewController *myJobVC=[[MLJobListViewController alloc]init];
+//    UIViewController *pageTwoVC=[self makeRootByNavigationController:self.secondVC];
+    JobListTableViewController *myJobVC=[[JobListTableViewController alloc]init];
      UIViewController *pageTwoVC=[self makeRootByNavigationController:myJobVC];
+    
+    pageTwoVC.title=@"申请";
    //page 3
    UIViewController *pageThreeVC=[self makeRootByNavigationController:self.messageVC];
    //page 4
