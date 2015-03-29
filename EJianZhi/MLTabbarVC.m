@@ -13,7 +13,7 @@
 //tabViewController
 #import "MLFirstVC.h"
 #import "MLSecondVC.h"
-#import "EJZMessageViewController.h"
+#import "MLThirdVC.h"
 #import "MLForthVC.h"
 
 #import "JobListTableViewController.h"
@@ -22,7 +22,7 @@
 
 @property (strong,nonatomic)MLFirstVC *firstVC;
 @property (strong,nonatomic)MLSecondVC *secondVC;
-@property (strong,nonatomic)EJZMessageViewController *messageVC;
+@property (strong,nonatomic)MLThirdVC *messageVC;
 @property (strong,nonatomic)MLForthVC *forthVC;
 
 @end
@@ -41,15 +41,13 @@
 }
 
 
--(EJZMessageViewController*)messageVC
+-(MLThirdVC*)messageVC
 {
     if(_messageVC==nil)
     {
-        _messageVC=[[EJZMessageViewController alloc]init];
-    
+        _messageVC=[[MLThirdVC alloc]init];
     }
     return _messageVC;
-
 }
 
 
@@ -74,11 +72,11 @@
 -(MLNavi*)makeRootByNavigationController:(UIViewController*) childVC
 {
     @try {
-    if (childVC==nil) {
-        return [[UIViewController alloc]init];
-    }
-    MLNavi *navigationVC=[[MLNavi alloc]initWithRootViewController:childVC];
-    return navigationVC;
+        if (childVC==nil) {
+            //return [[UIViewController alloc]init];
+            return [[MLNavi alloc]initWithRootViewController:[[UIViewController alloc]init]];
+        }
+        return [[MLNavi alloc]initWithRootViewController:childVC];
     }
     @catch (NSException *exception) {
         
@@ -89,7 +87,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self viewControllersInit];
-    
 }
 
 -(void)viewControllersInit
@@ -103,12 +100,9 @@
     
     pageTwoVC.title=@"申请";
    //page 3
-    
    UIViewController *pageThreeVC=[self makeRootByNavigationController:self.messageVC];
    //page 4
     UIViewController *pageFourVC=[self makeRootByNavigationController:self.forthVC];
-    
-    
     
     self.viewControllers=@[pageOneVC,pageTwoVC,pageThreeVC,pageFourVC];
     
@@ -141,11 +135,6 @@
     tabBarItem4.title=@"我的";
     
 
-    
-    
-    
-    
-    
     [[self.tabBar.items objectAtIndex:0] setFinishedSelectedImage:[[UIImage imageNamed:@"releas1"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] withFinishedUnselectedImage:[[UIImage imageNamed:@"release"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     
     [[self.tabBar.items objectAtIndex:1] setFinishedSelectedImage:[[UIImage imageNamed:@"explore1"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] withFinishedUnselectedImage:[[UIImage imageNamed:@"explore"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];

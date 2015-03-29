@@ -8,13 +8,12 @@
 
 #import "JobListWithDropDownListVCViewController.h"
 #import "JobListTableViewController.h"
-#import "DropDownListView.h"
-#import "DropDownListViewModel.h"
+
 #import "MapViewController.h"
 
 @interface JobListWithDropDownListVCViewController ()
 @property (strong,nonatomic) JobListTableViewController *tableList;
-@property (strong,nonatomic) DropDownListViewModel *dropListViewModel;
+
 @end
 
 @implementation JobListWithDropDownListVCViewController

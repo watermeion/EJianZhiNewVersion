@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <BmobSDK/Bmob.h>
+#import <AVOSCloud/AVOSCloud.h>
 
-@interface SRUserInfo : BmobObject{
+@interface SRUserInfo : AVObject{
     
 }
 
@@ -18,9 +18,9 @@
 @property (nonatomic,strong) NSString *phone;
 @property (nonatomic,strong) NSString *email;
 
-@property (nonatomic,strong) BmobGeoPoint *depositLocation;
+@property (nonatomic,strong) AVGeoPoint *depositLocation;
 
-@property (nonatomic,strong) BmobFile *userLogo;
+@property (nonatomic,strong) AVFile *userLogo;
 
 + (SRUserInfo *)shareInstance;
 
