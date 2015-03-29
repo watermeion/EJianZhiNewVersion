@@ -55,12 +55,12 @@
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
     
-//    #################
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = self.mainTabViewController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    //############环信聊天初始化设置###################
+
+    
     //1、注册登录变化通知
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(loginStateChange:)
