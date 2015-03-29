@@ -40,8 +40,8 @@ enum : NSUInteger {
 
 - (void)addPeerId{
     CDChatRoomController *controller = [[CDChatRoomController alloc] init];
-    [[CDSessionManager sharedInstance] addChatWithPeerId:@"cici1234"];
-    controller.otherId = @"cici1234";
+    [[CDSessionManager sharedInstance] addChatWithPeerId:@"shirui"];
+    controller.otherId = @"shirui";
     controller.type = CDChatRoomTypeSingle;
     [self.navigationController pushViewController:controller animated:YES];
 }

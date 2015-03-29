@@ -28,10 +28,10 @@
     self.edgesForExtendedLayout=UIRectEdgeNone;
     self.tableList=[[JobListTableViewController alloc]init];
     [self addChildViewController:self.tableList];
-
     
-    self.tableList.view.frame=CGRectMake(0, 40,self.tableList.view.frame.size.width,self.view.frame.size.height-40);
+    self.tableList.view.frame=CGRectMake(0, 0,self.tableList.view.frame.size.width,self.view.frame.size.height);
     [self.view addSubview:self.tableList.view];
+
 }
 
 - (void)didReceiveMemoryWarning {

@@ -68,7 +68,6 @@
 - (void)viewDidAppear:(BOOL)animated{
    [super viewDidAppear:animated];
     
-    
     if ([AVUser currentUser]!=nil) {
         [self finishLogin];
     }
@@ -76,8 +75,6 @@
         [self finishLogout];
     }
 }
-
-
 
 - (IBAction)logout:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"确定退出账户？" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:@"取消",nil];
@@ -129,7 +126,9 @@
 #pragma --mark  显示简历
 - (IBAction)showResumeAction:(id)sender {
     ResumeVC *resumeVC=[[ResumeVC alloc]init];
+    resumeVC.navigationController.title=@"填写简历";
     resumeVC.hidesBottomBarWhenPushed=YES;
+    
     [self.navigationController pushViewController:resumeVC animated:YES];
 }
 
@@ -148,17 +147,13 @@
 
 #pragma --mark  显示我的收藏
 - (IBAction)showMyFavoriteAction:(id)sender {
-    
-    MLJobListViewController *myFavoriteListVC=[[MLJobListViewController alloc]init];
-    myFavoriteListVC.navigationController.navigationItem.title=@"我的收藏";
-    myFavoriteListVC.hidesBottomBarWhenPushed=YES;
-    myFavoriteListVC.navigationController.navigationBar.hidden=NO;
-    [self.navigationController pushViewController:myFavoriteListVC animated:YES];
+
+//    MLJobListViewController *myFavoriteListVC=[[MLJobListViewController alloc]init];
+//    myFavoriteListVC.navigationController.navigationItem.title=@"我的收藏";
+//    myFavoriteListVC.hidesBottomBarWhenPushed=YES;
+//    myFavoriteListVC.navigationController.navigationBar.hidden=NO;
+//    [self.navigationController pushViewController:myFavoriteListVC animated:YES];
 }
-
-
-
-
 
 
 @end

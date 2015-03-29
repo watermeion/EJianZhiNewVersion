@@ -258,7 +258,7 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.91998208299999995" green="0.94209685769999996" blue="0.87839826239999996" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="Icon1ImageView" destination="AYY-7c-TuR" id="s0Q-F8-7Yj"/>
                 <outlet property="Icon2ImageView" destination="gcP-KW-beT" id="hWh-zL-HSW"/>

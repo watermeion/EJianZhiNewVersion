@@ -75,7 +75,7 @@
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"选择城市" style:UIBarButtonItemStylePlain target:self action:@selector(Location)];
     self.navigationItem.leftBarButtonItem.tintColor=[UIColor whiteColor];
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"分享" style:UIBarButtonItemStylePlain target:self action:@selector(shareJob)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"分享" style:UIBarButtonItemStylePlain target:self action:@selector(shareJob)];
     self.navigationItem.rightBarButtonItem.tintColor=[UIColor whiteColor];
     
     self.viewModel=[[MLMainPageViewModel alloc]init];
@@ -218,7 +218,13 @@
 
 #pragma --mark 分享功能
 - (void)shareJob{
-    
+    RIButtonItem *cancelButtonItem = [RIButtonItem itemWithLabel:@"知道了" action:^{
+        NSLog(@"Press Button OK");
+        //初始化城市列表
+    }];
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"抱歉，社交分享正在女里开发中...精彩敬请期待" cancelButtonItem:cancelButtonItem otherButtonItems: nil];
+    [alert show];
+
 }
 
 //*********************Banner********************//
@@ -227,9 +233,7 @@
     
 
     NSMutableArray *urlArray=[[NSMutableArray alloc]init];
-    [urlArray addObject:@"http://ac-owqomw6m.clouddn.com/7OIieHpECcdIDdGQPI8jWKzsXRR6WfT7hYYHz7Vl.jpg"];
-
-    [urlArray addObject:@"http://ac-owqomw6m.clouddn.com/f9sS9LmqsPoof687f5Dqb1fa0zk0B0UsiW2TcUJh.jpg"];
+   
 
     [urlArray addObject:@"http://ac-owqomw6m.clouddn.com/ErzHmJ4LNySmB0gqSp24kiyBIhrzdtgPyV7kl1vr.jpg"];
     [urlArray addObject:@"http://ac-owqomw6m.clouddn.com/89mEekkp8LryD9jri7CUtY1dXcbRHcrNXns12Ki9.jpeg"];

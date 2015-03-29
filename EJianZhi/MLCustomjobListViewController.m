@@ -35,7 +35,6 @@
 {
     if (!_segmentedControl) {
         _segmentedControl=[[UISegmentedControl alloc]initWithItems:@[@"申请中",@"已录用"]];
-        
     }
     return _segmentedControl;
 }
@@ -51,7 +50,6 @@
     [self.segmentedControl addTarget:self
                               action:@selector(segementedChange)
                     forControlEvents:UIControlEventValueChanged];
-
 }
 
 - (void)viewDidLoad {
@@ -60,7 +58,6 @@
     self.edgesForExtendedLayout=UIRectEdgeNone;
     self.navigationController.navigationBar.hidden=NO;
     [self segmentControlInit];
-    
     [self tableViewInit];
 }
 
@@ -70,10 +67,10 @@
     switch (self.segmentedControl.selectedSegmentIndex) {
         case 0:
             NSLog(@"selected:%d",0);
-           
+            
             break;
         case 1:
-          
+            
             NSLog(@"selected:%d",1);
             break;
             
@@ -85,10 +82,6 @@
 }
 
 
-
-
-
-//
 -(void)tableViewInit
 {
     cellNum=10;
@@ -109,7 +102,7 @@
         
         [controllStateArray addObject:nomarlDict];
     }
-
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -131,14 +124,14 @@
 
 //改变行高
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return 90;
+    //    return 90;
     
     if ([[[controllStateArray objectAtIndex:indexPath.row] objectForKey:@"Cellidentifier"] isEqualToString:@"ButtonCellTableViewCell"])
     {
         return 44;
     }
     else return 90;
-
+    
 }
 
 
@@ -146,15 +139,15 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([[[controllStateArray objectAtIndex:indexPath.row]objectForKey:@"Cellidentifier"]isEqualToString:@"JobListTableViewCell"]) {
-    
-    BOOL nibsRegistered = NO;
-    static NSString *Cellidentifier=@"JobListTableViewCell";
-    if (!nibsRegistered) {
-        UINib *nib = [UINib nibWithNibName:@"JobListTableViewCell" bundle:nil];
-        [tableView registerNib:nib forCellReuseIdentifier:Cellidentifier];
-    }
-    
-    JobListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:Cellidentifier forIndexPath:indexPath];
+        
+        BOOL nibsRegistered = NO;
+        static NSString *Cellidentifier=@"JobListTableViewCell";
+        if (!nibsRegistered) {
+            UINib *nib = [UINib nibWithNibName:@"JobListTableViewCell" bundle:nil];
+            [tableView registerNib:nib forCellReuseIdentifier:Cellidentifier];
+        }
+        
+        JobListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:Cellidentifier forIndexPath:indexPath];
         return cell;
     }
     else if([[[controllStateArray objectAtIndex:indexPath.row]objectForKey:@"Cellidentifier"]isEqualToString:@"ButtonCellTableViewCell"])
@@ -168,9 +161,9 @@
         
         ButtonCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:Cellidentifier forIndexPath:indexPath];
         return cell;
-
-    
-    
+        
+        
+        
     }
     
     return nil;
@@ -181,7 +174,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSIndexPath *path = nil;
-
+    
     
     if ([[[controllStateArray objectAtIndex:indexPath.row]objectForKey:@"Cellidentifier"]isEqualToString:@"JobListTableViewCell"]) {
         //当Cellidentifier 为JobListTable 时 新加cell path=indexPath+1;
@@ -198,7 +191,7 @@
         //打开附加cell
         //将原来的cell 的状态设置为 state:YES
         NSDictionary *orginDict=@{@"Cellidentifier":@"JobListTableViewCell",@"state":@"YES"};
-       //增加的新的附加cell的控制数据
+        //增加的新的附加cell的控制数据
         NSDictionary *yesDict1=@{@"Cellidentifier":@"ButtonCellTableViewCell",@"state":@"YES"};
         controllStateArray[path.row-1]=orginDict;
         [controllStateArray insertObject:yesDict1 atIndex:path.row];
@@ -232,13 +225,13 @@
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
