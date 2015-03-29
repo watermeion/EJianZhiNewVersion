@@ -166,7 +166,7 @@
 }
 
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
-    [self showErrorWithTitle:@"开启推送失败" error:error];
+//    [self showErrorWithTitle:@"开启推送失败" error:error];
 }
 
 
