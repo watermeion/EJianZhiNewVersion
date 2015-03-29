@@ -147,7 +147,7 @@
 
 #pragma --mark  显示我的收藏
 - (IBAction)showMyFavoriteAction:(id)sender {
-    
+
 //    MLJobListViewController *myFavoriteListVC=[[MLJobListViewController alloc]init];
 //    myFavoriteListVC.navigationController.navigationItem.title=@"我的收藏";
 //    myFavoriteListVC.hidesBottomBarWhenPushed=YES;
