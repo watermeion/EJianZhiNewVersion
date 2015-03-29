@@ -8,7 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MLFirstVC">
             <connections>
-                <outlet property="blankView" destination="0uf-Ja-P2H" id="FLr-93-hbz"/>
+                <outlet property="blankView" destination="YOl-In-FRw" id="xGW-Ic-BZn"/>
                 <outlet property="tableHeadView" destination="VUo-5C-knY" id="McK-sw-zSX"/>
                 <outlet property="tableHeadView2" destination="PpE-D9-ywm" id="p5O-oU-dIq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -48,22 +48,6 @@
                         <action selector="findJobWithLocationAction:" destination="-1" eventType="touchUpInside" id="QLC-ld-ai9"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YOl-In-FRw" userLabel="BannerView" customClass="SRAdvertisingView">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="YOl-In-FRw" secondAttribute="height" multiplier="200:81" id="fw0-DD-ueC"/>
-                    </constraints>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="fw0-DD-ueC"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="fw0-DD-ueC"/>
-                        </mask>
-                    </variation>
-                </view>
                 <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="SS6-1L-uBF">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <color key="tintColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -615,6 +599,22 @@ EOWutuaVmeS4k+Wcug
                         </mask>
                     </variation>
                 </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YOl-In-FRw" userLabel="BannerView" customClass="SRAdvertisingView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="YOl-In-FRw" secondAttribute="height" multiplier="200:81" id="fw0-DD-ueC"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="fw0-DD-ueC"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="fw0-DD-ueC"/>
+                        </mask>
+                    </variation>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -708,7 +708,6 @@ EOWutuaVmeS4k+Wcug
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="A7n-3k-cLV"/>
-                    <exclude reference="YOl-In-FRw"/>
                     <exclude reference="SS6-1L-uBF"/>
                     <exclude reference="YfZ-re-9Uv"/>
                     <exclude reference="x4M-bs-me1"/>
@@ -734,6 +733,7 @@ EOWutuaVmeS4k+Wcug
                     <exclude reference="BwJ-px-o0N"/>
                     <exclude reference="ZoT-3x-0B8"/>
                     <exclude reference="AA7-nt-aSH"/>
+                    <exclude reference="YOl-In-FRw"/>
                 </mask>
                 <mask key="constraints">
                     <exclude reference="QGy-1m-4mv"/>
@@ -802,7 +802,6 @@ EOWutuaVmeS4k+Wcug
             <variation key="heightClass=regular-widthClass=compact">
                 <mask key="subviews">
                     <include reference="A7n-3k-cLV"/>
-                    <include reference="YOl-In-FRw"/>
                     <include reference="SS6-1L-uBF"/>
                     <include reference="YfZ-re-9Uv"/>
                     <include reference="x4M-bs-me1"/>
@@ -828,6 +827,7 @@ EOWutuaVmeS4k+Wcug
                     <include reference="BwJ-px-o0N"/>
                     <include reference="ZoT-3x-0B8"/>
                     <include reference="AA7-nt-aSH"/>
+                    <include reference="YOl-In-FRw"/>
                 </mask>
                 <mask key="constraints">
                     <include reference="QGy-1m-4mv"/>

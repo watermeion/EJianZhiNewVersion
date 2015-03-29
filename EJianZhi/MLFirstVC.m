@@ -227,12 +227,18 @@
     
 
     NSMutableArray *urlArray=[[NSMutableArray alloc]init];
+    [urlArray addObject:@"http://ac-owqomw6m.clouddn.com/7OIieHpECcdIDdGQPI8jWKzsXRR6WfT7hYYHz7Vl.jpg"];
+
+    [urlArray addObject:@"http://ac-owqomw6m.clouddn.com/f9sS9LmqsPoof687f5Dqb1fa0zk0B0UsiW2TcUJh.jpg"];
+
+    [urlArray addObject:@"http://ac-owqomw6m.clouddn.com/ErzHmJ4LNySmB0gqSp24kiyBIhrzdtgPyV7kl1vr.jpg"];
+    [urlArray addObject:@"http://ac-owqomw6m.clouddn.com/89mEekkp8LryD9jri7CUtY1dXcbRHcrNXns12Ki9.jpeg"];
     
-    [urlArray addObject:@"http://ac-gtcxbmll.clouddn.com/7pGXzjWe0tQ0Y3gK9Ei1FzDz7m531PVvaU58ziDt.jpg"];
-    [urlArray addObject:@"http://ac-gtcxbmll.clouddn.com/7pGXzjWe0tQ0Y3gK9Ei1FzDz7m531PVvaU58ziDt.jpg"];
-    [urlArray addObject:@"http://ac-gtcxbmll.clouddn.com/7pGXzjWe0tQ0Y3gK9Ei1FzDz7m531PVvaU58ziDt.jpg"];
+    [urlArray addObject:@"http://ac-owqomw6m.clouddn.com/hcezPG2bM2jYxaGhuntYhGxAy6ukprbFXwmuww03.jpg"];
+    [urlArray addObject:@"http://ac-owqomw6m.clouddn.com/xaXWxJE7BcFS6CDG3nTLxjtGi210hwDE7WsM0N0A.gif"];
 
 
+    
     SRAdvertisingView *bannerView=[[SRAdvertisingView alloc]initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 130*[[UIScreen mainScreen] bounds].size.width/320) imageArray:urlArray interval:3.0];
     
     bannerView.vDelegate=self;
@@ -322,11 +328,8 @@
 
 -(void)showListView
 {
-    MLJobListViewController *jobListView=[[MLJobListViewController alloc]init];
-    
-    jobListView.hidesBottomBarWhenPushed=YES;
-    
-    [self.navigationController pushViewController:jobListView animated:YES];
-
+    JobListWithDropDownListVCViewController *nearByList=[[JobListWithDropDownListVCViewController alloc]init];
+    nearByList.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:nearByList animated:YES];
 }
 @end

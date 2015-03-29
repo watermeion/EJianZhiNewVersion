@@ -8,11 +8,9 @@
 
 #import "MLMapView.h"
 #import "CustomAnnotationView.h"
-#include "AJLocationManager.h"
+#import "AJLocationManager.h"
 @implementation MLMapView
 @synthesize mapView=_mapView;
-
-
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -31,51 +29,58 @@
 }
 
 
-
 /**
- *  添加Annotation到地图上
+ *  添加多个Annotation到地图上
  *
- *  @param point    点做坐标
- *  @param title    显示的内容
- *  @param index    对应tableView 的tag
- *  @param isCenter 是否设置该点坐标为地图中心
+ *  @param dataDictArray   数组 数组中的元素  @{"point":<AMapGeoPoint Object>,"title":<NSString>,"subtitle":<NSString>}
  */
-- (void)addAnnotation:(CLLocationCoordinate2D)point Title:(NSString*)title Index:(NSInteger)index SetToCenter:(BOOL)isCenter{
-    MAPointAnnotation *sellerPoint = [[MAPointAnnotation alloc] init];
-    nowTag=index;
-    [pointAnnoArray addObject:sellerPoint];
-    sellerPoint.coordinate = point;
-    sellerPoint.title=title;
-    [_mapView addAnnotation:sellerPoint];
-    if (isCenter) {
-        _mapView.region = MACoordinateRegionMake(point,MACoordinateSpanMake(0.005, 0.005));
-    }else{
-        _mapView.showsUserLocation=YES;
-    }
-}
-
-
-
-//- (void)addAnnotation:(NSArray*)point Title:(NSString*)title tag:(int)tag SetToCenter:(BOOL)isCenter{
-//    MAPointAnnotation *sellerPoint = [[MAPointAnnotation alloc] init];
-//    nowTag=tag;
-//    [pointAnnoArray addObject:sellerPoint];
-//    CLLocationCoordinate2D coord=CLLocationCoordinate2DMake([[point objectAtIndex:1] doubleValue], [[point objectAtIndex:0] doubleValue]);
-//    sellerPoint.coordinate = coord;
-//    sellerPoint.title=title;
+//- (void)addAnnotation:(NSArray *)dataDictArray
+//{
 //    
-//    [_mapView addAnnotation:sellerPoint];
-//    
-//    if (isCenter) {
-//        _mapView.region = MACoordinateRegionMake(coord,MACoordinateSpanMake(0.005, 0.005));
-//    }else{
-//        _mapView.showsUserLocation=YES;
+//    for(NSDictionary *dict in dataDictArray)
+//    {
+//        AMapGeoPoint *point=[dict objectForKey:@"point"];
+//        NSString *title=[dict objectForKey:@"title"];
 //    }
 //}
 
 
 
 
+/**
+ *  添加单个Annotation到地图上
+ *
+ *  @param point    点做坐标
+ *  @param title    显示的内容
+ *  @param index    对应tableView 的tag
+ *  @param isCenter 是否设置该点坐标为地图中心
+ */
+- (void)addAnnotation:(CLLocationCoordinate2D)point Title:(NSString*)title  Subtitle:(NSString*)subtitle Index:(NSInteger)index SetToCenter:(BOOL)isCenter{
+    
+    MAPointAnnotation *sellerPoint = [[MAPointAnnotation alloc] init];
+    btnIndex=index;
+    [pointAnnoArray addObject:sellerPoint];
+    sellerPoint.coordinate = point;
+    sellerPoint.title=title;
+    sellerPoint.subtitle=subtitle;
+    [_mapView addAnnotation:sellerPoint];
+    if (isCenter) {
+        _mapView.region = MACoordinateRegionMake(point,MACoordinateSpanMake(0.005, 0.005));
+    }else{
+//        _mapView.showsUserLocation=YES;
+    }
+}
+
+/**
+ *  高德的回调函数
+ *
+ *  @param mapView    <#mapView description#>
+ *  @param annotation <#annotation description#>
+ *
+ *  @return <#return value description#>
+ *
+ *  高德能否保证连续对应的回调该函数。button 对应的Index 不好控制
+ */
 - (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation
 {
     if ([annotation isKindOfClass:[MAPointAnnotation class]])
@@ -86,21 +91,24 @@
         {
             annotationView = [[CustomAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIndetifier];
         }
-        annotationView.image = [UIImage imageNamed:@"annotation"];
+        annotationView.image = [UIImage imageNamed:@"greenPin.png"];
         
         // 设置为NO，用以调用自定义的calloutView
         annotationView.canShowCallout = YES;
         
+    
         // 设置中心点偏移，使得标注底部中间点成为经纬度对应点
         annotationView.centerOffset = CGPointMake(0, -18);
+        //设置点击事件
+        UIButton *btn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
         
-        UIButton *btn=[[UIButton alloc]initWithFrame:annotationView.frame];
-        btn.tag=nowTag;
-        
+        //设置所选annotion Index,利用tag;
+        btn.tag=btnIndex;
         [btn setImage:[UIImage imageNamed:@"mapDetail"] forState:UIControlStateNormal];
-        [btn addTarget:self action:@selector(showDetails:) forControlEvents:UIControlEventTouchUpInside];
-        annotationView.rightCalloutAccessoryView=btn;
         
+        [btn addTarget:self action:@selector(showDetails:) forControlEvents:UIControlEventTouchUpInside];
+        
+        annotationView.rightCalloutAccessoryView=btn;
         return annotationView;
     }
     return nil;
@@ -113,8 +121,6 @@
     [self.showDetailDelegate showDetail:button.tag];
     
 }
-
-
 
 
 -(void)mapView:(MAMapView*)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation
@@ -139,6 +145,8 @@
     _mapView.showsUserLocation=YES;
 }
 
+
+
 //主动请求定位
 - (void)setShowUserLocation:(BOOL)isShow{
     requestUserLocation=YES;
@@ -151,15 +159,7 @@
     [pointAnnoArray removeAllObjects];
 }
 
-/**
- *  在地图上显示数据
- */
-- (void)addDateInMapView
-{
 
-  
-
-}
 
 
 

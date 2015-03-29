@@ -8,14 +8,35 @@
 
 #import "MapViewController.h"
 #import "AJLocationManager.h"
+#import "JobDetailVC.h"
+
 @interface MapViewController ()
 
 @property (strong,nonatomic)UISearchBar *searchBar;
 @property (weak,nonatomic)AJLocationManager *locationManager;
 
+
 @end
 
 @implementation MapViewController
+
+
+
+-(instancetype)init
+{
+    self=[super init];
+    if (self) {
+        //初始化一些必要信息
+        self.locationManager=[AJLocationManager shareLocation];
+        self.mapManager=[MLMapManager shareInstance];
+        self.mapView=[self.mapManager getMapViewInstanceInitWithFrame:CGRectMake(0, 0,[UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+        self.mapViewModel=[[MapJobViewModal alloc]init];
+        self.mapViewModel.handleView=self.mapView;
+        self.mapView.showDetailDelegate=self;
+        return self;
+    }
+    return nil;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,32 +44,38 @@
     self.searchBar=[[UISearchBar alloc]init];
     self.navigationItem.titleView =self.searchBar;
     //监听searchBar text;
-    self.locationManager=[AJLocationManager shareLocation];
-    self.mapManager=[MLMapManager shareInstance];
-    self.mapView=[self.mapManager getMapViewInstanceInitWithFrame:CGRectMake(0, 0,[UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    
     [self.view addSubview:self.mapView];
     [self.mapView setShowUserLocation:YES];
 }
 
-/**
- *  完成列表中兼职的地图展示
- */
--(void) showTableListInMap:(NSArray *)datasource
-{
-   
 
+/**
+ *  定位用户所点击的JianZhi ，显示在详情页面中
+ *
+ *  @param tag
+ */
+- (void)showDetail:(NSInteger)tag
+{
+    JobDetailVC *detailVC=[[JobDetailVC alloc]initWithData:[self.mapViewModel.resultsList objectAtIndex:tag]];
+    detailVC.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
+
 
 /**
  *  根据搜索内容，显示数据
  */
 - (void)showSearchDateListInMap
 {
-
+  
 
 }
 
-
+-(void)setDataArray:(NSArray*)dataArray
+{
+    self.mapViewModel.resultsList=dataArray;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

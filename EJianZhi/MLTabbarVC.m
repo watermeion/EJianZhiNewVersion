@@ -16,7 +16,7 @@
 #import "EJZMessageViewController.h"
 #import "MLForthVC.h"
 
-#import "MLJobListViewController.h"
+#import "JobListTableViewController.h"
 
 @interface MLTabbarVC ()
 
@@ -98,10 +98,10 @@
     UIViewController *pageOneVC=[self makeRootByNavigationController:self.firstVC];
    //page 2
 //    UIViewController *pageTwoVC=[self makeRootByNavigationController:self.secondVC];
-    MLJobListViewController *myJobVC=[[MLJobListViewController alloc]init];
+    JobListTableViewController *myJobVC=[[JobListTableViewController alloc]init];
      UIViewController *pageTwoVC=[self makeRootByNavigationController:myJobVC];
     
-    
+    pageTwoVC.title=@"申请";
    //page 3
     
    UIViewController *pageThreeVC=[self makeRootByNavigationController:self.messageVC];

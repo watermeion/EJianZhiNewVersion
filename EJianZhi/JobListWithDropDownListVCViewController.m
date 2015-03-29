@@ -12,7 +12,6 @@
 #import "DropDownListViewModel.h"
 #import "MapViewController.h"
 
-
 @interface JobListWithDropDownListVCViewController ()
 @property (strong,nonatomic) JobListTableViewController *tableList;
 @property (strong,nonatomic) DropDownListViewModel *dropListViewModel;
@@ -29,6 +28,7 @@
     
     self.edgesForExtendedLayout=UIRectEdgeNone;
     self.tableList=[[JobListTableViewController alloc]init];
+    [self addChildViewController:self.tableList];
     self.dropListViewModel=[[DropDownListViewModel alloc]init];
     DropDownListView *dropDownView = [[DropDownListView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width, 40) dataSource:self.dropListViewModel delegate:self.dropListViewModel];
     dropDownView.mSuperView = self.view;
@@ -48,6 +48,10 @@
 {
     MapViewController *mapVC=[[MapViewController alloc]init];
     mapVC.hidesBottomBarWhenPushed=YES;
+    //传入数据
+    
+    [mapVC setDataArray:[self.tableList getViewModelResultsList]];
+    
     [self.navigationController pushViewController:mapVC animated:YES];
 }
 

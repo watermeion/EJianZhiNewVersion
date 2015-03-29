@@ -92,7 +92,7 @@
 
 //改变行高
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 120;
+    return 110;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
@@ -127,7 +127,7 @@
     cell.countNumbersWithinUnitsLabel.text=[NSString stringWithFormat:@"%d/%d人",[jianzhi.jianZhiQiYeLuYongValue intValue],[jianzhi.jianZhiRecruitment intValue]];
     //待完善
     cell.distanceLabelWithinUnitLabel.text=[NSString stringWithFormat:@"%@km",@"10"];
-    cell.IconView.badgeText=@"";
+    cell.IconView.badgeText=jianzhi.jianZhiKaoPuDu;
     //兼职的IconView
     return cell;
 }
@@ -205,5 +205,11 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+- (NSArray*)getViewModelResultsList
+{
+    return self.viewModel.resultsList;
+}
 
 @end

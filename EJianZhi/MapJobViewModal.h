@@ -14,9 +14,15 @@
  *  负责MapViewController 的逻辑任务
  */
 
-@interface MapJobViewModal : ViewModel
+@interface MapJobViewModal : ViewModel<showDetailDelegate>
 
 @property (weak,nonatomic)MLMapView *handleView;
 
+/**
+ *  完成列表中兼职的地图展示
+ *
+ *  @param datasource JianZhi Model Array
+ */
+-(void) showTableListInMap:(NSArray *)datasource;
 
 @end

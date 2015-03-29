@@ -12,6 +12,10 @@
 
 @property (strong,nonatomic) MLJianZhiViewModel *viewModel;
 
+
+- (NSArray*)getViewModelResultsList;
+
+
 - (void)addFooterRefresher;
 
 - (void)addHeaderRefresher;

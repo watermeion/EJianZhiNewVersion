@@ -12,6 +12,7 @@
 #import "freeselectViewCell.h"
 
 #import "PopoverView.h"
+#import "MapViewController.h"
 //#import "ASDepthModalViewController.h"
 #import "MLJobDetailViewModel.h"
 static NSString *selectFreecellIdentifier = @"freeselectViewCell";
@@ -30,6 +31,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *jobContentViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UICollectionView *selectfreeCollectionOutlet;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewConstraint;
+- (IBAction)showInMapAction:(id)sender;
 
 //popUpView
 @property (strong, nonatomic) IBOutlet UIView *popUpView;
@@ -153,6 +155,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     
     RAC(self.jobDetailJobXiangQingLabel,text)=RACObserve(self.viewModel,jobXiangQing);
 #warning 色块变化监听
+    RAC(self.jobDetailJobFlagImage,image)=RACObserve(self.viewModel, typeImage);
 }
 
 /**
@@ -359,4 +362,11 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 
 
 
+- (IBAction)showInMapAction:(id)sender {
+    MapViewController *mapViewController=[[MapViewController alloc]init];
+    
+    
+    
+    
+}
 @end

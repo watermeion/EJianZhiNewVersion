@@ -138,22 +138,23 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
     freecellwidth = ([UIScreen mainScreen].bounds.size.width - 100)/7;
     
     selectfreetimetitleArray = @[
-                                 [UIImage imageNamed:@"resume_1"],
-                                 [UIImage imageNamed:@"resume_2"],
-                                 [UIImage imageNamed:@"resume_3"],
-                                 [UIImage imageNamed:@"resume_4"],
-                                 [UIImage imageNamed:@"resume_5"],
-                                 [UIImage imageNamed:@"resume_6"],
-                                 [UIImage imageNamed:@"resume_7"],
+                                 [UIImage imageNamed:@"d1"],
+                                 [UIImage imageNamed:@"d2"],
+                                 [UIImage imageNamed:@"d3"],
+                                 [UIImage imageNamed:@"d4"],
+                                 [UIImage imageNamed:@"d5"],
+                                 [UIImage imageNamed:@"d6"],
+                                 [UIImage imageNamed:@"d7"],
                                  ];
     
-    selectfreetimepicArray = @[[UIImage imageNamed:@"resume_am1"],
-                               [UIImage imageNamed:@"resume_am2"],
-                               [UIImage imageNamed:@"resume_pm1"],
-                               [UIImage imageNamed:@"resume_pm2"],
-                               [UIImage imageNamed:@"resume_night1"],
-                               [UIImage imageNamed:@"resume_night2"]
+    selectfreetimepicArray = @[[UIImage imageNamed:@"no"],
+                               [UIImage imageNamed:@"yes"],
+                               [UIImage imageNamed:@"no"],
+                               [UIImage imageNamed:@"yes"],
+                               [UIImage imageNamed:@"no"],
+                               [UIImage imageNamed:@"yes"]
                                ];
+
     
     for (int index = 0; index<21; index++) {
         selectFreeData[index] = FALSE;
