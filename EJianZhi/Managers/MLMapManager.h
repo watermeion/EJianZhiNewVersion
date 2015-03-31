@@ -15,9 +15,29 @@
 @class MLMapView;
 @interface MLMapManager : NSObject
 
+//储存地理编码的结果
+@property (nonatomic,strong)NSArray *reGeocodeResultsArray;
+@property (nonatomic,strong)NSArray *geoCodeResultsArray;
+//储存路径规划结果
+@property (nonatomic,strong)NSString *routePlannedString;
+
 +(instancetype)shareInstance;
 
 -(void)checkMapKey;
+
+/**
+ *  逆向地理编码
+ */
+
+-(void)reGeocodeSearch:(CLLocationCoordinate2D)position;
+
+
+
+/**
+ *  geo正向地理编码,目前仅支持北京
+ *
+ */
+-(void)geoCodeSearch:(NSString *)searchContext;
 
 /**
  *  初始化新的MapView,
@@ -54,4 +74,19 @@
  */
 - (void)findRouteByBusFrom:(CLLocationCoordinate2D) originPoint
                         To:(CLLocationCoordinate2D) destinationPoint;
+
+/**
+ *  搜索输入辅助;
+ *
+ *  @param searchContext <#searchContext description#>
+ */
+-(void)searchTips:(NSString*)searchContext;
+
+
+/**
+ *  关键字搜索
+ */
+
+-(void)searchPOIByKeyWord:(NSString *)keyWord;
+
 @end

@@ -22,6 +22,7 @@
 //@property (strong,nonatomic) MLMapView *mapView;
 @property (nonatomic,weak) AJLocationManager *locationManager;
 @property (strong,nonatomic)AMapSearchAPI *searchAPI;
+
 @end
 
 
@@ -189,7 +190,6 @@ static NSString *mapKey=@"75b8982e76c3c19b749f1fb7fd9ef67a";
     geoRequest.searchType = AMapSearchType_Geocode;
     geoRequest.address = searchContext;
     geoRequest.city = @[@"beijing"];
-    
     //发起正向地理编码
     [self.searchAPI AMapGeocodeSearch: geoRequest];
 }
@@ -214,6 +214,8 @@ static NSString *mapKey=@"75b8982e76c3c19b749f1fb7fd9ef67a";
         strGeocodes = [NSString stringWithFormat:@"%@\ngeocode: %@", strGeocodes, p.description];
     }
     NSString *result = [NSString stringWithFormat:@"%@ \n %@", strCount, strGeocodes];
+    self.geoCodeResultsArray=response.geocodes;
+    
     NSLog(@"Geocode: %@", result);
 }
 
@@ -244,7 +246,77 @@ static NSString *mapKey=@"75b8982e76c3c19b749f1fb7fd9ef67a";
         //通过AMapReGeocodeSearchResponse对象处理搜索结果
         NSString *result = [NSString stringWithFormat:@"ReGeocode: %@", response.regeocode];
         NSLog(@"ReGeo: %@", result);
+        
+        self.reGeocodeResultsArray=[NSArray arrayWithObjects:response.regeocode.formattedAddress, response.regeocode.pois, nil];
     }
 }
+
+
+
+
+
+
+-(void)searchTips:(NSString*)searchContext
+{
+    AMapInputTipsSearchRequest *tipsRequest= [[AMapInputTipsSearchRequest alloc] init];
+    tipsRequest.searchType = AMapSearchType_InputTips;
+    tipsRequest.keywords = @"望";
+    tipsRequest.city = @[@"北京"];
+    
+    //发起输入提示搜索
+    [self.searchAPI AMapInputTipsSearch: tipsRequest];
+}
+
+//实现输入提示的回调函数
+-(void)onInputTipsSearchDone:(AMapInputTipsSearchRequest*)request response:(AMapInputTipsSearchResponse *)response
+{
+    if(response.tips.count == 0)
+    {
+        return;
+    }
+    
+    //通过AMapInputTipsSearchResponse对象处理搜索结果
+    NSString *strCount = [NSString stringWithFormat:@"count: %d", response.count];
+    NSString *strtips = @"";
+    for (AMapTip *p in response.tips) {
+        strtips = [NSString stringWithFormat:@"%@\nTip: %@", strtips, p.description];
+    }
+    NSString *result = [NSString stringWithFormat:@"%@ \n %@", strCount, strtips];
+    NSLog(@"InputTips: %@", result);
+}
+
+
+-(void)searchPOIByKeyWord:(NSString *)keyWord;
+{
+//构造AMapPlaceSearchRequest对象，配置关键字搜索参数
+    AMapPlaceSearchRequest *poiRequest = [[AMapPlaceSearchRequest alloc] init];
+    poiRequest.searchType = AMapSearchType_PlaceKeyword;
+    poiRequest.keywords = keyWord;
+    poiRequest.city = @[@"beijing"];
+    poiRequest.requireExtension = YES;
+    
+    //发起POI搜索
+    [self.searchAPI AMapPlaceSearch: poiRequest];
+}
+
+//实现POI搜索对应的回调函数
+- (void)onPlaceSearchDone:(AMapPlaceSearchRequest *)request response:(AMapPlaceSearchResponse *)response
+{
+    if(response.pois.count == 0)
+    {
+        return;
+    }
+    
+    //通过AMapPlaceSearchResponse对象处理搜索结果
+    NSString *strCount = [NSString stringWithFormat:@"count: %d",response.count];
+    NSString *strSuggestion = [NSString stringWithFormat:@"Suggestion: %@", response.suggestion];
+    NSString *strPoi = @"";
+    for (AMapPOI *p in response.pois) {
+        strPoi = [NSString stringWithFormat:@"%@\nPOI: %@", strPoi, p.description];
+    }
+    NSString *result = [NSString stringWithFormat:@"%@ \n %@ \n %@", strCount, strSuggestion, strPoi];
+    NSLog(@"Place: %@", result);
+}
+
 
 @end

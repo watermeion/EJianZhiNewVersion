@@ -29,6 +29,8 @@
     NSInteger btnIndex;
 }
 @property(nonatomic, retain) MAMapView *mapView;
+@property(nonatomic, strong)MAPointAnnotation *userAddMAPointAnnotation;
+@property(nonatomic,weak) id<showDetailDelegate> showDetailDelegate;
 
 - (void)removeAllAnnotations;
 //主动请求定位
@@ -44,6 +46,20 @@
  */
 - (void)addAnnotation:(CLLocationCoordinate2D)point Title:(NSString*)title  Subtitle:(NSString*)subtitle Index:(NSInteger)index SetToCenter:(BOOL)isCenter;
 
-@property(nonatomic,weak) id<showDetailDelegate> showDetailDelegate;
+/**
+ *  设置地图中心
+ *
+ *  @param point <#point description#>
+ */
+-(void)setCenterAtPoint:(CLLocationCoordinate2D)point;
+
+/**
+ *  显示CalloutView
+ *
+ *  @param array 
+ */
+-(void)ShowCalloutView;
+
+
 
 @end
