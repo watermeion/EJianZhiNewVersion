@@ -23,7 +23,7 @@
 //子类化
 #import "User.h"
 #import "JianZhi.h"
-
+#import "UserDetail.h"
 
 #define SYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
 
@@ -61,20 +61,20 @@
     [self.window makeKeyAndVisible];
 
     
-    //1、注册登录变化通知
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(loginStateChange:)
-                                                 name:KNOTIFICATION_LOGINCHANGE
-                                               object:nil];
-    //
-    if ([UIDevice currentDevice].systemVersion.floatValue >= 7.0) {
-        [[UINavigationBar appearance] setBarTintColor:RGBACOLOR(78, 188, 211, 1)];
-        [[UINavigationBar appearance] setTitleTextAttributes:
-         [NSDictionary dictionaryWithObjectsAndKeys:RGBACOLOR(245, 245, 245, 1), NSForegroundColorAttributeName, [UIFont fontWithName:@ "HelveticaNeue-CondensedBlack" size:21.0], NSFontAttributeName, nil]];
-    }
+//    //1、注册登录变化通知
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(loginStateChange:)
+//                                                 name:KNOTIFICATION_LOGINCHANGE
+//                                               object:nil];
+//    //
+//    if ([UIDevice currentDevice].systemVersion.floatValue >= 7.0) {
+//        [[UINavigationBar appearance] setBarTintColor:RGBACOLOR(78, 188, 211, 1)];
+//        [[UINavigationBar appearance] setTitleTextAttributes:
+//         [NSDictionary dictionaryWithObjectsAndKeys:RGBACOLOR(245, 245, 245, 1), NSForegroundColorAttributeName, [UIFont fontWithName:@ "HelveticaNeue-CondensedBlack" size:21.0], NSFontAttributeName, nil]];
+//    }
 
     
-    //2、友盟
+    //友盟
     NSString *bundleID = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
     NSLog(@"bundleID=%@",bundleID);
     if ([bundleID isEqualToString:@"com.easemob.enterprise.demo.ui"]) {
@@ -128,6 +128,8 @@
     //注册子类化
     [JianZhi registerSubclass];
     [User registerSubclass];
+    [UserDetail registerSubclass];
+    
     
     if (SYSTEM_VERSION < 8.0) {
         [application registerForRemoteNotificationTypes:

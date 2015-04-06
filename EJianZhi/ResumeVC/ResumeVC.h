@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "UserDetail.h"
 @interface ResumeVC : UIViewController
-
+@property (nonatomic, strong) UserDetail *userDetailModel;
 @end

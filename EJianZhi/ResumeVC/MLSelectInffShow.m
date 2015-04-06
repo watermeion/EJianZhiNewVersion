@@ -29,14 +29,16 @@
     [_radio1 setTitle:@"对所有人可见" forState:UIControlStateNormal];
     [_radio1 setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     [_radio1.titleLabel setFont:[UIFont boldSystemFontOfSize:15.0f]];
+    [_radio1 setStatus:@"0"];
     [self.view addSubview:_radio1];
-    [_radio1 setChecked:YES];
+    
     
     QRadioButton *_radio2 = [[QRadioButton alloc] initWithDelegate:self groupId:@"groupId1"];
     _radio2.frame = CGRectMake(20, 140, 200, 40);;
     [_radio2 setTitle:@"对所有个人不可见" forState:UIControlStateNormal];
     [_radio2 setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     [_radio2.titleLabel setFont:[UIFont boldSystemFontOfSize:15.0f]];
+    [_radio1 setStatus:@"1"];
     [self.view addSubview:_radio2];
     
     QRadioButton *_radio3 = [[QRadioButton alloc] initWithDelegate:self groupId:@"groupId1"];
@@ -44,6 +46,7 @@
     [_radio3 setTitle:@"对所有同校校友可见" forState:UIControlStateNormal];
     [_radio3 setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     [_radio3.titleLabel setFont:[UIFont boldSystemFontOfSize:15.0f]];
+    [_radio1 setStatus:@"2"];
     [self.view addSubview:_radio3];
     
     QRadioButton *_radio4 = [[QRadioButton alloc] initWithDelegate:self groupId:@"groupId1"];
@@ -51,12 +54,26 @@
     [_radio4 setTitle:@"所有人必须经过我的认可" forState:UIControlStateNormal];
     [_radio4 setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     [_radio4.titleLabel setFont:[UIFont boldSystemFontOfSize:15.0f]];
+    [_radio1 setStatus:@"3"];
     [self.view addSubview:_radio4];
+    
+    if ([self.type intValue]==0)
+        [_radio1 setChecked:YES];
+    else if ([self.type intValue]==1)
+        [_radio2 setChecked:YES];
+    else if ([self.type intValue]==2)
+        [_radio3 setChecked:YES];
+    else if ([self.type intValue]==3)
+        [_radio4 setChecked:YES];
+}
 
+- (void)didSelectedRadioButton:(QRadioButton *)radio groupId:(NSString *)groupId{
+    self.type=[radio getStatus];
 }
 
 - (void)touchOK{
-    
+    [self.selectDelegate finishSelectInfo:[self.type intValue]];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

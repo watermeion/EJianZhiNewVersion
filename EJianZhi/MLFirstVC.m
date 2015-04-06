@@ -28,7 +28,7 @@
 #import "MLMainPageViewModel.h"
 #import <UIAlertView+Blocks.h>
 #import "JobListWithDropDownListVCViewController.h"
-
+#import "AJLocationManager.h"
 
 
 #define IOS7 [[[UIDevice currentDevice] systemVersion]floatValue]>=7
@@ -89,8 +89,7 @@
     //监听城市信息
     RAC(self.navigationItem.leftBarButtonItem,title)=RACObserve(self.viewModel, cityName);
     [self.viewModel startLocatingToGetCity];
-    //加载特定刷新数据
-    
+    [self searchCity];
 }
 
 
@@ -336,4 +335,20 @@
     nearByList.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:nearByList animated:YES];
 }
+
+- (void)searchCity
+{
+    NSUserDefaults *mySettingData = [NSUserDefaults standardUserDefaults];
+        
+    //获得用户位置信息
+    [[AJLocationManager shareLocation] getLocationCoordinate:^(CLLocationCoordinate2D locationCorrrdinate) {
+        [mySettingData setObject:NSStringFromCGPoint(CGPointMake(locationCorrrdinate.longitude, locationCorrrdinate.latitude)) forKey:@"currentCoordinate"];
+        [mySettingData synchronize];
+        
+    } error:^(NSError *error) {
+        
+
+    }];
+}
+
 @end

@@ -49,6 +49,7 @@
 
 - (void)startLocatingToGetCity
 {
+    
     [self.locationManager getCity:^(NSString *addressString) {
         //可以不写
 //        self.cityName=addressString;

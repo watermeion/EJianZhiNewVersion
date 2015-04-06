@@ -11,11 +11,13 @@
 #import "MLJobListViewController.h"
 #import "MLCustomjobListViewController.h"
 #import "MLLoginManger.h"
-
+#import "MLResumePreviewVC.h"
 
 //子视图控制器
 #import "ResumeVC.h"
-@interface MLForthVC ()<finishLogin,UIAlertViewDelegate>
+@interface MLForthVC ()<finishLogin,UIAlertViewDelegate>{
+    BOOL pushing;
+}
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
@@ -51,23 +53,29 @@
     }];
     
      self.loginManager=[MLLoginManger shareInstance];
-}
-
-
--(void)viewWillLayoutSubviews
-{
     
+    pushing=NO;
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden=YES;
+
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    if (pushing) {
+        [self.navigationController setNavigationBarHidden:NO animated:animated];
+        pushing=NO;
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated{
    [super viewDidAppear:animated];
-    
+
     if ([AVUser currentUser]!=nil) {
         [self finishLogin];
     }
@@ -125,11 +133,16 @@
 
 #pragma --mark  显示简历
 - (IBAction)showResumeAction:(id)sender {
-    ResumeVC *resumeVC=[[ResumeVC alloc]init];
-    resumeVC.navigationController.title=@"填写简历";
-    resumeVC.hidesBottomBarWhenPushed=YES;
     
-    [self.navigationController pushViewController:resumeVC animated:YES];
+    MLResumePreviewVC *previewVC=[[MLResumePreviewVC alloc]init];
+    previewVC.hidesBottomBarWhenPushed=YES;
+    previewVC.type=1;
+    
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+    backItem.title = @"";
+    self.navigationItem.backBarButtonItem = backItem;
+    pushing=YES;
+    [self.navigationController pushViewController:previewVC animated:YES];
 }
 
 

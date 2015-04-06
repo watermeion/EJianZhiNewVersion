@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MLSelectInffShow : UIViewController
+@protocol selectInfoShowDelegate <NSObject>
+@required
+- (void)finishSelectInfo:(int)type;
+@end
 
+@interface MLSelectInffShow : UIViewController
+@property(nonatomic,weak) id<selectInfoShowDelegate> selectDelegate;
+@property(nonatomic,strong)NSString *type;
 @end
