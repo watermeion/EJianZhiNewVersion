@@ -18,11 +18,21 @@
 
 @property (weak,nonatomic)MLMapView *handleView;
 
+@property (weak,nonatomic)MLMapManager *mapManager;
+@property (strong,nonatomic)NSArray *addressArray;
 /**
  *  完成列表中兼职的地图展示
  *
  *  @param datasource JianZhi Model Array
  */
 -(void) showTableListInMap:(NSArray *)datasource;
+
+/**
+ *  查询指定点周围的兼职。默认范围10km 没有默认限制
+ *
+ *  @param point 指定点坐标
+ */
+-(void)queryJianzhiByLocation:(CLLocationCoordinate2D) point;
+
 
 @end

@@ -29,23 +29,6 @@
 }
 
 
-/**
- *  添加多个Annotation到地图上
- *
- *  @param dataDictArray   数组 数组中的元素  @{"point":<AMapGeoPoint Object>,"title":<NSString>,"subtitle":<NSString>}
- */
-//- (void)addAnnotation:(NSArray *)dataDictArray
-//{
-//    
-//    for(NSDictionary *dict in dataDictArray)
-//    {
-//        AMapGeoPoint *point=[dict objectForKey:@"point"];
-//        NSString *title=[dict objectForKey:@"title"];
-//    }
-//}
-
-
-
 
 /**
  *  添加单个Annotation到地图上
@@ -59,6 +42,7 @@
     
     MAPointAnnotation *sellerPoint = [[MAPointAnnotation alloc] init];
     btnIndex=index;
+    
     [pointAnnoArray addObject:sellerPoint];
     sellerPoint.coordinate = point;
     sellerPoint.title=title;
@@ -67,7 +51,10 @@
     if (isCenter) {
         _mapView.region = MACoordinateRegionMake(point,MACoordinateSpanMake(0.005, 0.005));
     }else{
-//        _mapView.showsUserLocation=YES;
+        //        _mapView.showsUserLocation=YES;
+    }
+    if(index==NSIntegerMax) {self.userAddMAPointAnnotation=sellerPoint;
+        [_mapView selectAnnotation:sellerPoint animated:YES];
     }
 }
 
@@ -87,28 +74,50 @@
     {
         static NSString *reuseIndetifier = @"annotationReuseIndetifier";
         CustomAnnotationView *annotationView = (CustomAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:reuseIndetifier];
+        annotationView.rightCalloutAccessoryView=nil;
+        annotationView.image=[UIImage imageNamed:@"greenPin.png"];
         if (annotationView == nil)
         {
             annotationView = [[CustomAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIndetifier];
+        }else{
+            
+            annotationView.rightCalloutAccessoryView=nil;
+            annotationView.image=[UIImage imageNamed:@"greenPin.png"];
         }
-        annotationView.image = [UIImage imageNamed:@"greenPin.png"];
         
-        // 设置为NO，用以调用自定义的calloutView
-        annotationView.canShowCallout = YES;
         
-    
-        // 设置中心点偏移，使得标注底部中间点成为经纬度对应点
-        annotationView.centerOffset = CGPointMake(0, -18);
-        //设置点击事件
-        UIButton *btn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
-        
-        //设置所选annotion Index,利用tag;
-        btn.tag=btnIndex;
-        [btn setImage:[UIImage imageNamed:@"mapDetail"] forState:UIControlStateNormal];
-        
-        [btn addTarget:self action:@selector(showDetails:) forControlEvents:UIControlEventTouchUpInside];
-        
-        annotationView.rightCalloutAccessoryView=btn;
+        if (btnIndex==NSIntegerMax)
+        {
+            annotationView.image = [UIImage imageNamed:@"redPin"];
+            
+            // 设置为NO，用以调用自定义的calloutView
+            annotationView.canShowCallout = YES;
+            annotationView.centerOffset = CGPointMake(0, 0);
+        }
+        else if(NSIntegerMin==btnIndex){
+            
+            annotationView.image = [UIImage imageNamed:@"purplePin"];
+            
+            // 设置为NO，用以调用自定义的calloutView
+            annotationView.canShowCallout = YES;
+            annotationView.centerOffset = CGPointMake(0, 0);
+        }
+        else{
+            annotationView.image = [UIImage imageNamed:@"greenPin.png"];
+            
+            // 设置为NO，用以调用自定义的calloutView
+            annotationView.canShowCallout = YES;
+            // 设置中心点偏移，使得标注底部中间点成为经纬度对应点
+            annotationView.centerOffset = CGPointMake(0, -18);
+            //设置点击事件
+            UIButton *btn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
+            
+            //设置所选annotion Index,利用tag;
+            btn.tag=btnIndex;
+            [btn setImage:[UIImage imageNamed:@"mapDetail"] forState:UIControlStateNormal];
+            [btn addTarget:self action:@selector(showDetails:) forControlEvents:UIControlEventTouchUpInside];
+            annotationView.rightCalloutAccessoryView=btn;
+        }
         return annotationView;
     }
     return nil;
@@ -116,10 +125,8 @@
 
 
 - (void)showDetails:(id)sender{
-    
     UIButton *button = (UIButton *)sender;
     [self.showDetailDelegate showDetail:button.tag];
-    
 }
 
 
@@ -127,7 +134,6 @@
 {
     if (requestUserLocation) {
         //更新用户信息
-        
         AJLocationManager *locationManger=[AJLocationManager shareLocation];
         locationManger.lastCoordinate=userLocation.coordinate;
         [locationManger getReverseGeocode];
@@ -143,6 +149,24 @@
 -(void)mapView:(MAMapView *)mapView didFailToLocateUserWithError:(NSError *)error{
     requestUserLocation=NO;
     _mapView.showsUserLocation=YES;
+}
+
+/**
+ *  设置地图中心
+ *
+ *  @param point <#point description#>
+ */
+-(void)setCenterAtPoint:(CLLocationCoordinate2D)point
+{
+    _mapView.region = MACoordinateRegionMake(point,MACoordinateSpanMake(0.05, 0.05));
+}
+
+-(void)ShowCalloutView
+{
+    //注一次只能显示一个
+    for (MAPointAnnotation *annotation in pointAnnoArray) {
+        [_mapView selectAnnotation:annotation animated:YES];
+    }
 }
 
 
@@ -161,7 +185,10 @@
 
 
 
-
+- (void)mapView:(MAMapView *)mapView didAddAnnotationViews:(NSArray *)views
+{
+   
+}
 
 @end
 

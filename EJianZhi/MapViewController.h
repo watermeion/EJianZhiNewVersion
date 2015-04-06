@@ -10,6 +10,7 @@
 #import "MLMapView.h"
 #import "MLMapManager.h"
 #import "MapJobViewModal.h"
+#import "POIDataModel.h"
 /**
  *  展示地图界面，完成基于地图的一些操作等
  */
