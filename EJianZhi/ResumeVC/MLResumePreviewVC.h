@@ -20,6 +20,6 @@
 @interface MLResumePreviewVC : UIViewController
 @property (nonatomic, strong) UserDetail *userDetailModel;
 @property (assign, nonatomic) int type;
-@property (nonatomic, strong) NSArray *userImageArray;
+@property (nonatomic, strong) NSMutableArray *userImageArray;
 @property(nonatomic,weak) id<finishSaveDelegate> saveDelegate;
 @end

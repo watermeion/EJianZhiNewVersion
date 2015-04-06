@@ -15,6 +15,7 @@
 #import "UIImageView+EMWebCache.h"
 #import "ResumeVC.h"
 #import "imageWithUrlObject.h"
+#import "SDPhotoBrowser.h"
 
 #define  PIC_WIDTH 80
 #define  PIC_HEIGHT 80
@@ -22,15 +23,14 @@
 
 static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 
-@interface MLResumePreviewVC ()<UICollectionViewDataSource,UICollectionViewDelegate,UIAlertViewDelegate>{
+@interface MLResumePreviewVC ()<UICollectionViewDataSource,UICollectionViewDelegate,UIAlertViewDelegate,SDPhotoBrowserDelegate>{
     CGFloat freecellwidth;
     NSArray *selectfreetimetitleArray;
     bool selectFreeData[21];
     NSArray *selectfreetimepicArray;
     
     BOOL loaded;
-    
-    UIView *showImage;
+
 }
 @property (strong, nonatomic) IBOutlet UIScrollView *imageScrollView;
 @property (strong, nonatomic) IBOutlet UILabel *userNameLabel;
@@ -82,8 +82,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
         [self.navigationItem.rightBarButtonItem setTitle:@"保存"];
         [self initData];
     }
-    showImage=[[UIView alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
-    [showImage setBackgroundColor:[UIColor whiteColor]];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -138,6 +137,7 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
                     [imgView sd_setImageWithURL:[NSURL URLWithString:imgUrlObj.url] placeholderImage:[UIImage imageNamed:@"placeholder"]];
                 }
                 //添加全屏手势
+                //imgView.tag=
                 imgView.userInteractionEnabled=YES;
                 UITapGestureRecognizer *Gesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(fullScreen:)];
                 [imgView addGestureRecognizer:Gesture];
@@ -152,8 +152,13 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
             for (int i=0; i<[self.userDetailModel.userImageArray count];i++){
                 UIImageView *imgView=[[UIImageView alloc]initWithFrame:CGRectMake(INSETS+i*(INSETS+PIC_WIDTH), INSETS, PIC_WIDTH, PIC_HEIGHT)];
                 [imgView sd_setImageWithURL:[self.userDetailModel.userImageArray objectAtIndex:i] placeholderImage:[UIImage imageNamed:@"placeholder"]];
-                
+                imageWithUrlObject *imgUrlObj=[[imageWithUrlObject alloc] initWithUrl:[self.userDetailModel.userImageArray objectAtIndex:i]];
+                if (self.userImageArray==nil) {
+                    self.userImageArray=[[NSMutableArray alloc] init];
+                }
+                [self.userImageArray addObject:imgUrlObj];
                 //添加全屏手势
+                imgView.tag=i;
                 imgView.userInteractionEnabled=YES;
                 UITapGestureRecognizer *Gesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(fullScreen:)];
                 [imgView addGestureRecognizer:Gesture];
@@ -167,33 +172,18 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
 
 -(void)fullScreen:(UIGestureRecognizer*)sender{
     
-    UIImageView* img=[[UIImageView alloc]initWithImage:((UIImageView*)sender.view).image];
-    [img setFrame:CGRectMake(0, 124, 320, 320)];
-    img.userInteractionEnabled=YES;
-    UITapGestureRecognizer *Gesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(endFullScreen)];
-    [img addGestureRecognizer:Gesture];
-    [showImage addSubview:img];
+    UIImageView* imgView=(UIImageView*)sender.self.view;
     
-    [UIView beginAnimations:@"view flip" context:nil];
-    [UIView setAnimationDuration:0.5];
-    [UIView transitionWithView:self.view
-                      duration:0.5
-                       options:UIViewAnimationOptionTransitionCrossDissolve
-                    animations:^{ [self.view addSubview:showImage];  }
-                    completion:NULL];
-    [UIView commitAnimations];
-    img=nil;
+    SDPhotoBrowser *browser = [[SDPhotoBrowser alloc] init];
+    browser.sourceImagesContainerView = self.imageScrollView; // 原图的父控件
+    browser.imageCount = self.userImageArray.count; // 图片总数
+    browser.currentImageIndex = (int)imgView.tag;
+    browser.delegate = self;
+    [browser show];
 }
 
 -(void)endFullScreen{
-    [UIView beginAnimations:@"view flip" context:nil];
-    [UIView setAnimationDuration:0.5];
-    [UIView transitionWithView:self.view
-                      duration:0.5
-                       options:UIViewAnimationOptionTransitionCrossDissolve
-                    animations:^{ [showImage removeFromSuperview];  }
-                    completion:NULL];
-    [UIView commitAnimations];
+
 }
 
 
@@ -377,6 +367,24 @@ static NSString *selectFreecellIdentifier = @"freeselectViewCell";
         }
     }
     return cell;
+}
+
+#pragma mark - photobrowser代理方法
+
+// 返回临时占位图片（即原来的小图）
+- (UIImage *)photoBrowser:(SDPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index
+{
+    imageWithUrlObject *imgUrlObj=[self.userImageArray objectAtIndex:index];
+    
+    return imgUrlObj.image;
+}
+
+
+// 返回高质量图片的url
+- (NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index
+{
+    imageWithUrlObject *imgUrlObj=[self.userImageArray objectAtIndex:index];
+    return [NSURL URLWithString:imgUrlObj.url];
 }
 
 

@@ -702,6 +702,9 @@
 		3B5FBB5C1A6DF54B009DA06B /* right_arrow_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B5FBB5B1A6DF54B009DA06B /* right_arrow_white.png */; };
 		3B5FBB5E1A6DF55D009DA06B /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B5FBB5D1A6DF55D009DA06B /* arrow.png */; };
 		3B5FBB9A1A6E8FFB009DA06B /* SRLoginBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5FBB951A6E8FFB009DA06B /* SRLoginBusiness.m */; };
+		3B77CE5D1AD2B7F70095AA5E /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B77CE571AD2B7F70095AA5E /* SDBrowserImageView.m */; };
+		3B77CE5F1AD2B7F70095AA5E /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B77CE5C1AD2B7F70095AA5E /* SDWaitingView.m */; };
+		3B77CE681AD2D8420095AA5E /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B77CE671AD2D8420095AA5E /* SDPhotoBrowser.m */; };
 		3B8C10381ACB859400825AF5 /* UserDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8C10371ACB859400825AF5 /* UserDetail.m */; };
 		3B8C103B1ACB95C900825AF5 /* imageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8C103A1ACB95C900825AF5 /* imageButton.m */; };
 		3B8C103F1ACB962C00825AF5 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8C103E1ACB962C00825AF5 /* AsyncImageView.m */; };
@@ -1892,6 +1895,13 @@
 		3B5FBB941A6E8FFB009DA06B /* SRLoginBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRLoginBusiness.h; sourceTree = "<group>"; };
 		3B5FBB951A6E8FFB009DA06B /* SRLoginBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRLoginBusiness.m; sourceTree = "<group>"; };
 		3B65F74AC042587670EBDFF6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		3B77CE561AD2B7F70095AA5E /* SDBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
+		3B77CE571AD2B7F70095AA5E /* SDBrowserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBrowserImageView.m; sourceTree = "<group>"; };
+		3B77CE5A1AD2B7F70095AA5E /* SDPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowserConfig.h; sourceTree = "<group>"; };
+		3B77CE5B1AD2B7F70095AA5E /* SDWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWaitingView.h; sourceTree = "<group>"; };
+		3B77CE5C1AD2B7F70095AA5E /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
+		3B77CE661AD2D8420095AA5E /* SDPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowser.h; sourceTree = "<group>"; };
+		3B77CE671AD2D8420095AA5E /* SDPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPhotoBrowser.m; sourceTree = "<group>"; };
 		3B8C10361ACB859400825AF5 /* UserDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetail.h; sourceTree = "<group>"; };
 		3B8C10371ACB859400825AF5 /* UserDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetail.m; sourceTree = "<group>"; };
 		3B8C10391ACB95C900825AF5 /* imageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imageButton.h; sourceTree = "<group>"; };
@@ -2700,6 +2710,7 @@
 		047AA4D01A7BD30100A3B278 /* 3rd Pary */ = {
 			isa = PBXGroup;
 			children = (
+				3B77CE551AD2B7F70095AA5E /* SDPhotoBrowser */,
 				0401DD541AC1154800EB68E1 /* PopoverView.h */,
 				0401DD551AC1154800EB68E1 /* PopoverView.m */,
 				04DC598C1ABDA3AD00E9C438 /* MJRefresh */,
@@ -4178,6 +4189,20 @@
 			name = "Login&Register";
 			sourceTree = "<group>";
 		};
+		3B77CE551AD2B7F70095AA5E /* SDPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				3B77CE561AD2B7F70095AA5E /* SDBrowserImageView.h */,
+				3B77CE571AD2B7F70095AA5E /* SDBrowserImageView.m */,
+				3B77CE661AD2D8420095AA5E /* SDPhotoBrowser.h */,
+				3B77CE671AD2D8420095AA5E /* SDPhotoBrowser.m */,
+				3B77CE5A1AD2B7F70095AA5E /* SDPhotoBrowserConfig.h */,
+				3B77CE5B1AD2B7F70095AA5E /* SDWaitingView.h */,
+				3B77CE5C1AD2B7F70095AA5E /* SDWaitingView.m */,
+			);
+			path = SDPhotoBrowser;
+			sourceTree = "<group>";
+		};
 		3B8C103C1ACB962C00825AF5 /* AsyncImageView */ = {
 			isa = PBXGroup;
 			children = (
@@ -5388,6 +5413,7 @@
 				047AA63A1A7BD6D800A3B278 /* NSManagedObject+MagicalDataImport.m in Sources */,
 				047AA8B01A7BDEB100A3B278 /* DebugViewController.m in Sources */,
 				04FD3C621AC1C0BB001A9BA1 /* MLMapView.m in Sources */,
+				3B77CE681AD2D8420095AA5E /* SDPhotoBrowser.m in Sources */,
 				047AA6EC1A7BD6F600A3B278 /* PSTCollectionViewData.m in Sources */,
 				04298E8F1AC302810084BC57 /* MLMainPageViewModel.m in Sources */,
 				04FD3C5D1AC1BDFC001A9BA1 /* AJLocationManager.m in Sources */,
@@ -5578,6 +5604,7 @@
 				047AA72A1A7BD72400A3B278 /* EMTextView.m in Sources */,
 				047AA6331A7BD6D800A3B278 /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				04589F571A82092300B86C0A /* SDWebImageManager.m in Sources */,
+				3B77CE5F1AD2B7F70095AA5E /* SDWaitingView.m in Sources */,
 				3BAAEADE1A49412D00253298 /* main.m in Sources */,
 				047AA6E11A7BD6F600A3B278 /* UIButton+EMWebCache.m in Sources */,
 				04589F5A1A82092300B86C0A /* UrlImageView.m in Sources */,
@@ -5600,6 +5627,7 @@
 				047AA6471A7BD6D800A3B278 /* MagicalRecord+iCloud.m in Sources */,
 				3BD077881AC67F94002EA65D /* SRUserInfo.m in Sources */,
 				3BD0784B1AC68F6B002EA65D /* QBAssetsCollectionViewCell.m in Sources */,
+				3B77CE5D1AD2B7F70095AA5E /* SDBrowserImageView.m in Sources */,
 				047AA7291A7BD72400A3B278 /* EMSearchBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
